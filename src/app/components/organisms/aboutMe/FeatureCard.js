@@ -34,8 +34,8 @@ const FeatureCard = ({ type, isDarkMode, repoCount, delay }) => {
   return (
     <GlowingCard 
       color={config.color}
-      className="p-3 sm:p-4 md:p-5 h-full"
-      borderRadius="14px rounded-[18px]"
+      className="p-3 sm:p-4 md:p-5 h-full rounded-[18px]"
+      borderRadius="14px"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}

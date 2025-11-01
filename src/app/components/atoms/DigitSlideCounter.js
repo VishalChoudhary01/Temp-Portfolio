@@ -74,7 +74,7 @@ const DigitSlideCounter = ({ value, duration = 1800, triggerAnimation = true }) 
               type: "spring",
               stiffness: 500,
               damping: 25,
-              delay: index * 0.05, // Slightly increased delay for better visual separation
+              delay: index * 0.05, 
             }}
             style={{
               lineHeight: 1,
@@ -88,17 +88,7 @@ const DigitSlideCounter = ({ value, duration = 1800, triggerAnimation = true }) 
         );
       })}
       
-      {/* Optional: Show loading indicator during animation */}
-      {isAnimating && (
-        <motion.span
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0 }}
-          className="ml-1 text-xs text-github-repo-count dark:text-github-repo-count-dark"
-        >
-          ●
-        </motion.span>
-      )}
+      
     </div>
   );
 };
