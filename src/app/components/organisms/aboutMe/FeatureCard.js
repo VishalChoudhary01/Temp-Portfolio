@@ -1,3 +1,4 @@
+// FeatureCard.jsx - Updated
 import React from "react";
 import { motion } from "framer-motion";
 import { LuSparkles, LuTarget } from "react-icons/lu";
@@ -9,19 +10,19 @@ const FeatureCard = ({ type, isDarkMode, repoCount, delay }) => {
   const cardConfig = {
     passion: {
       color: isDarkMode ? "var(--color-btn-modern-to)" : "var(--color-accent)",
-      icon: <LuSparkles className={`w-5 h-5 ${isDarkMode ? "text-btn-modern-to" : "text-accent"}`} />,
+      icon: <LuSparkles className={`w-4 h-4 sm:w-5 sm:h-5 ${isDarkMode ? "text-btn-modern-to" : "text-accent"}`} />,
       title: "Passion",
       content: "Exploring new technologies to build innovative web experiences that captivate users and enhance digital interactions."
     },
     goals: {
       color: isDarkMode ? "var(--color-dark-btn-modern-via)" : "var(--color-btn-modern-via)",
-      icon: <LuTarget className="w-5 h-5 text-btn-modern-via dark:text-dark-btn-modern-via" />,
+      icon: <LuTarget className="w-4 h-4 sm:w-5 sm:h-5 text-btn-modern-via dark:text-dark-btn-modern-via" />,
       title: "Future Goals",
       content: "Mastering <strong class='text-highlightText dark:text-darkHighlightText'>Three.js</strong>, <strong class='text-highlightText dark:text-darkHighlightText'>GSAP</strong>, and <strong class='text-highlightText dark:text-darkHighlightText'>Babylon.js</strong> to create dynamic, immersive web applications."
     },
     github: {
       color: isDarkMode ? "var(--color-github-repo-count-dark)" : "var(--color-github-repo-count)",
-      icon: <SiRefinedgithub className="w-5 h-5 text-github-repo-count dark:text-github-repo-count-dark" />,
+      icon: <SiRefinedgithub className="w-4 h-4 sm:w-5 sm:h-5 text-github-repo-count dark:text-github-repo-count-dark" />,
       title: "GitHub",
       content: "Public repositories",
       showCounter: true
@@ -33,8 +34,8 @@ const FeatureCard = ({ type, isDarkMode, repoCount, delay }) => {
   return (
     <GlowingCard 
       color={config.color}
-      className="p-4 md:p-5 h-full"
-      borderRadius="18px"
+      className="p-3 sm:p-4 md:p-5 h-full"
+      borderRadius="14px rounded-[18px]"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -43,15 +44,15 @@ const FeatureCard = ({ type, isDarkMode, repoCount, delay }) => {
         transition={{ duration: 0.5, delay }}
         className="text-center"
       >
-        <div className={`inline-flex p-2.5 rounded-xl ${
+        <div className={`inline-flex p-2 sm:p-2.5 rounded-lg sm:rounded-xl ${
           type === 'github' 
             ? 'bg-github-repo-bg dark:bg-github-repo-bg-dark' 
             : 'bg-highlightBG dark:bg-darkHighlightBG'
-        } mb-3`}>
+        } mb-2 sm:mb-3`}>
           {config.icon}
         </div>
         
-        <h3 className={`text-base md:text-lg font-semibold mb-2 ${
+        <h3 className={`text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2 ${
           type === 'passion' 
             ? (isDarkMode ? "text-btn-modern-to" : "text-accent")
             : type === 'goals'
@@ -63,16 +64,16 @@ const FeatureCard = ({ type, isDarkMode, repoCount, delay }) => {
 
         {config.showCounter ? (
           <>
-            <div className="text-xl md:text-2xl font-bold mb-1 text-github-repo-count dark:text-github-repo-count-dark">
+            <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1 text-github-repo-count dark:text-github-repo-count-dark">
               <DigitSlideCounter value={repoCount} duration={2000} />
             </div>
-            <p className="text-sm text-para3 dark:text-darkPara3">
+            <p className="text-xs sm:text-sm text-para3 dark:text-darkPara3">
               {config.content}
             </p>
           </>
         ) : (
           <p 
-            className="text-xs md:text-sm leading-relaxed text-para2 dark:text-darkPara2"
+            className="text-xs sm:text-sm leading-relaxed text-para2 dark:text-darkPara2"
             dangerouslySetInnerHTML={{ __html: config.content }}
           />
         )}

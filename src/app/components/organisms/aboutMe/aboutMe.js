@@ -1,3 +1,4 @@
+// AboutMe.jsx - Updated
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -26,18 +27,18 @@ const AboutMe = () => {
   return (
     <section 
       id="about" 
-      className="min-h-[90vh] flex items-center justify-center mt-[400px] py-8 md:py-12 px-4"
+      className="min-h-[90vh] flex items-center justify-center mt-[200px] md:mt-[400px] py-8 md:py-12 px-1.5 sm:px-8"
     >
-      <div className="w-full max-w-6xl mx-auto relative z-10">
+      <div className="w-full md:max-w-6xl mx-auto relative z-10">
         <GlowingCard 
           color={isDarkMode ? "var(--color-dark-btn-modern-from)" : "var(--color-btn-modern-from)"}
-          className="p-5 md:p-6 lg:p-8 relative overflow-hidden"
-          borderRadius="28px"
+          className="p-4 sm:p-5 md:rounded-[28px] md:p-6 lg:p-8 relative overflow-hidden"
+          borderRadius="20px "
         >
           <BackgroundDecoration />
           
           <div className="relative z-20">
-            <div className="mb-6 md:mb-8">
+            <div className="mb-4 sm:mb-6 md:mb-8">
               <Heading 
                 heading="About Me" 
                 align="center"

@@ -13,7 +13,7 @@ const MobileTimeline = ({ hoveredCard, setHoveredCard, smoothProgress }) => (
     
     {/* Animated Vertical Line */}
     <motion.div 
-      className="absolute left-6 top-0 w-0.5 bg-gradient-to-b from-indigo-600 via-purple-600 to-fuchsia-600 dark:from-cyan-400 dark:via-blue-500 dark:to-indigo-500 rounded-full origin-top"
+      className="absolute left-6 top-0 w-0.5 bg-linear-to-b from-grad-primary via-grad-secondary to-grad-tertiary dark:from-darkgrad-primary dark:via-darkgrad-secondary dark:to-darkgrad-tertiary rounded-full origin-top"
       style={{
         scaleY: smoothProgress,
         height: '100%'

@@ -1,9 +1,10 @@
+// FeatureCardsGrid.jsx - Updated
 import React from "react";
 import FeatureCard from "./FeatureCard";
 
 const FeatureCardsGrid = ({ repoCount, isDarkMode }) => {
   return (
-    <div className="grid md:grid-cols-3 gap-4 md:gap-5 mb-6 md:mb-8 font-roboto">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5 mb-4 sm:mb-6 md:mb-8 font-roboto">
       <FeatureCard
         type="passion"
         isDarkMode={isDarkMode}

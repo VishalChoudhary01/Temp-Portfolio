@@ -31,10 +31,35 @@ html {
   --grad-tertiary: #d4b801;
   --grad-quaternary: #f689b1;
 
-  --darkgrad-primary: #fac7b8d2;
-  --darkgrad-secondary: #f49b85dd;
-  --darkgrad-tertiary: #80defe;
-  --darkgrad-quaternary: #f47e7e;
+  /* Neon Fusion */
+  /* --darkgrad-primary: #ff6b6b;
+--darkgrad-secondary: #ffa726;
+--darkgrad-tertiary: #ffd93d;
+--darkgrad-quaternary: #6bcf7f; */
+
+/* Alien Landscape */
+--darkgrad-primary: #ffbe0b;
+--darkgrad-secondary: #fb5607;
+--darkgrad-tertiary: #ff006e;
+--darkgrad-quaternary: #8338ec;
+
+
+/*  Plasma Core */
+/* --darkgrad-primary: #ff0050;
+--darkgrad-secondary: #ff5400;
+--darkgrad-tertiary: #ffbd00;
+--darkgrad-quaternary: #00ff88; */
+
+
+/* Acid Wave */
+/* --darkgrad-primary: #ff3838;
+--darkgrad-secondary: #ff9f1a;
+--darkgrad-tertiary: #fff200;
+--darkgrad-quaternary: #32ff7e; */
+
+
+
+
 
    /* Shimmer Effect Colors - Light Mode */
   --shimmer-primary: #918f8f;
