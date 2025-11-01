@@ -1,11 +1,11 @@
 .darktext-shimmer {
   background: linear-gradient(
     90deg,
-    #4e4e4e 0%,
-    #707070 40%,
-    #a7a5a5 45%,
-    #ffffff 50%,
-    #4e4e4e 100%
+    var(--dark-shimmer-primary) 0%,
+    var(--dark-shimmer-secondary) 40%,
+    var(--dark-shimmer-tertiary) 45%,
+    var(--dark-shimmer-quaternary) 50%,
+    var(--dark-shimmer-primary) 100%
   );
   background-size: 200% 100%;
   background-clip: text;
@@ -26,11 +26,11 @@
 .text-shimmer {
   background: linear-gradient(
     90deg,
-    #918f8f 0%,
-    #918f8f 40%,
-    #999999 45%,
-    #000000 50%,
-    #918f8f 100%
+    var(--shimmer-primary) 0%,
+    var(--shimmer-primary) 40%,
+    var(--shimmer-secondary) 45%,
+    var(--shimmer-tertiary) 50%,
+    var(--shimmer-quaternary) 100%
   );
   background-size: 200% 100%;
   background-clip: text;
@@ -39,18 +39,14 @@
   animation: shimmer 8s ease-in-out infinite;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 .darkRadGrad {
-  background: radial-gradient(circle, #fac7b8d2 0%, #f49b85dd 40%, #80defe 70%, #f47e7e 100%);
-
+  background: radial-gradient(
+    circle,
+    var(--darkgrad-primary) 0%,
+    var(--darkgrad-secondary) 40%,
+    var(--darkgrad-tertiary) 70%,
+    var(--darkgrad-quaternary) 100%
+  );
   background-size: 300% 300%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -60,8 +56,13 @@
 }
 
 .radGrad {
-  background: radial-gradient(circle, #dd5a03, #c48e04, #d4b801,#f689b1);
-
+  background: radial-gradient(
+    circle,
+    var(--grad-primary),
+    var(--grad-secondary),
+    var(--grad-tertiary),
+    var(--grad-quaternary)
+  );
   background-size: 300% 300%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -79,27 +80,5 @@
   }
   100% {
     background-position: 100% 100%;
-  }
-}
-
-.linearGrad {
-  background: linear-gradient(45deg, #ff6b6b, #f7b7a3, #56ccf2, #6a80f1);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  padding-bottom: 18px;
-  color: transparent;
-  animation: gradient 5s ease infinite;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
   }
 }

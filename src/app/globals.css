@@ -25,6 +25,29 @@ html {
   --darkPara2: #c7caca;
   --darkPara3: #aec0c0;
 
+  /* Gradient Colors */
+  --grad-primary: #dd5a03;
+  --grad-secondary: #c48e04;
+  --grad-tertiary: #d4b801;
+  --grad-quaternary: #f689b1;
+
+  --darkgrad-primary: #fac7b8d2;
+  --darkgrad-secondary: #f49b85dd;
+  --darkgrad-tertiary: #80defe;
+  --darkgrad-quaternary: #f47e7e;
+
+   /* Shimmer Effect Colors - Light Mode */
+  --shimmer-primary: #918f8f;
+  --shimmer-secondary: #999999;
+  --shimmer-tertiary: #000000;
+  --shimmer-quaternary: #918f8f;
+
+  /* Shimmer Effect Colors - Dark Mode */
+  --dark-shimmer-primary: #4e4e4e;
+  --dark-shimmer-secondary: #707070;
+  --dark-shimmer-tertiary: #a7a5a5;
+  --dark-shimmer-quaternary: #ffffff;
+
   /* Hovers */
   --bgHover: #88918f1f;
   --darkbgHover: #b6b7b748;
@@ -183,6 +206,29 @@ html {
   --color-darkPara1: var(--darkPara1);
   --color-darkPara2: var(--darkPara2);
   --color-darkPara3: var(--darkPara3);
+
+  /* Gradient Colors */
+  --color-grad-primary: var(--grad-primary);
+  --color-grad-secondary: var(--grad-secondary);
+  --color-grad-tertiary: var(--grad-tertiary);
+  --color-grad-quaternary: var(--grad-quaternary);
+
+  --color-darkgrad-primary: var(--darkgrad-primary);
+  --color-darkgrad-secondary: var(--darkgrad-secondary);
+  --color-darkgrad-tertiary: var(--darkgrad-tertiary);
+  --color-darkgrad-quaternary: var(--darkgrad-quaternary);
+
+  /* Shimmer Colors */
+    /* Shimmer Effect Colors - Light Mode */
+  --color-shimmer-primary: var(--shimmer-primary);
+  --color-shimmer-secondary: var(--shimmer-secondary);
+  --color-shimmer-tertiary: var(--shimmer-tertiary);
+  --color-shimmer-quaternary: var(--shimmer-quaternary);
+
+  --color-dark-shimmer-primary: var(--dark-shimmer-primary);
+  --color-dark-shimmer-secondary: var(--dark-shimmer-secondary);
+  --color-dark-shimmer-tertiary: var(--dark-shimmer-tertiary);
+  --color-dark-shimmer-quaternary: var(--dark-shimmer-quaternary);
 
   /* Hovers */
   --color-bgHover: var(--bgHover);

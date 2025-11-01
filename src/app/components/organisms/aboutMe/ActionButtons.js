@@ -1,17 +1,10 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { LuArrowDownToLine } from "react-icons/lu";
-import Button from "@/app/components/atoms/button/Button";
+import DownloadButton from "@/app/components/atoms/button/DownloadButton";
 import SocialLinks from "../../molecules/navigation/SocialLinks";
 
 const ActionButtons = ({ isDarkMode }) => {
-  const handleDownloadResume = () => {
-    const link = document.createElement("a");
-    link.href = "/resume/Vishal Kumar Choudhary.pdf"; 
-    link.download = "Resume.pdf"; 
-    link.click();
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -22,16 +15,9 @@ const ActionButtons = ({ isDarkMode }) => {
     >
       <SocialLinks className="order-2 sm:order-1" iconSize="w-5 h-5" />
       
-      <Button
-        buttonText="Download Resume"
-        leftIcon={<LuArrowDownToLine className="w-5 h-5" />}
-        buttonStyle={`${
-          isDarkMode 
-            ? "dark-button-modern" 
-            : "button-modern"
-        } order-1 sm:order-2`}
-        onClick={handleDownloadResume}
-      />
+      <div className="order-1 sm:order-2">
+        <DownloadButton isDarkMode={isDarkMode} />
+      </div>
     </motion.div>
   );
 };

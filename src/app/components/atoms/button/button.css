@@ -1,134 +1,25 @@
-/* Modern Gradient Button - Light Mode */
-.button-modern {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--btn-modern-from), var(--btn-modern-via), var(--btn-modern-to));
-  background-size: 200% 200%;
-  color: white;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  border: 2px solid var(--btn-modern-border);
-  box-shadow: 0 10px 25px -5px var(--btn-modern-shadow), 
-              0 8px 10px -6px var(--btn-modern-shadow);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: gradientShift 6s ease infinite;
+/* Add these to your global CSS file */
+.shadow-cyan-glow {
+  box-shadow: 0 10px 25px -5px rgba(34, 211, 238, 0.3), 
+              0 8px 10px -6px rgba(34, 211, 238, 0.2),
+              0 0 0 2px rgba(34, 211, 238, 0.1);
 }
 
-.button-modern::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--btn-modern-hover-from), var(--btn-modern-hover-via), var(--btn-modern-hover-to));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 1;
+.shadow-blue-glow {
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3), 
+              0 8px 10px -6px rgba(37, 99, 235, 0.2),
+              0 0 0 2px rgba(37, 99, 235, 0.1);
 }
 
-.button-modern:hover::before {
-  opacity: 1;
+/* Hover glow effects */
+.hover\:shadow-cyan-glow:hover {
+  box-shadow: 0 20px 40px -8px rgba(34, 211, 238, 0.4), 
+              0 12px 20px -8px rgba(34, 211, 238, 0.3),
+              0 0 0 3px rgba(34, 211, 238, 0.2);
 }
 
-.button-modern:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 20px 40px -8px var(--btn-modern-shadow-hover), 
-              0 12px 20px -8px var(--btn-modern-shadow),
-              0 0 0 3px rgba(236, 72, 153, 0.1);
-  border-color: var(--btn-modern-border-hover);
-}
-
-.button-modern:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.button-modern span {
-  position: relative;
-  z-index: 10;
-}
-
-/* Modern Gradient Button - Dark Mode */
-.dark-button-modern {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--dark-btn-modern-from), var(--dark-btn-modern-via), var(--dark-btn-modern-to));
-  background-size: 200% 200%;
-  color: white;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  border: 2px solid var(--dark-btn-modern-border);
-  box-shadow: 0 10px 25px -5px var(--dark-btn-modern-shadow), 
-              0 8px 10px -6px var(--dark-btn-modern-shadow);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: gradientShift 6s ease infinite;
-}
-
-.dark-button-modern::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--dark-btn-modern-hover-from), var(--dark-btn-modern-hover-via), var(--dark-btn-modern-hover-to));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 1;
-}
-
-.dark-button-modern:hover::before {
-  opacity: 1;
-}
-
-.dark-button-modern:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 20px 40px -8px var(--dark-btn-modern-shadow-hover), 
-              0 12px 20px -8px var(--dark-btn-modern-shadow),
-              0 0 0 3px rgba(6, 182, 212, 0.1);
-  border-color: var(--dark-btn-modern-border-hover);
-}
-
-.dark-button-modern:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.dark-button-modern span {
-  position: relative;
-  z-index: 10;
-}
-
-/* Gradient Animation */
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Icon animations within buttons */
-.button-modern:hover span svg,
-.dark-button-modern:hover span svg {
-  animation: iconBounce 0.6s ease-in-out;
-}
-
-@keyframes iconBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
-
-/* Accessibility - Reduce motion */
-@media (prefers-reduced-motion: reduce) {
-  .button-modern,
-  .dark-button-modern {
-    animation: none;
-    transition: none;
-  }
-  
-  .button-modern:hover,
-  .dark-button-modern:hover {
-    transform: none;
-  }
+.hover\:shadow-blue-glow:hover {
+  box-shadow: 0 20px 40px -8px rgba(37, 99, 235, 0.4), 
+              0 12px 20px -8px rgba(37, 99, 235, 0.3),
+              0 0 0 3px rgba(37, 99, 235, 0.2);
 }

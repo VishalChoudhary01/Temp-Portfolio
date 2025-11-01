@@ -1,11 +1,11 @@
 /* DARK MODE - Using Global CSS Variables */
 .dark-heading {
   background: linear-gradient(135deg, 
-    var(--color-dark-btn-modern-from) 0%, 
-    var(--color-dark-btn-modern-via) 25%, 
-    var(--color-dark-btn-modern-to) 50%, 
-    var(--color-dark-btn-modern-hover-via) 75%, 
-    var(--color-dark-btn-modern-from) 100%);
+    var(--color-darkgrad-primary) 0%, 
+    var(--color-darkgrad-secondary) 25%, 
+    var(--color-darkgrad-tertiary) 50%, 
+    var(--color-darkgrad-quaternary) 75%, 
+    var(--color-darkgrad-primary) 100%);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -19,7 +19,7 @@
   display: block;
   height: 3px;
   width: 100%;
-  background: color-mix(in srgb, var(--color-dark-btn-modern-from) 10%, transparent);
+  background: color-mix(in srgb, var(--color-darkgrad-primary) 10%, transparent);
   margin-top: 10px;
   overflow: hidden;
   border-radius: 9999px;
@@ -32,8 +32,8 @@
   width: 80px;
   background: linear-gradient(90deg, 
     transparent, 
-    var(--color-dark-btn-modern-from), 
-    var(--color-dark-btn-modern-via), 
+    var(--color-darkgrad-primary), 
+    var(--color-darkgrad-secondary), 
     transparent);
   animation: shuttleSweep 3s infinite ease-in-out;
   border-radius: 9999px;
@@ -42,11 +42,11 @@
 /* LIGHT MODE - Using Global CSS Variables */
 .heading {
   background: linear-gradient(135deg, 
-    var(--color-btn-modern-from) 0%, 
-    var(--color-btn-modern-via) 25%, 
-    var(--color-btn-modern-to) 50%, 
-    var(--color-btn-modern-hover-via) 75%, 
-    var(--color-btn-modern-from) 100%);
+    var(--color-grad-primary) 0%, 
+    var(--color-grad-secondary) 25%, 
+    var(--color-grad-tertiary) 50%, 
+    var(--color-grad-quaternary) 75%, 
+    var(--color-grad-primary) 100%);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -60,7 +60,7 @@
   display: block;
   height: 3px;
   width: 100%;
-  background: color-mix(in srgb, var(--color-btn-modern-from) 10%, transparent);
+  background: color-mix(in srgb, var(--color-grad-primary) 10%, transparent);
   margin-top: 10px;
   overflow: hidden;
   border-radius: 9999px;
@@ -73,8 +73,8 @@
   width: 80px;
   background: linear-gradient(90deg, 
     transparent, 
-    var(--color-btn-modern-from), 
-    var(--color-btn-modern-via), 
+    var(--color-grad-primary), 
+    var(--color-grad-secondary), 
     transparent);
   animation: shuttleSweep 3s infinite ease-in-out;
   border-radius: 9999px;
