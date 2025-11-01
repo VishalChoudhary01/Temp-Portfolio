@@ -1,0 +1,157 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import GlowingCard from "../../molecules/cards/GlowingCard";
+import useDarkMode from "@/app/hooks/useDarkMode";
+
+const TimelineCard = ({
+  item,
+  index,
+  custom = 0,
+  layout = "desktop",
+  isRight = false,
+}) => {
+  const Icon = item.icon;
+  const isMobile = layout === "mobile";
+  const { isDarkMode } = useDarkMode();
+
+  const glowColors = [
+    "var(--color-btn-modern-from)",
+    "var(--color-dark-btn-modern-from)",
+    "var(--color-accent)",
+    "var(--color-darkAccent)",
+  ];
+
+  const getGlowColor = () => glowColors[index % glowColors.length];
+
+  const iconVariants = {
+    hover: {
+      rotate: [0, -10, 10, -10, 0],
+      scale: [1, 1.1, 1.1, 1.1, 1],
+      transition: { duration: 0.5 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { 
+        duration: 0.5, 
+        type: "spring", 
+        stiffness: 100, 
+        damping: 15 
+      },
+    },
+  };
+
+  const blobVariants = {
+    initial: { opacity: 0.1, scale: 0.8 },
+    hover: { 
+      opacity: 0.3, 
+      scale: 1.2, 
+      transition: { duration: 0.4, ease: "easeOut" } 
+    },
+  };
+
+  return (
+    <motion.div
+      custom={custom}
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: isMobile ? "-30px" : "-100px" }}
+      className="w-full"
+    >
+      <GlowingCard
+        color={getGlowColor()}
+        isDarkMode={isDarkMode}
+        className="rounded-xl h-full"
+        borderRadius="12px"
+      >
+        <div className={`relative h-full ${isMobile ? "p-4" : "p-8"}`}>
+          {/* Animated Gradient Blob - Smaller for mobile */}
+          <motion.div
+            className={`absolute -bottom-6 -right-6 ${
+              isMobile ? "w-20 h-20" : "w-40 h-40"
+            } rounded-full blur-2xl`}
+            style={{
+              background: `linear-gradient(to top left, ${item.dotColorFrom}, ${item.dotColorTo})`,
+            }}
+            variants={blobVariants}
+            initial="initial"
+            whileHover="hover"
+          />
+
+          <div className="relative z-10 h-full flex flex-col">
+            {/* Header - Compact for mobile */}
+            <div
+              className={`flex items-start justify-between mb-3 ${
+                isRight ? "flex-row-reverse" : ""
+              }`}
+            >
+              {/* Icon - Smaller for mobile */}
+              <motion.div
+                className={`
+                  ${isMobile ? "p-2" : "p-4"} 
+                  rounded-lg
+                  backdrop-blur-md 
+                  bg-icon-bg dark:bg-icon-darkBg
+                  border border-slate-400/15 dark:border-slate-50/10 
+                  shadow-md relative overflow-hidden
+                `}
+                variants={iconVariants}
+                whileHover="hover"
+              >
+                <Icon
+                  className={`${isMobile ? "text-base" : "text-2xl"} relative z-10`}
+                  style={{ color: item.iconColor }}
+                />
+              </motion.div>
+
+              {/* Year - Smaller for mobile */}
+              <span
+                className={`text-para2 dark:text-darkPara3 ${
+                  isMobile ? "text-xs" : "text-base"
+                } font-semibold backdrop-blur-sm bg-icon-bg dark:bg-icon-darkBg px-2 py-1 rounded-full border border-white/50 dark:border-gray-600/50 ${
+                  isRight ? "mr-1" : "ml-1"
+                }`}
+              >
+                {item.year}
+              </span>
+            </div>
+
+            {/* Degree - Smaller font for mobile */}
+            <h3
+              className={`font-bold text-h1 dark:text-Head1dark ${
+                isMobile ? "text-lg mb-1" : "text-2xl mb-2"
+              }`}
+            >
+              {item.degree}
+            </h3>
+
+            {/* Institution - Smaller and tighter for mobile */}
+            <p
+              className={`font-medium text-h2 dark:text-Head2dark ${
+                isMobile ? "text-xs mb-2 leading-tight" : "mb-3"
+              }`}
+            >
+              {item.institution}
+            </p>
+
+            {/* Description - Compact for mobile */}
+            <p className={`text-h3 dark:text-Head3dark leading-relaxed ${
+              isMobile ? "text-xs leading-snug" : "text-sm"
+            } grow`}>
+              {item.description}
+            </p>
+          </div>
+        </div>
+      </GlowingCard>
+    </motion.div>
+  );
+};
+
+export default TimelineCard;

@@ -1,26 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Michroma&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Typography */
+  --h1: #181818cf;
+  --Head1dark: #f5f5f5;
+  --h2: #171717;
+  --Head2dark: #dcd9d9db;
+  --h3: #262626;
+  --Head3dark: #e2ddddc6;
+  --h4: #404040;
+  --Head4dark: #b1b1b1;
+  --h5: #525252;
+  --Head5dark: #9a9a9a;
+  
+  --para1: #403f3f;
+  --para2: #747272;
+  --para3: #323131;
+  --darkPara1: #e2e5e5;
+  --darkPara2: #c7caca;
+  --darkPara3: #aec0c0;
+
+  /* Hovers */
+  --bgHover: #88918f1f;
+  --darkbgHover: #b6b7b748;
+  --HoverTXT: #111;
+
+  /* ACCENT Colors */
+  --accent: #d44c02;
+  --darkAccent: #91e3f3;
+
+  /* Borders */
+  --lightBorder: #64686939;
+  --darkBorder:#aca6a65c;
+  --border-hover: #06b6d4;
+
+  /* Shadows */
+  --shadow-soft: rgba(0, 0, 0, 0.03);
+  --shadow-medium: rgba(0, 0, 0, 0.05);
+
+  /* Button - Primary */
+  --btnBG: #0a0a0a;
+  --darkbtnBG: #e5e5e5;
+  --btnTXT: #ffffff;
+  --darkbtnTXT: #131313;
+  --btnHOVER: #0891b2;
+
+  /* Button - Outline */
+  --btn-outlineDarkTXT: #06b6d4;
+  --btn-outlineTXT: #06b6d4;
+  --btnOutlineBord: #932102;
+  --btn-outlineDarkBorder: #06b6d4;
+
+  /* Icons */
+  --icon-text: #404040;
+  --DrkIcon-text: #eafbfed8;
+  --iconScrolled: #1f1f1f;
+  --DrkIconScrolled: #46dbf2;
+  --icon-bg: #ffffff91;
+  --icon-darkBg: #1e1e1e1b;
+  --icon-text-hover: #06b6d4;
+  --icon-bg-hover: rgba(6, 182, 212, 0.1);
+
+  /* SECTION colors */
+  --navbarBG: #e3e4e4;
+  --scrolledNavbarBG: #f4f8f86e;
+  --navbarDarkBG: #070a11;
+  --scrolledNavbarDarkBG: #6867677b;
+  --contextBG: #ebf2f2;
+  --contextDarkBG: #050505;
+  --darkSectionGradToBG: #000000b3;
+  --darkSectionGradViaBG: #000000b3;
+  --darkSectionGradFromBG: #101828c6;
+  --darkSectionBorder: #1e2939;
+  --sectionBorder: #e7894e93;
+  --sectionGradToBG: #faab8729;
+  --sectionGradFromBG: #f9935c38;
+
+  --highlightText: #5f1e02;
+  --darkHighlightText: #d3dcdfb7;
+  --highlightBG: #fdb86926;
+  --darkHighlightBG: #c8f4eb1f;
+  --highlightBorder: #fda43f5e;
+  --darkHighlightBorder: #c7e6f119;
+
+  
+  
+  /* Modern Button Gradients - Light Mode */
+  --btn-modern-from: #9333ea;
+  --btn-modern-via: #c026d3;
+  --btn-modern-to: #ec4899;
+  --btn-modern-hover-from: #7c3aed;
+  --btn-modern-hover-via: #a855f7;
+  --btn-modern-hover-to: #f472b6;
+  --btn-modern-border: rgba(236, 72, 153, 0.3);
+  --btn-modern-border-hover: rgba(236, 72, 153, 0.5);
+  --btn-modern-shadow: rgba(147, 51, 234, 0.4);
+  --btn-modern-shadow-hover: rgba(147, 51, 234, 0.5);
+
+  /* Modern Button Gradients - Dark Mode */
+  --dark-btn-modern-from: #0e7490;
+  --dark-btn-modern-via: #0891b2;
+  --dark-btn-modern-to: #06b6d4;
+  --dark-btn-modern-hover-from: #0284c7;
+  --dark-btn-modern-hover-via: #0ea5e9;
+  --dark-btn-modern-hover-to: #22d3ee;
+  --dark-btn-modern-border: rgba(6, 182, 212, 0.3);
+  --dark-btn-modern-border-hover: rgba(6, 182, 212, 0.5);
+  --dark-btn-modern-shadow: rgba(14, 165, 233, 0.4);
+  --dark-btn-modern-shadow-hover: rgba(14, 165, 233, 0.5);
+
+
+   /* GitHub Repo Count Colors */
+  --github-repo-count: #059669; /* Light mode green */
+  --github-repo-count-dark: #10b981; /* Dark mode green */
+  --github-repo-bg: rgba(5, 150, 105, 0.1); /* Light mode background */
+  --github-repo-bg-dark: rgba(16, 185, 129, 0.1); /* Dark mode background */
+
+
+    /* Education Timeline Colors */
+  --edu-mca-dot-from: #a855f7;        /* purple-500 */
+  --edu-mca-dot-to: #9333ea;          /* purple-600 */
+  --edu-mca-border-from: rgba(168, 85, 247, 0.4);
+  --edu-mca-border-to: rgba(147, 51, 234, 0.4);
+  --edu-mca-icon-light: #6b21a8;      /* purple-800 */
+  --edu-mca-icon-dark: rgba(168, 85, 247, 0.4);
+
+  --edu-bca-dot-from: #06b6d4;        /* cyan-500 */
+  --edu-bca-dot-to: #0891b2;          /* cyan-600 */
+  --edu-bca-border-from: rgba(6, 182, 212, 0.4);
+  --edu-bca-border-to: rgba(8, 145, 178, 0.4);
+  --edu-bca-icon-light: #164e63;      /* cyan-800 */
+  --edu-bca-icon-dark: rgba(34, 211, 238, 0.6);
+
+  --edu-isc-dot-from: #f59e0b;        /* amber-500 */
+  --edu-isc-dot-to: #d97706;          /* amber-600 */
+  --edu-isc-border-from: rgba(245, 158, 11, 0.4);
+  --edu-isc-border-to: rgba(217, 119, 6, 0.4);
+  --edu-isc-icon-light: #78350f;      /* amber-800 */
+  --edu-isc-icon-dark: rgba(245, 158, 11, 0.6);
+
+  --edu-matric-dot-from: #14b8a6;     /* teal-500 */
+  --edu-matric-dot-to: #0d9488;       /* teal-600 */
+  --edu-matric-border-from: rgba(20, 184, 166, 0.4);
+  --edu-matric-border-to: rgba(13, 148, 136, 0.4);
+  --edu-matric-icon-light: #115e59;   /* teal-800 */
+  --edu-matric-icon-dark: rgba(45, 212, 191, 0.5);
+
+  
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  /* fonts */
+  --font-arimo: 'Arimo', sans-serif;
+  --font-merriweather: 'Merriweather', serif;
+  --font-michroma: 'Michroma', sans-serif;
+  --font-noto-serif: 'Noto Serif', serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+  --font-workSans: 'Work Sans', sans-serif;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Typography */
+  --color-h1: var(--h1);
+  --color-Head1dark: var(--Head1dark);
+  --color-h2: var(--h2);
+  --color-Head2dark: var(--Head2dark);
+  --color-h3: var(--h3);
+  --color-Head3dark: var(--Head3dark);
+  --color-h4: var(--h4);
+  --color-Head4dark: var(--Head4dark);
+  --color-h5: var(--h5);
+  --color-Head5dark: var(--Head5dark);
+
+  --color-para1: var(--para1);
+  --color-para2: var(--para2);
+  --color-para3: var(--para3);
+  --color-darkPara1: var(--darkPara1);
+  --color-darkPara2: var(--darkPara2);
+  --color-darkPara3: var(--darkPara3);
+
+  /* Hovers */
+  --color-bgHover: var(--bgHover);
+  --color-darkbgHover: var(--darkbgHover);
+  --color-HoverTXT: var(--HoverTXT);
+
+  /* ACCENT Colors */
+  --color-accent: var(--accent);
+  --color-darkAccent: var(--darkAccent);
+
+  /* Borders */
+  --color-lightBorder: var(--lightBorder);
+  --color-darkBorder:var(--darkBorder);
+
+  --color-border-hover: var(--border-hover);
+
+  /* Shadows */
+  --color-shadow-soft: var(--shadow-soft);
+  --color-shadow-medium: var(--shadow-medium);
+
+  /* Button - Primary */
+  --color-btnBG: var(--btnBG);
+  --color-darkbtnBG: var(--darkbtnBG);
+  --color-btnTXT: var(--btnTXT);
+  --color-darkbtnTXT: var(--darkbtnTXT);
+  --color-btnHOVER: var(--btnHOVER);
+
+  /* Button - Outline */
+  --color-btn-outlineDarkTXT: var(--btn-outlineDarkTXT);
+  --color-btn-outlineTXT: var(--btn-outlineTXT);
+  --color-btnOutlineBord: var(--btnOutlineBord);
+  --color-btn-outlineDarkBorder: var(--btn-outlineDarkBorder);
+
+  /* Icons */
+  --color-icon-text: var(--icon-text);
+  --color-DrkIcon-text: var(--DrkIcon-text);
+  --color-iconScrolled: var(--iconScrolled);
+  --color-DrkIconScrolled: var(--DrkIconScrolled);
+  --color-icon-bg: var(--icon-bg);
+  --color-icon-darkBg: var(--icon-darkBg);
+  --color-icon-text-hover: var(--icon-text-hover);
+  --color-icon-bg-hover: var(--icon-bg-hover);
+
+  /* SECTION colors */
+  --color-navbarBG: var(--navbarBG);
+  --color-scrolledNavbarBG: var(--scrolledNavbarBG);
+  --color-navbarDarkBG: var(--navbarDarkBG);
+  --color-scrolledNavbarDarkBG: var(--scrolledNavbarDarkBG);
+  --color-contextBG: var(--contextBG);
+  --color-contextDarkBG: var(--contextDarkBG);
+  --color-darkSectionGradToBG: var(--darkSectionGradToBG);
+  --color-darkSectionGradViaBG: var(--darkSectionGradViaBG);
+  --color-darkSectionGradFromBG: var(--darkSectionGradFromBG);
+  --color-darkSectionBorder: var(--darkSectionBorder);
+  --color-sectionBorder: var(--sectionBorder);
+  --color-sectionGradToBG: var(--sectionGradToBG);
+  --color-sectionGradFromBG: var(--sectionGradFromBG);
+
+  --color-highlightText: var(--highlightText);
+  --color-darkHighlightText: var(--darkHighlightText);
+  --color-highlightBG: var(--highlightBG);
+  --color-darkHighlightBG: var(--darkHighlightBG);
+  --color-highlightBorder: var(--highlightBorder);
+  --color-darkHighlightBorder: var(--darkHighlightBorder);
+
+  /* Modern Button Colors */
+  --color-btn-modern-from: var(--btn-modern-from);
+  --color-btn-modern-via: var(--btn-modern-via);
+  --color-btn-modern-to: var(--btn-modern-to);
+  --color-btn-modern-hover-from: var(--btn-modern-hover-from);
+  --color-btn-modern-hover-via: var(--btn-modern-hover-via);
+  --color-btn-modern-hover-to: var(--btn-modern-hover-to);
+  --color-btn-modern-border: var(--btn-modern-border);
+  --color-btn-modern-border-hover: var(--btn-modern-border-hover);
+  --color-btn-modern-shadow: var(--btn-modern-shadow);
+  --color-btn-modern-shadow-hover: var(--btn-modern-shadow-hover);
+
+  --color-dark-btn-modern-from: var(--dark-btn-modern-from);
+  --color-dark-btn-modern-via: var(--dark-btn-modern-via);
+  --color-dark-btn-modern-to: var(--dark-btn-modern-to);
+  --color-dark-btn-modern-hover-from: var(--dark-btn-modern-hover-from);
+  --color-dark-btn-modern-hover-via: var(--dark-btn-modern-hover-via);
+  --color-dark-btn-modern-hover-to: var(--dark-btn-modern-hover-to);
+  --color-dark-btn-modern-border: var(--dark-btn-modern-border);
+  --color-dark-btn-modern-border-hover: var(--dark-btn-modern-border-hover);
+  --color-dark-btn-modern-shadow: var(--dark-btn-modern-shadow);
+  --color-dark-btn-modern-shadow-hover: var(--dark-btn-modern-shadow-hover);
+
+   --color-github-repo-count: var(--github-repo-count);
+  --color-github-repo-count-dark: var(--github-repo-count-dark);
+  --color-github-repo-bg: var(--github-repo-bg);
+  --color-github-repo-bg-dark: var(--github-repo-bg-dark);
+
+    --color-edu-mca-dot-from: var(--edu-mca-dot-from);
+  --color-edu-mca-dot-to: var(--edu-mca-dot-to);
+  --color-edu-mca-border-from: var(--edu-mca-border-from);
+  --color-edu-mca-border-to: var(--edu-mca-border-to);
+  --color-edu-mca-icon-light: var(--edu-mca-icon-light);
+  --color-edu-mca-icon-dark: var(--edu-mca-icon-dark);
+
+  --color-edu-bca-dot-from: var(--edu-bca-dot-from);
+  --color-edu-bca-dot-to: var(--edu-bca-dot-to);
+  --color-edu-bca-border-from: var(--edu-bca-border-from);
+  --color-edu-bca-border-to: var(--edu-bca-border-to);
+  --color-edu-bca-icon-light: var(--edu-bca-icon-light);
+  --color-edu-bca-icon-dark: var(--edu-bca-icon-dark);
+
+  --color-edu-isc-dot-from: var(--edu-isc-dot-from);
+  --color-edu-isc-dot-to: var(--edu-isc-dot-to);
+  --color-edu-isc-border-from: var(--edu-isc-border-from);
+  --color-edu-isc-border-to: var(--edu-isc-border-to);
+  --color-edu-isc-icon-light: var(--edu-isc-icon-light);
+  --color-edu-isc-icon-dark: var(--edu-isc-icon-dark);
+
+  --color-edu-matric-dot-from: var(--edu-matric-dot-from);
+  --color-edu-matric-dot-to: var(--edu-matric-dot-to);
+  --color-edu-matric-border-from: var(--edu-matric-border-from);
+  --color-edu-matric-border-to: var(--edu-matric-border-to);
+  --color-edu-matric-icon-light: var(--edu-matric-icon-light);
+  --color-edu-matric-icon-dark: var(--edu-matric-icon-dark);
+
 }

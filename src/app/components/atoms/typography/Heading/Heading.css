@@ -1,0 +1,129 @@
+/* DARK MODE - Using Global CSS Variables */
+.dark-heading {
+  background: linear-gradient(135deg, 
+    var(--color-dark-btn-modern-from) 0%, 
+    var(--color-dark-btn-modern-via) 25%, 
+    var(--color-dark-btn-modern-to) 50%, 
+    var(--color-dark-btn-modern-hover-via) 75%, 
+    var(--color-dark-btn-modern-from) 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 8s ease-in-out infinite;
+  font-weight: 700;
+}
+
+.dark-underline-animated {
+  position: relative;
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: color-mix(in srgb, var(--color-dark-btn-modern-from) 10%, transparent);
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.dark-underline-animated::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 80px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--color-dark-btn-modern-from), 
+    var(--color-dark-btn-modern-via), 
+    transparent);
+  animation: shuttleSweep 3s infinite ease-in-out;
+  border-radius: 9999px;
+}
+
+/* LIGHT MODE - Using Global CSS Variables */
+.heading {
+  background: linear-gradient(135deg, 
+    var(--color-btn-modern-from) 0%, 
+    var(--color-btn-modern-via) 25%, 
+    var(--color-btn-modern-to) 50%, 
+    var(--color-btn-modern-hover-via) 75%, 
+    var(--color-btn-modern-from) 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 8s ease-in-out infinite;
+  font-weight: 700;
+}
+
+.underline-animated {
+  position: relative;
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: color-mix(in srgb, var(--color-btn-modern-from) 10%, transparent);
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.underline-animated::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 80px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--color-btn-modern-from), 
+    var(--color-btn-modern-via), 
+    transparent);
+  animation: shuttleSweep 3s infinite ease-in-out;
+  border-radius: 9999px;
+}
+
+/* Animation Keyframes */
+@keyframes shuttleSweep {
+  0% {
+    left: -80px;
+  }
+  50% {
+    left: calc(100% - 80px);
+  }
+  100% {
+    left: -80px;
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dark-heading, .heading {
+    animation-duration: 10s;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .dark-heading, .heading,
+  .dark-underline-animated::before,
+  .underline-animated::before {
+    animation: none !important;
+  }
+  
+  .dark-heading, .heading {
+    background: var(--color-accent) !important;
+    -webkit-text-fill-color: initial !important;
+    background-clip: initial !important;
+    -webkit-background-clip: initial !important;
+  }
+}
