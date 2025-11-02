@@ -118,12 +118,12 @@ const DownloadButton = () => {
           <button
             onClick={handleDownloadResume}
             disabled={isDownloading}
-            className={`relative z-[2] flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold tracking-wide border-2 transition-all duration-300 ease-in-out w-full ${
+            className={`relative z-[2] flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold tracking-wide transition-all duration-300 ease-in-out w-full ${
               progress === 100
-                ? "bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white border-emerald-400 cursor-default"
+                ? "bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white border-2 border-emerald-400 cursor-default"
                 : isDownloading
-                ? "bg-transparent border-gray-300 dark:border-gray-700"
-                : "bg-gradient-to-r from-[var(--grad-primary)] via-[var(--grad-secondary)] to-[var(--grad-tertiary)] dark:from-[var(--darkgrad-primary)] dark:via-[var(--darkgrad-secondary)] dark:to-[var(--darkgrad-tertiary)] text-white border-[var(--grad-primary)]/50 dark:border-[var(--darkgrad-primary)]/50 hover:border-[var(--grad-secondary)] dark:hover:border-[var(--darkgrad-secondary)] hover:shadow-[0_0_30px_rgba(221,90,3,0.6)] dark:hover:shadow-[0_0_30px_rgba(255,107,107,0.6)] transform hover:scale-105"
+                ? "bg-transparent border-2 border-gray-300 dark:border-gray-700"
+                : "bg-gradient-to-r from-[var(--grad-primary)] via-[var(--grad-secondary)] to-[var(--grad-tertiary)] dark:from-[var(--darkgrad-primary)] dark:via-[var(--darkgrad-secondary)] dark:to-[var(--darkgrad-tertiary)] text-white border-0 hover:shadow-[0_0_30px_rgba(221,90,3,0.6)] dark:hover:shadow-[0_0_30px_rgba(255,107,107,0.6)] transform hover:scale-105"
             }`}
           >
             {/* Icon */}

@@ -16,15 +16,43 @@ const TimelineCard = ({
   const isMobile = layout === "mobile";
   const { isDarkMode } = useDarkMode();
 
-  const glowColors = [
-    "var(--color-btn-modern-from)",
-    "var(--color-dark-btn-modern-from)",
-    "var(--color-accent)",
-    "var(--color-darkAccent)",
-  ];
+  // Use existing gradient variables
+  const glowColors = isDarkMode 
+    ? [
+        "var(--darkgrad-primary)",
+        "var(--darkgrad-secondary)", 
+        "var(--darkgrad-tertiary)",
+        "var(--darkgrad-quaternary)",
+      ]
+    : [
+        "var(--grad-primary)",
+        "var(--grad-secondary)",
+        "var(--grad-tertiary)",
+        "var(--grad-quaternary)",
+      ];
 
   const getGlowColor = () => glowColors[index % glowColors.length];
 
+  // Get gradient pair for blob and icon
+  const getGradientColors = (idx) => {
+    const gradients = isDarkMode 
+      ? [
+          { from: "var(--darkgrad-primary)", to: "var(--darkgrad-secondary)" },
+          { from: "var(--darkgrad-secondary)", to: "var(--darkgrad-tertiary)" },
+          { from: "var(--darkgrad-tertiary)", to: "var(--darkgrad-quaternary)" },
+          { from: "var(--darkgrad-quaternary)", to: "var(--darkgrad-primary)" },
+        ]
+      : [
+          { from: "var(--grad-primary)", to: "var(--grad-secondary)" },
+          { from: "var(--grad-secondary)", to: "var(--grad-tertiary)" },
+          { from: "var(--grad-tertiary)", to: "var(--grad-quaternary)" },
+          { from: "var(--grad-quaternary)", to: "var(--grad-primary)" },
+        ];
+    
+    return gradients[idx % gradients.length];
+  };
+
+  const colors = getGradientColors(index);
   const iconVariants = {
     hover: {
       rotate: [0, -10, 10, -10, 0],
@@ -72,13 +100,13 @@ const TimelineCard = ({
         borderRadius="12px"
       >
         <div className={`relative h-full ${isMobile ? "p-4" : "p-8"}`}>
-          {/* Animated Gradient Blob - Smaller for mobile */}
+          {/* Animated Gradient Blob */}
           <motion.div
             className={`absolute -bottom-6 -right-6 ${
               isMobile ? "w-20 h-20" : "w-40 h-40"
             } rounded-full blur-2xl`}
             style={{
-              background: `linear-gradient(to top left, ${item.dotColorFrom}, ${item.dotColorTo})`,
+              background: `linear-gradient(to top left, ${colors.from}, ${colors.to})`,
             }}
             variants={blobVariants}
             initial="initial"
@@ -86,13 +114,13 @@ const TimelineCard = ({
           />
 
           <div className="relative z-10 h-full flex flex-col">
-            {/* Header - Compact for mobile */}
+            {/* Header */}
             <div
               className={`flex items-start justify-between mb-3 ${
                 isRight ? "flex-row-reverse" : ""
               }`}
             >
-              {/* Icon - Smaller for mobile */}
+              {/* Icon with gradient background */}
               <motion.div
                 className={`
                   ${isMobile ? "p-2" : "p-4"} 
@@ -105,13 +133,22 @@ const TimelineCard = ({
                 variants={iconVariants}
                 whileHover="hover"
               >
+                {/* Gradient background for icon */}
+                <div 
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    background: `linear-gradient(45deg, ${colors.from}, ${colors.to})`,
+                  }}
+                />
                 <Icon
                   className={`${isMobile ? "text-base" : "text-2xl"} relative z-10`}
-                  style={{ color: item.iconColor }}
+                  style={{ 
+                    color: colors.from
+                  }}
                 />
               </motion.div>
 
-              {/* Year - Smaller for mobile */}
+              {/* Year */}
               <span
                 className={`text-para2 dark:text-darkPara3 ${
                   isMobile ? "text-xs" : "text-base"
@@ -123,7 +160,7 @@ const TimelineCard = ({
               </span>
             </div>
 
-            {/* Degree - Smaller font for mobile */}
+            {/* Degree */}
             <h3
               className={`font-bold text-h1 dark:text-Head1dark ${
                 isMobile ? "text-lg mb-1" : "text-2xl mb-2"
@@ -132,7 +169,7 @@ const TimelineCard = ({
               {item.degree}
             </h3>
 
-            {/* Institution - Smaller and tighter for mobile */}
+            {/* Institution */}
             <p
               className={`font-medium text-h2 dark:text-Head2dark ${
                 isMobile ? "text-xs mb-2 leading-tight" : "mb-3"
@@ -141,7 +178,7 @@ const TimelineCard = ({
               {item.institution}
             </p>
 
-            {/* Description - Compact for mobile */}
+            {/* Description */}
             <p className={`text-h3 dark:text-Head3dark leading-relaxed ${
               isMobile ? "text-xs leading-snug" : "text-sm"
             } grow`}>

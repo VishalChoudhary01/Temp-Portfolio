@@ -32,16 +32,16 @@ html {
   --grad-quaternary: #f689b1;
 
   /* Neon Fusion */
-  /* --darkgrad-primary: #ff6b6b;
+  --darkgrad-primary: #ff6b6b;
 --darkgrad-secondary: #ffa726;
 --darkgrad-tertiary: #ffd93d;
---darkgrad-quaternary: #6bcf7f; */
+--darkgrad-quaternary: #6bcf7f;
 
 /* Alien Landscape */
---darkgrad-primary: #ffbe0b;
+/* --darkgrad-primary: #ffbe0b;
 --darkgrad-secondary: #fb5607;
 --darkgrad-tertiary: #ff006e;
---darkgrad-quaternary: #8338ec;
+--darkgrad-quaternary: #8338ec; */
 
 
 /*  Plasma Core */
@@ -56,6 +56,39 @@ html {
 --darkgrad-secondary: #ff9f1a;
 --darkgrad-tertiary: #fff200;
 --darkgrad-quaternary: #32ff7e; */
+
+
+/* Cyber Blue Aurora */
+/* --darkgrad-primary: #00f5d4;
+--darkgrad-secondary: #00bbf9;
+--darkgrad-tertiary: #0077b6;
+--darkgrad-quaternary: #023e8a; */
+
+
+/*  Electric Sunset */
+  /* --darkgrad-primary: #ff6f91;
+  --darkgrad-secondary: #ff9671;
+  --darkgrad-tertiary: #ffc75f;
+  --darkgrad-quaternary: #f9f871;
+   */
+
+   
+/*  Neon Dreams */
+  --darkgrad-primary: #ff4d6d;
+  --darkgrad-secondary: #ff6f91;
+  --darkgrad-tertiary: #ff9671;
+  --darkgrad-quaternary: #ffc75f;
+
+  /* Cosmic Lava */
+  /* --darkgrad-primary: #ff6f91;
+--darkgrad-secondary: #ff9671;
+--darkgrad-tertiary: #ffc75f;
+--darkgrad-quaternary: #f9f871; */
+
+
+
+
+
 
 
 
@@ -170,35 +203,47 @@ html {
   --github-repo-bg-dark: rgba(16, 185, 129, 0.1); /* Dark mode background */
 
 
-    /* Education Timeline Colors */
-  --edu-mca-dot-from: #a855f7;        /* purple-500 */
-  --edu-mca-dot-to: #9333ea;          /* purple-600 */
-  --edu-mca-border-from: rgba(168, 85, 247, 0.4);
-  --edu-mca-border-to: rgba(147, 51, 234, 0.4);
-  --edu-mca-icon-light: #6b21a8;      /* purple-800 */
-  --edu-mca-icon-dark: rgba(168, 85, 247, 0.4);
 
-  --edu-bca-dot-from: #06b6d4;        /* cyan-500 */
-  --edu-bca-dot-to: #0891b2;          /* cyan-600 */
-  --edu-bca-border-from: rgba(6, 182, 212, 0.4);
-  --edu-bca-border-to: rgba(8, 145, 178, 0.4);
-  --edu-bca-icon-light: #164e63;      /* cyan-800 */
-  --edu-bca-icon-dark: rgba(34, 211, 238, 0.6);
 
-  --edu-isc-dot-from: #f59e0b;        /* amber-500 */
-  --edu-isc-dot-to: #d97706;          /* amber-600 */
-  --edu-isc-border-from: rgba(245, 158, 11, 0.4);
-  --edu-isc-border-to: rgba(217, 119, 6, 0.4);
-  --edu-isc-icon-light: #78350f;      /* amber-800 */
-  --edu-isc-icon-dark: rgba(245, 158, 11, 0.6);
+  /* Work Experience Card Colors - Light Mode */
+  --work-card-1-color: #dd5a03;
+  --work-card-2-color: #c48e04;
+  --work-card-3-color: #d4b801;
+  --work-card-4-color: #f689b1;
 
-  --edu-matric-dot-from: #14b8a6;     /* teal-500 */
-  --edu-matric-dot-to: #0d9488;       /* teal-600 */
-  --edu-matric-border-from: rgba(20, 184, 166, 0.4);
-  --edu-matric-border-to: rgba(13, 148, 136, 0.4);
-  --edu-matric-icon-light: #115e59;   /* teal-800 */
-  --edu-matric-icon-dark: rgba(45, 212, 191, 0.5);
+  /* Work Experience Card Colors - Dark Mode */
+  --dark-work-card-1-color: #ff6b6b;
+  --dark-work-card-2-color: #ffa726;
+  --dark-work-card-3-color: #ffd93d;
+  --dark-work-card-4-color: #6bcf7f;
 
+  /* Work Experience Tech Stack Colors */
+  --work-tech-bg: rgba(221, 90, 3, 0.1);
+  --work-tech-border: rgba(221, 90, 3, 0.2);
+  --work-tech-text: #7c2d0d;
+  
+  --dark-work-tech-bg: rgba(255, 107, 107, 0.1);
+  --dark-work-tech-border: rgba(255, 107, 107, 0.2);
+  --dark-work-tech-text: #ffb4b4;
+
+  --color-work-logo-bg: #aeb4b352;
+  --color-lightBorder: #e5e7eb;
+  
+  /* Dark mode logo background */
+  --color-dark-work-logo-bg: #1f29372a;
+  --color-darkBorder: #374151;
+  
+  /* Existing colors you're using */
+  --color-work-tech-bg: #f3f4f6;
+  --color-dark-work-tech-bg: #374151;
+  --color-work-tech-text: #374151;
+  --color-dark-work-tech-text: #d1d5db;
+  --color-work-tech-border: #d1d5db;
+  --color-dark-work-tech-border: #4b5563;
+
+
+
+  
   
 }
 
@@ -347,32 +392,26 @@ html {
   --color-github-repo-bg: var(--github-repo-bg);
   --color-github-repo-bg-dark: var(--github-repo-bg-dark);
 
-    --color-edu-mca-dot-from: var(--edu-mca-dot-from);
-  --color-edu-mca-dot-to: var(--edu-mca-dot-to);
-  --color-edu-mca-border-from: var(--edu-mca-border-from);
-  --color-edu-mca-border-to: var(--edu-mca-border-to);
-  --color-edu-mca-icon-light: var(--edu-mca-icon-light);
-  --color-edu-mca-icon-dark: var(--edu-mca-icon-dark);
+   
+  
 
-  --color-edu-bca-dot-from: var(--edu-bca-dot-from);
-  --color-edu-bca-dot-to: var(--edu-bca-dot-to);
-  --color-edu-bca-border-from: var(--edu-bca-border-from);
-  --color-edu-bca-border-to: var(--edu-bca-border-to);
-  --color-edu-bca-icon-light: var(--edu-bca-icon-light);
-  --color-edu-bca-icon-dark: var(--edu-bca-icon-dark);
+   --color-work-card-1: var(--work-card-1-color);
+  --color-work-card-2: var(--work-card-2-color);
+  --color-work-card-3: var(--work-card-3-color);
+  --color-work-card-4: var(--work-card-4-color);
 
-  --color-edu-isc-dot-from: var(--edu-isc-dot-from);
-  --color-edu-isc-dot-to: var(--edu-isc-dot-to);
-  --color-edu-isc-border-from: var(--edu-isc-border-from);
-  --color-edu-isc-border-to: var(--edu-isc-border-to);
-  --color-edu-isc-icon-light: var(--edu-isc-icon-light);
-  --color-edu-isc-icon-dark: var(--edu-isc-icon-dark);
+  --color-dark-work-card-1: var(--dark-work-card-1-color);
+  --color-dark-work-card-2: var(--dark-work-card-2-color);
+  --color-dark-work-card-3: var(--dark-work-card-3-color);
+  --color-dark-work-card-4: var(--dark-work-card-4-color);
 
-  --color-edu-matric-dot-from: var(--edu-matric-dot-from);
-  --color-edu-matric-dot-to: var(--edu-matric-dot-to);
-  --color-edu-matric-border-from: var(--edu-matric-border-from);
-  --color-edu-matric-border-to: var(--edu-matric-border-to);
-  --color-edu-matric-icon-light: var(--edu-matric-icon-light);
-  --color-edu-matric-icon-dark: var(--edu-matric-icon-dark);
+  --color-work-tech-bg: var(--work-tech-bg);
+  --color-work-tech-border: var(--work-tech-border);
+  --color-work-tech-text: var(--work-tech-text);
+  
+  --color-dark-work-tech-bg: var(--dark-work-tech-bg);
+  --color-dark-work-tech-border: var(--dark-work-tech-border);
+  --color-dark-work-tech-text: var(--dark-work-tech-text);
+
 
 }

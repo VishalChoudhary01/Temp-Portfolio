@@ -5,8 +5,23 @@ import GlowingCard from "@/app/components/molecules/cards/GlowingCard";
 import CardContent from "./CardContent";
 
 const WorkExperienceCard = ({ index, item, isDarkMode }) => {
-  const getCurrentColor = (item) => {
-    return isDarkMode ? item.darkColor : item.color;
+  // Get color based on index using CSS variables
+  const getCurrentColor = (idx) => {
+    const colors = isDarkMode 
+      ? [
+          'var(--color-dark-work-card-1)',
+          'var(--color-dark-work-card-2)',
+          'var(--color-dark-work-card-3)',
+          'var(--color-dark-work-card-4)'
+        ]
+      : [
+          'var(--color-work-card-1)',
+          'var(--color-work-card-2)',
+          'var(--color-work-card-3)',
+          'var(--color-work-card-4)'
+        ];
+    
+    return colors[idx % colors.length];
   };
 
   const getIconComponent = (iconName) => {
@@ -20,7 +35,7 @@ const WorkExperienceCard = ({ index, item, isDarkMode }) => {
   };
 
   const IconComponent = getIconComponent(item.icon);
-  const currentColor = getCurrentColor(item);
+  const currentColor = getCurrentColor(index);
 
   return (
     <motion.div
@@ -36,7 +51,12 @@ const WorkExperienceCard = ({ index, item, isDarkMode }) => {
         borderRadius="16px"
         isDarkMode={isDarkMode}
       >
-        <CardContent item={item} IconComponent={IconComponent} currentColor={currentColor} isDarkMode={isDarkMode} />
+        <CardContent 
+          item={item} 
+          IconComponent={IconComponent} 
+          currentColor={currentColor} 
+          isDarkMode={isDarkMode} 
+        />
       </GlowingCard>
     </motion.div>
   );

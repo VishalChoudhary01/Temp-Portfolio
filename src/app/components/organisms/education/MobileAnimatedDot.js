@@ -3,14 +3,39 @@
 import { motion } from "motion/react";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import useDarkMode from "@/app/hooks/useDarkMode";
 
-const MobileAnimatedDot = ({ index, item }) => {
+const MobileAnimatedDot = ({ index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: false,
     margin: "0px 0px -100px 0px",
     amount: 0.3
   });
+
+  const { isDarkMode } = useDarkMode();
+
+  // Use existing gradient variables
+  const getDotColors = (idx) => {
+    const gradients = isDarkMode 
+      ? [
+          { from: "var(--darkgrad-primary)", to: "var(--darkgrad-secondary)" },
+          { from: "var(--darkgrad-secondary)", to: "var(--darkgrad-tertiary)" },
+          { from: "var(--darkgrad-tertiary)", to: "var(--darkgrad-quaternary)" },
+          { from: "var(--darkgrad-quaternary)", to: "var(--darkgrad-primary)" },
+        ]
+      : [
+          { from: "var(--grad-primary)", to: "var(--grad-secondary)" },
+          { from: "var(--grad-secondary)", to: "var(--grad-tertiary)" },
+          { from: "var(--grad-tertiary)", to: "var(--grad-quaternary)" },
+          { from: "var(--grad-quaternary)", to: "var(--grad-primary)" },
+        ];
+    
+    return gradients[idx % gradients.length];
+  };
+
+  const colors = getDotColors(index);
+  const gradient = `linear-gradient(to right, ${colors.from}, ${colors.to})`;
 
   return (
     <motion.div
@@ -29,7 +54,7 @@ const MobileAnimatedDot = ({ index, item }) => {
         <div
           className="w-3 h-3 rounded-full shadow-md relative z-10"
           style={{
-            background: `linear-gradient(to right, ${item.dotColorFrom}, ${item.dotColorTo})`,
+            background: gradient,
           }}
         />
 
@@ -37,7 +62,7 @@ const MobileAnimatedDot = ({ index, item }) => {
         <motion.div
           className="absolute w-4 h-4 rounded-full opacity-30 blur-sm"
           style={{
-            background: `linear-gradient(to right, ${item.dotColorFrom}, ${item.dotColorTo})`,
+            background: gradient,
           }}
           animate={{
             scale: [1, 1.2, 1],
@@ -54,7 +79,7 @@ const MobileAnimatedDot = ({ index, item }) => {
         <motion.div
           className="absolute w-5 h-5 rounded-full opacity-20"
           style={{
-            background: `linear-gradient(to right, ${item.borderFrom}, ${item.borderTo})`,
+            background: gradient,
           }}
           animate={{
             scale: [1, 1.5, 1],

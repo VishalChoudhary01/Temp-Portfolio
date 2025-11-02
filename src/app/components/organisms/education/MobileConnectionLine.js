@@ -3,20 +3,24 @@
 import React from 'react'
 import {motion} from 'motion/react'
 
-const MobileConnectionLine = ({ index, item }) => {
-  // Use the same gradient colors as desktop
-  const lineGradients = [
-    'from-purple-400 to-purple-600',
-    'from-cyan-400 to-cyan-600', 
-    'from-amber-400 to-amber-600',
-    'from-teal-400 to-teal-600'
-  ];
-  
-  const gradient = lineGradients[index % lineGradients.length];
+const MobileConnectionLine = ({ index }) => {
+  // Use existing gradient variables with dark mode support
+  const getGradientClass = (idx) => {
+    const gradients = [
+      'from-[var(--grad-primary)] to-[var(--grad-secondary)] dark:from-[var(--darkgrad-primary)] dark:to-[var(--darkgrad-secondary)]',
+      'from-[var(--grad-secondary)] to-[var(--grad-tertiary)] dark:from-[var(--darkgrad-secondary)] dark:to-[var(--darkgrad-tertiary)]',
+      'from-[var(--grad-tertiary)] to-[var(--grad-quaternary)] dark:from-[var(--darkgrad-tertiary)] dark:to-[var(--darkgrad-quaternary)]',
+      'from-[var(--grad-quaternary)] to-[var(--grad-primary)] dark:from-[var(--darkgrad-quaternary)] dark:to-[var(--darkgrad-primary)]'
+    ];
+    
+    return gradients[idx % gradients.length];
+  };
+
+  const gradientClass = getGradientClass(index);
 
   return (
     <motion.div
-      className={`absolute top-8 left-4.5 h-0.5 w-12 bg-gradient-to-r ${gradient}`}
+      className={`absolute top-8 left-4.5 h-0.5 w-12 bg-gradient-to-r ${gradientClass}`}
       initial={{ width: 0, opacity: 0 }}
       whileInView={{ width: 48, opacity: 1 }}
       viewport={{ once: false, margin: "-50px" }}
