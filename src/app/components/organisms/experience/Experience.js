@@ -15,6 +15,7 @@ const WorkExperience = () => {
   const [windowWidth, setWindowWidth] = useState(0);
   const [slideWidth, setSlideWidth] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   
   const { isDarkMode } = useDarkMode();
   
@@ -66,13 +67,43 @@ const WorkExperience = () => {
 
   const goToNext = () => {
     const visibleItems = getVisibleItems();
-    setCurrentIndex(prev => 
-      Math.min(prev + 1, timelineData.length - visibleItems)
-    );
+    setCurrentIndex(prev => {
+      if (prev >= timelineData.length - visibleItems) {
+        return 0; // Loop back to start
+      }
+      return prev + 1;
+    });
   };
 
   const goToPrev = () => {
-    setCurrentIndex(prev => Math.max(prev - 1, 0));
+    const visibleItems = getVisibleItems();
+    setCurrentIndex(prev => {
+      if (prev <= 0) {
+        return timelineData.length - visibleItems; // Loop to end
+      }
+      return prev - 1;
+    });
+  };
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (!isMounted || !isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      goToNext();
+    }, 1500); // 1.5 seconds
+
+    return () => clearInterval(interval);
+  }, [isMounted, isAutoPlaying, currentIndex, getVisibleItems]);
+
+  // Pause auto-scroll on user interaction
+  const handleUserInteraction = () => {
+    setIsAutoPlaying(false);
+    
+    // Resume auto-scroll after 10 seconds of inactivity
+    setTimeout(() => {
+      setIsAutoPlaying(true);
+    }, 10000);
   };
 
   useEffect(() => {
@@ -91,21 +122,34 @@ const WorkExperience = () => {
   }, [windowWidth, currentIndex, getVisibleItems, isMounted]);
 
   const visibleItems = getVisibleItems();
-  const shouldShowLeftArrow = currentIndex > 0;
-  const shouldShowRightArrow = currentIndex < timelineData.length - visibleItems;
+  const shouldShowLeftArrow = currentIndex > 0 || timelineData.length > visibleItems;
+  const shouldShowRightArrow = currentIndex < timelineData.length - visibleItems || timelineData.length > visibleItems;
   const translateX = -currentIndex * slideWidth;
 
   return (
-    <section className="min-h-screen py-20 px-4 bg-contextBG dark:bg-contextDarkBG">
+    <section 
+      className="min-h-screen py-20 px-4 bg-contextBG dark:bg-contextDarkBG"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
       <div className="max-w-7xl mx-auto">
         <Heading heading="Work Experience" />
         
-        <div className="relative">
+        <div 
+          className="relative"
+          onClick={handleUserInteraction}
+        >
           <WorkExperienceNavigation
             shouldShowLeftArrow={shouldShowLeftArrow}
             shouldShowRightArrow={shouldShowRightArrow}
-            goToPrev={goToPrev}
-            goToNext={goToNext}
+            goToPrev={() => {
+              handleUserInteraction();
+              goToPrev();
+            }}
+            goToNext={() => {
+              handleUserInteraction();
+              goToNext();
+            }}
           />
 
           <div className="pl-4 lg:pl-8">
@@ -114,7 +158,10 @@ const WorkExperience = () => {
               innerRef={innerRef}
               translateX={translateX}
               windowWidth={windowWidth}
-              handleDragEnd={handleDragEnd}
+              handleDragEnd={(event, info) => {
+                handleUserInteraction();
+                handleDragEnd(event, info);
+              }}
             >
               {timelineData.map((item, index) => (
                 <WorkExperienceCard
@@ -131,7 +178,10 @@ const WorkExperience = () => {
             <WorkExperienceDots
               timelineData={timelineData}
               currentIndex={currentIndex}
-              setCurrentIndex={setCurrentIndex}
+              setCurrentIndex={(index) => {
+                handleUserInteraction();
+                setCurrentIndex(index);
+              }}
               isDarkMode={isDarkMode}
             />
           )}

@@ -6,22 +6,21 @@ import { Heading } from '../../atoms/typography/index';
 
 const Education = () => {
   const [hoveredCard, setHoveredCard] = useState(null);
-  const containerRef = useRef(null);
-  const mobileContainerRef = useRef(null); // Add separate ref for mobile
+  const desktopContainerRef = useRef(null);
+  const mobileContainerRef = useRef(null);
   
   // Desktop scroll progress
   const { scrollYProgress: desktopProgress } = useScroll({
-    target: containerRef,
+    target: desktopContainerRef,
     offset: ["start center", "end center"]
   });
 
-  // Mobile scroll progress - separate configuration
+  // Mobile scroll progress - tracks the actual timeline content
   const { scrollYProgress: mobileProgress } = useScroll({
     target: mobileContainerRef,
-    offset: ["start end", "end start"] // Better offset for mobile
+    offset: ["start 90%", "end 50%"] // Start when container enters, end earlier
   });
 
-  // Separate spring configs for better control
   const smoothDesktopProgress = useSpring(desktopProgress, {
     stiffness: 100,
     damping: 30,
@@ -29,8 +28,8 @@ const Education = () => {
   });
 
   const smoothMobileProgress = useSpring(mobileProgress, {
-    stiffness: 80,  // Slightly less stiff for smoother mobile experience
-    damping: 25,
+    stiffness: 60,  // Softer for mobile
+    damping: 20,
     restDelta: 0.001
   });
 
@@ -40,7 +39,7 @@ const Education = () => {
         <Heading heading='Education' />
         
         {/* Desktop Timeline */}
-        <div ref={containerRef}>
+        <div ref={desktopContainerRef}>
           <DesktopTimeline 
             hoveredCard={hoveredCard}
             setHoveredCard={setHoveredCard}
@@ -48,7 +47,7 @@ const Education = () => {
           />
         </div>
         
-        {/* Mobile Timeline - separate ref */}
+        {/* Mobile Timeline */}
         <div ref={mobileContainerRef}>
           <MobileTimeline 
             hoveredCard={hoveredCard}

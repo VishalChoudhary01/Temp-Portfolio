@@ -1,10 +1,25 @@
 "use client";
+import React from 'react';
+import { motion, useTransform } from 'motion/react';
 
-import React from 'react'
-import {motion} from 'motion/react'
+const MobileConnectionLine = ({ index, scrollProgress, totalItems }) => {
+  // Calculate when this line should appear (after dot)
+  const startProgress = (index + 0.3) / totalItems;
+  const endProgress = (index + 0.6) / totalItems;
 
-const MobileConnectionLine = ({ index }) => {
-  // Use existing gradient variables with dark mode support
+  // Animate line width based on scroll
+  const width = useTransform(
+    scrollProgress,
+    [startProgress, endProgress],
+    [0, 48] // 0 to 48px (w-12)
+  );
+
+  const opacity = useTransform(
+    scrollProgress,
+    [startProgress, endProgress],
+    [0, 1]
+  );
+
   const getGradientClass = (idx) => {
     const gradients = [
       'from-[var(--grad-primary)] to-[var(--grad-secondary)] dark:from-[var(--darkgrad-primary)] dark:to-[var(--darkgrad-secondary)]',
@@ -20,14 +35,11 @@ const MobileConnectionLine = ({ index }) => {
 
   return (
     <motion.div
-      className={`absolute top-8 left-4.5 h-0.5 w-12 bg-gradient-to-r ${gradientClass}`}
-      initial={{ width: 0, opacity: 0 }}
-      whileInView={{ width: 48, opacity: 1 }}
-      viewport={{ once: false, margin: "-50px" }}
-      transition={{ 
-        duration: 0.8, 
-        delay: 0.4, 
-        ease: "easeOut"
+      className={`absolute top-8 left-4.5 h-0.5 bg-gradient-to-r ${gradientClass}`}
+      style={{ 
+        width, 
+        opacity,
+        transformOrigin: 'left'
       }}
     />
   );

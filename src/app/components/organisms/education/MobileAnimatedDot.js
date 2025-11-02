@@ -1,21 +1,27 @@
 "use client";
-
-import { motion } from "motion/react";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useTransform } from "motion/react";
 import useDarkMode from "@/app/hooks/useDarkMode";
 
-const MobileAnimatedDot = ({ index }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: false,
-    margin: "0px 0px -100px 0px",
-    amount: 0.3
-  });
-
+const MobileAnimatedDot = ({ index, scrollProgress, totalItems }) => {
   const { isDarkMode } = useDarkMode();
 
-  // Use existing gradient variables
+  // Calculate when this dot should appear based on scroll progress
+  const startProgress = index / totalItems;
+  const endProgress = (index + 0.3) / totalItems;
+
+  // Animate dot appearance based on scroll
+  const opacity = useTransform(
+    scrollProgress,
+    [startProgress, endProgress],
+    [0, 1]
+  );
+
+  const scale = useTransform(
+    scrollProgress,
+    [startProgress, endProgress],
+    [0, 1]
+  );
+
   const getDotColors = (idx) => {
     const gradients = isDarkMode 
       ? [
@@ -39,31 +45,20 @@ const MobileAnimatedDot = ({ index }) => {
 
   return (
     <motion.div
-      ref={ref}
-      className="absolute left-2 top-6 z-20 transform -translate-x-1/2"
-      initial={{ opacity: 0, scale: 0 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-      transition={{ 
-        duration: 0.6, 
-        delay: 0.2,
-        ease: "easeOut"
-      }}
+      className="absolute left-6 top-6 z-20 transform -translate-x-1/2"
+      style={{ opacity, scale }}
     >
       <div className="relative flex items-center justify-center">
-        {/* Main Dot - Smaller */}
+        {/* Main Dot */}
         <div
           className="w-3 h-3 rounded-full shadow-md relative z-10"
-          style={{
-            background: gradient,
-          }}
+          style={{ background: gradient }}
         />
 
-        {/* Glow - Smaller */}
+        {/* Glow */}
         <motion.div
           className="absolute w-4 h-4 rounded-full opacity-30 blur-sm"
-          style={{
-            background: gradient,
-          }}
+          style={{ background: gradient }}
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -75,12 +70,10 @@ const MobileAnimatedDot = ({ index }) => {
           }}
         />
 
-        {/* Pulse - Smaller */}
+        {/* Pulse */}
         <motion.div
           className="absolute w-5 h-5 rounded-full opacity-20"
-          style={{
-            background: gradient,
-          }}
+          style={{ background: gradient }}
           animate={{
             scale: [1, 1.5, 1],
             opacity: [0.2, 0, 0.2],

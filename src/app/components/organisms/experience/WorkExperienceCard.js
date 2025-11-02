@@ -47,7 +47,7 @@ const WorkExperienceCard = ({ index, item, isDarkMode }) => {
     >
       <GlowingCard
         color={currentColor}
-        className="min-h-[340px] h-full"
+        className="min-h-[320px] sm:min-h-[340px] h-full"
         borderRadius="16px"
         isDarkMode={isDarkMode}
       >
