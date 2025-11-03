@@ -33,9 +33,8 @@ const GlowingCard = ({
     <motion.div
       className={`relative overflow-hidden ${className}`}
       style={{ 
-        borderRadius,
         background: cardBg, 
-        cursor: 'pointer' // Added pointer cursor
+        cursor: 'pointer' 
       }}
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
