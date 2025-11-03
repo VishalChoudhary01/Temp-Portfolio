@@ -67,7 +67,7 @@ const WorkExperience = () => {
     }
   };
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     const visibleItems = getVisibleItems();
     setCurrentIndex((prev) => {
       if (prev >= timelineData.length - visibleItems) {
@@ -75,7 +75,7 @@ const WorkExperience = () => {
       }
       return prev + 1;
     });
-  };
+  }, [getVisibleItems]);
 
   const goToPrev = () => {
     const visibleItems = getVisibleItems();
@@ -96,7 +96,7 @@ const WorkExperience = () => {
     }, 1500); // 1.5 seconds
 
     return () => clearInterval(interval);
-  }, [isMounted, isAutoPlaying, currentIndex, getVisibleItems]);
+  }, [isMounted, isAutoPlaying, goToNext]);
 
   // Pause auto-scroll on user interaction
   const handleUserInteraction = () => {
@@ -138,7 +138,6 @@ const WorkExperience = () => {
   return (
     <section
       className=" md:py-20 py-20 px-4 bg-contextBG dark:bg-contextDarkBG"
-
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >

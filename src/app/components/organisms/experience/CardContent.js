@@ -2,13 +2,13 @@ import React from "react";
 import Image from "next/image";
 
 const CardContent = ({ item, currentColor, isDarkMode }) => (
-  <div className="relative p-3 sm:p-6 h-full flex flex-col font-poppins">
+  <div className="relative select-none p-3 sm:p-6 h-full flex flex-col font-poppins">
     {/* Header with Image and Duration */}
     <div className="flex items-center justify-between mb-3 sm:mb-6">
       <div className="flex items-center gap-2 sm:gap-3">
         {/* Company Logo */}
         <div 
-          className="flex-shrink-0 border rounded-lg overflow-hidden"
+          className="shrink-0 border rounded-lg overflow-hidden"
           style={{
             borderColor: isDarkMode
               ? "var(--color-darkBorder)"
@@ -33,7 +33,7 @@ const CardContent = ({ item, currentColor, isDarkMode }) => (
 
       {/* Duration Badge */}
       <div
-        className="px-2 py-1 rounded-full border backdrop-blur-sm text-xs font-medium flex-shrink-0 ml-2"
+        className="px-2 py-1 rounded-full border backdrop-blur-sm text-xs font-medium shrink-0 ml-2"
         style={{
           color: currentColor,
           borderColor: `${currentColor}30`,
