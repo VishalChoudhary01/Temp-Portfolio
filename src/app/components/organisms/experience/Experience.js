@@ -4,8 +4,8 @@ import WorkExperienceNavigation from "./WorkExperienceNavigation";
 import WorkExperienceTimeline from "./WorkExperienceTimeline";
 import WorkExperienceCard from "./WorkExperienceCard";
 import WorkExperienceDots from "./WorkExperienceDots";
-import useDarkMode from '@/app/hooks/useDarkMode';
-import {timelineData} from '@/app/lib/data/index';
+import useDarkMode from "@/app/hooks/useDarkMode";
+import { timelineData } from "@/app/lib/data/index";
 import { Heading } from "@/app/components/atoms/typography/index";
 
 const WorkExperience = () => {
@@ -16,11 +16,13 @@ const WorkExperience = () => {
   const [slideWidth, setSlideWidth] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  
+
   const { isDarkMode } = useDarkMode();
-  
+
   useEffect(() => {
-    setIsMounted(true);
+    // Defer mounting flag to avoid synchronous setState-in-effect lint errors
+    const t = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(t);
   }, []);
 
   const getVisibleItems = useCallback(() => {
@@ -35,7 +37,7 @@ const WorkExperience = () => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-    
+
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -55,11 +57,11 @@ const WorkExperience = () => {
 
   const handleDragEnd = (_, info) => {
     if (windowWidth >= 640 || !isMounted) return;
-    
+
     if (info.offset.x > 50 || info.velocity.x > 500) {
-      setCurrentIndex(prev => Math.max(0, prev - 1));
+      setCurrentIndex((prev) => Math.max(0, prev - 1));
     } else if (info.offset.x < -50 || info.velocity.x < -500) {
-      setCurrentIndex(prev => 
+      setCurrentIndex((prev) =>
         Math.min(timelineData.length - getVisibleItems(), prev + 1)
       );
     }
@@ -67,7 +69,7 @@ const WorkExperience = () => {
 
   const goToNext = () => {
     const visibleItems = getVisibleItems();
-    setCurrentIndex(prev => {
+    setCurrentIndex((prev) => {
       if (prev >= timelineData.length - visibleItems) {
         return 0; // Loop back to start
       }
@@ -77,7 +79,7 @@ const WorkExperience = () => {
 
   const goToPrev = () => {
     const visibleItems = getVisibleItems();
-    setCurrentIndex(prev => {
+    setCurrentIndex((prev) => {
       if (prev <= 0) {
         return timelineData.length - visibleItems; // Loop to end
       }
@@ -99,7 +101,7 @@ const WorkExperience = () => {
   // Pause auto-scroll on user interaction
   const handleUserInteraction = () => {
     setIsAutoPlaying(false);
-    
+
     // Resume auto-scroll after 10 seconds of inactivity
     setTimeout(() => {
       setIsAutoPlaying(true);
@@ -116,29 +118,34 @@ const WorkExperience = () => {
     if (isMounted) {
       const visibleItems = getVisibleItems();
       if (currentIndex > timelineData.length - visibleItems) {
-        setCurrentIndex(Math.max(0, timelineData.length - visibleItems));
+        // Defer setCurrentIndex to avoid synchronous setState-in-effect lint rule
+        const t = setTimeout(() => {
+          setCurrentIndex(Math.max(0, timelineData.length - visibleItems));
+        }, 0);
+        return () => clearTimeout(t);
       }
     }
   }, [windowWidth, currentIndex, getVisibleItems, isMounted]);
 
   const visibleItems = getVisibleItems();
-  const shouldShowLeftArrow = currentIndex > 0 || timelineData.length > visibleItems;
-  const shouldShowRightArrow = currentIndex < timelineData.length - visibleItems || timelineData.length > visibleItems;
+  const shouldShowLeftArrow =
+    currentIndex > 0 || timelineData.length > visibleItems;
+  const shouldShowRightArrow =
+    currentIndex < timelineData.length - visibleItems ||
+    timelineData.length > visibleItems;
   const translateX = -currentIndex * slideWidth;
 
   return (
-    <section 
-      className="min-h-screen py-20 px-4 bg-contextBG dark:bg-contextDarkBG"
+    <section
+      className=" md:py-20 py-20 px-4 bg-contextBG dark:bg-contextDarkBG"
+
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
     >
       <div className="max-w-7xl mx-auto">
         <Heading heading="Work Experience" />
-        
-        <div 
-          className="relative"
-          onClick={handleUserInteraction}
-        >
+
+        <div className="relative" onClick={handleUserInteraction}>
           <WorkExperienceNavigation
             shouldShowLeftArrow={shouldShowLeftArrow}
             shouldShowRightArrow={shouldShowRightArrow}

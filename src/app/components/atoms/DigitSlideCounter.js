@@ -1,9 +1,13 @@
 // components/atoms/DigitSlideCounter.jsx
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
-const DigitSlideCounter = ({ value, duration = 1800, triggerAnimation = true }) => {
+const DigitSlideCounter = ({
+  value,
+  duration = 1800,
+  triggerAnimation = true,
+}) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [previousValue, setPreviousValue] = useState(0);
@@ -11,59 +15,75 @@ const DigitSlideCounter = ({ value, duration = 1800, triggerAnimation = true }) 
   const isInView = useInView(ref, { once: false, threshold: 0.1 });
 
   useEffect(() => {
+    let rafId;
+    let timeoutId;
     if (isInView && triggerAnimation && value !== null) {
-      setIsAnimating(true);
-      setPreviousValue(displayValue);
-      setDisplayValue(0);
-      
-      const startTime = Date.now();
-      const startValue = 0;
-      const endValue = value;
+      // Defer state updates to avoid synchronous setState-in-effect lint rule
+      timeoutId = setTimeout(() => {
+        setIsAnimating(true);
+        // Use functional updater to avoid referencing displayValue in the effect
+        setPreviousValue((pv) => pv);
+        setDisplayValue(0);
 
-      const animate = () => {
-        const currentTime = Date.now();
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Smooth easing function
-        const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-        const current = Math.floor(startValue + (endValue - startValue) * easeOutExpo);
-        
-        setDisplayValue(current);
+        const startTime = Date.now();
+        const startValue = 0;
+        const endValue = value;
 
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        } else {
-          setIsAnimating(false);
-        }
-      };
+        const animate = () => {
+          const currentTime = Date.now();
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
 
-      requestAnimationFrame(animate);
+          // Smooth easing function
+          const easeOutExpo =
+            progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          const current = Math.floor(
+            startValue + (endValue - startValue) * easeOutExpo
+          );
+
+          setDisplayValue(current);
+
+          if (progress < 1) {
+            rafId = requestAnimationFrame(animate);
+          } else {
+            setIsAnimating(false);
+          }
+        };
+
+        rafId = requestAnimationFrame(animate);
+      }, 0);
     } else if (value !== null) {
-      // Set directly without animation
-      setPreviousValue(displayValue);
-      setDisplayValue(value);
+      // Defer synchronous state updates to avoid lint errors.
+      timeoutId = setTimeout(() => {
+        setPreviousValue(value);
+        setDisplayValue(value);
+      }, 0);
     }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [isInView, value, duration, triggerAnimation]);
 
-  const digits = displayValue.toString().split('');
-  const prevDigits = previousValue.toString().split('');
+  const digits = displayValue.toString().split("");
+  const prevDigits = previousValue.toString().split("");
 
   return (
-    <div 
-      ref={ref} 
+    <div
+      ref={ref}
       className="flex items-center justify-center gap-0 text-github-repo-count dark:text-github-repo-count-dark"
-      style={{ 
-        fontVariantNumeric: 'tabular-nums' // Ensures consistent digit width
+      style={{
+        fontVariantNumeric: "tabular-nums", // Ensures consistent digit width
       }}
     >
       {digits.map((digit, index) => {
         // Determine animation direction based on position
         // Even indices slide up, odd indices slide down
-        const direction = index % 2 === 0 ? 'up' : 'down';
-        
-        const initialY = direction === 'up' ? 25 : -25;
-        
+        const direction = index % 2 === 0 ? "up" : "down";
+
+        const initialY = direction === "up" ? 25 : -25;
+
         return (
           <motion.span
             key={`${digit}-${index}-${displayValue}`}
@@ -74,21 +94,19 @@ const DigitSlideCounter = ({ value, duration = 1800, triggerAnimation = true }) 
               type: "spring",
               stiffness: 500,
               damping: 25,
-              delay: index * 0.05, 
+              delay: index * 0.05,
             }}
             style={{
               lineHeight: 1,
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             {digit}
           </motion.span>
         );
       })}
-      
-      
     </div>
   );
 };

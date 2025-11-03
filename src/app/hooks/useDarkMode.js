@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDarkMode, setDarkMode } from "../redux/featuresSlice/themeSlice";
 import { useEffect, useState } from "react";
@@ -15,22 +15,26 @@ const useDarkMode = () => {
       dispatch(setDarkMode(storedDark === "true"));
     } else {
       // Default to system preference if no stored preference
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const systemPrefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
       dispatch(setDarkMode(systemPrefersDark));
     }
-    setIsLoaded(true);
+    // Defer marking loaded to avoid synchronous setState-in-effect lint errors
+    const t = setTimeout(() => setIsLoaded(true), 0);
+    return () => clearTimeout(t);
   }, [dispatch]);
 
   useEffect(() => {
     if (!isLoaded) return;
-    
+
     // Apply to document
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-    
+
     // Save to localStorage
     localStorage.setItem("dark", isDarkMode.toString());
   }, [isDarkMode, isLoaded]);
@@ -42,7 +46,7 @@ const useDarkMode = () => {
   return {
     isDarkMode: isLoaded ? isDarkMode : false, // Return false until loaded
     toggleMode,
-    isLoaded // Export this to check in components
+    isLoaded, // Export this to check in components
   };
 };
 

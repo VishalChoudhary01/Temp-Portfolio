@@ -10,7 +10,7 @@ const timelineData = [
   {
     date: "March 2025 - June 2025",
     company: "Udyog Guide",
-    role: "Frontend Developer - Freelancer",
+    role: "Frontend Developer ",
     description: "Developed the company website landing page using React and Next.js from textual content.",
     image: "/images/company/udyog.png",
     tech: ["Next.js", "React", "CSS", "Tailwind CSS"],

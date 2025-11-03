@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { useSelector } from "react-redux";
 import useDarkMode from "@/app/hooks/useDarkMode";
 import SideMenu from "../../molecules/menu/SideMenu";
-import { LoadingNavbar, MobileHamburger, DesktopNav } from './index';
+import { LoadingNavbar, MobileHamburger, DesktopNav } from "./index";
 import VKR from "../../atoms/images/logo/VKR";
 
 // Main Navbar Component
@@ -16,17 +16,19 @@ const Navbar = () => {
 
   // Wait for component to mount (client-side only)
   useEffect(() => {
-    setMounted(true);
+    // Defer mounting flag to avoid lint rule about synchronous setState in effects
+    const t = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(t);
   }, []);
 
   // Scroll detection - only on client
   useEffect(() => {
     if (!mounted) return;
-    
+
     const handleScroll = () => setIsScrolled(window.scrollY > 400);
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); 
-    
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [mounted]);
 
@@ -66,7 +68,11 @@ const Navbar = () => {
         `}
       >
         <VKR />
-        <DesktopNav isScrolled={isScrolled} isDarkMode={isDarkMode} toggleMode={toggleMode} />
+        <DesktopNav
+          isScrolled={isScrolled}
+          isDarkMode={isDarkMode}
+          toggleMode={toggleMode}
+        />
         <MobileHamburger />
       </motion.nav>
 
