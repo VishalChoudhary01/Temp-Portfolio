@@ -40,7 +40,7 @@ const TechCategoryCard = ({
   return (
     <GlowingCard
       color={iconColor}
-      className="rounded-xl md:rounded-2xl h-full w-full mx-auto max-w-[280px] sm:max-w-none sm:w-full"
+      className="rounded-xl md:rounded-2xl h-full w-full mx-auto max-w-[280px] min-h-[400px]   sm:max-w-none sm:w-full"
       isDarkMode={isDarkMode}
       glowIntensity={0.4}
     >
