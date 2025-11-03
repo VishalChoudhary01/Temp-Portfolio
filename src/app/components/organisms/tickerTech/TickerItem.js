@@ -13,7 +13,7 @@ const TickerItem = ({ tech, index, techStackLength, isMounted }) => {
     >
       <GlowingCard
         color={tech.color}
-        className="w-24 h-24 md:w-32 md:h-32 md:rounded-[12px] rounded-[8px] group"
+        className="w-24 h-24 md:w-36 md:h-36 md:rounded-lg rounded-md group"
       >
         <div className="relative flex flex-col items-center justify-center w-full h-full md:p-4 z-20">
           <div
@@ -22,7 +22,7 @@ const TickerItem = ({ tech, index, techStackLength, isMounted }) => {
           >
             {tech.icon}
           </div>
-          <h3 className="text-[0.7rem] md:text-sm select-none  font-semibold text-gray-900 dark:text-white text-center leading-tight">
+          <h3 className="text-[0.6rem]  mt-1 nd:mb-2 md:text-sm select-none font-poppins  font-medium text-h2  dark:text-Head2dark text-center leading-tight">
             {tech.name}
           </h3>
         </div>

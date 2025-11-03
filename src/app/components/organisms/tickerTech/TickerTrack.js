@@ -1,19 +1,17 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import TickerItem from "./TickerItem";
-import {techStack} from '@/app/lib/data/index'
+import {techTickerItems} from '@/app/lib/data/index'
 
 const TRIPLET_COPIES = 3;
-
 
 const TickerTrack = () => {
   const scrollerRef = useRef(null);
   const [isMounted, setIsMounted] = useState(false);
 
-  const duplicatedTechStack = Array(TRIPLET_COPIES).fill(techStack).flat();
+  const duplicatedTechStack = Array(TRIPLET_COPIES).fill(techTickerItems).flat();
 
   useEffect(() => {
-    // Avoid setting state synchronously in the effect body to satisfy lint rules
     const t = setTimeout(() => setIsMounted(true), 0);
     return () => clearTimeout(t);
   }, []);
@@ -29,12 +27,14 @@ const TickerTrack = () => {
       parseFloat(cardStyle.marginLeft) +
       parseFloat(cardStyle.marginRight);
 
-    scroller.style.width = `${cardWidth * techStack.length * TRIPLET_COPIES}px`;
+    // FIX: Changed techStack to techTickerItems
+    scroller.style.width = `${cardWidth * techTickerItems.length * TRIPLET_COPIES}px`;
 
     let animationId;
     let scrollPosition = 0;
     const speed = 0.4;
-    const singleSetWidth = cardWidth * techStack.length;
+    // FIX: Changed techStack to techTickerItems
+    const singleSetWidth = cardWidth * techTickerItems.length;
 
     const animate = () => {
       scrollPosition -= speed;
@@ -66,7 +66,8 @@ const TickerTrack = () => {
           key={`${tech.name}-${index}`}
           tech={tech}
           index={index}
-          techStackLength={techStack.length}
+          // FIX: Changed techStack to techTickerItems
+          techStackLength={techTickerItems.length}
           isMounted={isMounted}
         />
       ))}

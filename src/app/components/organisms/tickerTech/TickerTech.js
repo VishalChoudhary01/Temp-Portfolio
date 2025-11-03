@@ -6,19 +6,10 @@ import TickerTrack from "./TickerTrack";
 
 const TickerTech = () => {
   return (
-    <section className="md:py-16 bg-contextBG dark:bg-contextDarkBG">
-      
+    <section className=" bg-contextBG dark:bg-contextDarkBG">
+
       <div className="w-full">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="w-full flex flex-col items-center text-center  px-4"
-        >
-          <Heading heading="Skills" />
-        </motion.div>
+        
 
         {/* Carousel */}
         <div className="w-full md:py-8 py-3 relative overflow-hidden">
