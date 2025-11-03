@@ -29,9 +29,9 @@ const Heading = ({
       }}
       className={`w-full flex flex-col ${alignment} md:mb-16 mb-8 `}
     >
-      <h2 className={`${isDarkMode?"dark-heading font-poppins":"heading font-merriweather"} md:text-5xl text-[1.8rem]  tracking-wider font-semibold`}>
+      <h2 className={`${isDarkMode?"dark-heading font-poppins":"heading font-merriweather"} md:text-5xl text-[1.5rem]  tracking-wider font-semibold`}>
         {heading}
-        <span className={`${isDarkMode?"dark-underline-animated":"underline-animated"} md:mt-2 -mt-3`}></span>
+        <span className={`${isDarkMode?"dark-underline-animated":"underline-animated"}`}></span>
       </h2>
 
       {subheading && (
