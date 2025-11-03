@@ -32,7 +32,7 @@ const AboutMe = () => {
       <div className="w-full md:max-w-6xl mx-auto relative z-10">
         <GlowingCard 
           color={isDarkMode ? "var(--color-dark-btn-modern-from)" : "var(--color-btn-modern-from)"}
-          className="p-4 sm:p-5 md:rounded-[28px] md:p-6 lg:p-8 relative overflow-hidden"
+          className="p-4 sm:p-5 md:rounded-[28px] rounded-xl md:p-6 lg:p-8 relative overflow-hidden"
           borderRadius="20px "
         >
           <BackgroundDecoration />
