@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import GlowingCard from "@/app/components/molecules/cards/GlowingCard";
 import TechSkillItem from "./TechSkillItem";
+import {HeadingTwo} from '@/app/components/atoms/typography/index'
 
 const TechCategoryCard = ({
   category,
@@ -64,7 +65,7 @@ const TechCategoryCard = ({
             }}
           >
             <motion.div
-              className="text-lg md:text-xl transition-colors duration-300"
+              className="text-xl md:text-2xl transition-colors duration-300"
               style={{
                 color: iconColor,
               }}
@@ -75,11 +76,11 @@ const TechCategoryCard = ({
           </motion.div>
 
           {/* Title */}
-          <motion.h3 
-            className="text-base md:text-lg mb-6   text-md font-bold text-h2 dark:text-Head2dark leading-tight transition-colors duration-300 tracking-wider"
+          <HeadingTwo 
+            className=" mb-6 select-none  text-md font-bold text-h2 dark:text-Head2dark leading-tight transition-colors duration-300 tracking-wider"
           >
             {category.title}
-          </motion.h3>
+          </HeadingTwo>
 
           {/* Skills List */}
           <ul className="space-y-1 md:space-y-2 text-para2 dark:text-darkPara2  w-full flex-1">

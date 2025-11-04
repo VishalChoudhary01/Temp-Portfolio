@@ -1,4 +1,7 @@
-import { FaCode, FaServer, FaLanguage, FaTools } from "react-icons/fa";
+import { LuLanguages } from "react-icons/lu";
+import { HiCode } from "react-icons/hi";
+import { FaDatabase } from "react-icons/fa";
+import { BsTools } from "react-icons/bs";
 
 export const skillsData = {
   frontend: [
@@ -19,7 +22,7 @@ export const skillsData = {
 export const categories = [
   {
     title: "Frontend Development",
-    icon: <FaCode />,
+    icon: <HiCode />,
     gradientColor: "var(--grad-primary)",
     darkGradientColor: "var(--darkgrad-primary)",
     lightTextShadow: "var(--grad-primary)",
@@ -29,7 +32,7 @@ export const categories = [
   },
   {
     title: "Backend Development",
-    icon: <FaServer />,
+    icon: <FaDatabase />,
     gradientColor: "var(--grad-secondary)",
     darkGradientColor: "var(--darkgrad-secondary)",
     lightTextShadow: "var(--grad-secondary)",
@@ -39,7 +42,7 @@ export const categories = [
   },
   {
     title: "Programming Languages",
-    icon: <FaLanguage />,
+    icon: <LuLanguages />,
     gradientColor: "var(--grad-tertiary)",
     darkGradientColor: "var(--darkgrad-tertiary)",
     lightTextShadow: "var(--grad-tertiary)",
@@ -49,7 +52,7 @@ export const categories = [
   },
   {
     title: "Tools & Software",
-    icon: <FaTools />,
+    icon: <BsTools />,
     gradientColor: "var(--grad-quaternary)",
     darkGradientColor: "var(--darkgrad-quaternary)",
     lightTextShadow: "var(--grad-quaternary)",

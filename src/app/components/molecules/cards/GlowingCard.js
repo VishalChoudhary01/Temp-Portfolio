@@ -33,6 +33,7 @@ const GlowingCard = ({
     <motion.div
       className={`relative overflow-hidden ${className}`}
       style={{ 
+        borderRadius,
         background: cardBg, 
         cursor: 'pointer' 
       }}

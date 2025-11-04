@@ -1,4 +1,5 @@
 import Heading from "./Heading/Heading";
-import Text from "./Text";
+import Paragraph from "./Paragraph";
+import HeadingTwo from "./Heading/HeadingTwo";
 
-export {Heading,Text}
+export {Heading,HeadingTwo,Paragraph}

@@ -20,7 +20,7 @@ export const educationData = [
   { 
     year: "2017", 
     degree: "I.Sc", 
-    institution: "College of Commerce",
+    institution: "College of Commerce , Art & Science",
     description: "Intermediate Science",
     icon: FaSchool,
     
