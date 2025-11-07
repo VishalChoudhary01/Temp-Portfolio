@@ -4,8 +4,15 @@ import { motion } from "motion/react";
 import { useSelector } from "react-redux";
 import useDarkMode from "@/app/hooks/useDarkMode";
 import SideMenu from "../../molecules/menu/SideMenu";
-import { LoadingNavbar, MobileHamburger, DesktopNav } from "./index";
+import { MobileHamburger, DesktopNav } from "./index";
 import VKR from "../../atoms/images/logo/VKR";
+
+// Simple loading navbar without trying to pass logo as prop
+const LoadingNavbar = () => (
+  <nav className="fixed z-[999] w-full h-16 flex items-center justify-between px-4 bg-navbarBG dark:bg-navbarDarkBG">
+    <VKR />
+  </nav>
+);
 
 // Main Navbar Component
 const Navbar = () => {
@@ -16,9 +23,7 @@ const Navbar = () => {
 
   // Wait for component to mount (client-side only)
   useEffect(() => {
-    // Defer mounting flag to avoid lint rule about synchronous setState in effects
-    const t = setTimeout(() => setMounted(true), 0);
-    return () => clearTimeout(t);
+    setMounted(true);
   }, []);
 
   // Scroll detection - only on client
@@ -40,7 +45,7 @@ const Navbar = () => {
 
   // Don't render animations until mounted and dark mode is loaded
   if (!mounted || !isLoaded) {
-    return <LoadingNavbar logo={<VKR />} />;
+    return <LoadingNavbar />;
   }
 
   return (

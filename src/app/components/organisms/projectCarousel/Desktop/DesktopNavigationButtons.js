@@ -8,7 +8,7 @@ const DesktopNavigationButtons = ({ onPrev, onNext }) => (
     <motion.button
       onClick={onPrev}
       whileTap={{ scale: 0.9 }}
-      className="size-14 bg-white/10 group dark:bg-black/20 hover:text-shadow-lg text-shadow-white text-white hover:scale-110 transition-all rounded-full flex items-center justify-center cursor-pointer duration-300  backdrop-blur-sm"
+      className="size-14 bg-white/20 group dark:bg-black/20 text-shadow-lg text-shadow-gray-700 dark:text-slate-50 hover:text-shadow-lg backdrop-blur-3xl  text-slate-500  hover:scale-110 transition-all rounded-full flex items-center justify-center cursor-pointer duration-300  "
     >
 
       <FaChevronLeft className='text-xl group-hover:scale-110' />
@@ -16,9 +16,9 @@ const DesktopNavigationButtons = ({ onPrev, onNext }) => (
     <motion.button
       onClick={onNext}
       whileTap={{ scale: 0.9 }}
-      className="size-14 bg-white/10 group dark:bg-black/20 hover:text-shadow-lg text-shadow-white text-white hover:scale-110 transition-all rounded-full flex items-center justify-center cursor-pointer duration-300 backdrop-blur-sm"
+      className="size-14 bg-white/10 group backdrop-blur-3xl dark:text-slate-50 dark:bg-black/20 hover:text-shadow-lg text-slate-500 hover:scale-110 transition-all rounded-full flex items-center justify-center cursor-pointer duration-300"
     >
-      <FaChevronRight className='text-xl group-hover:scale-110 transition-all' />
+      <FaChevronRight className='text-xl group-hover:scale-110 transition-all text-shadow-lg text-shadow-gray-700' />
     </motion.button>
   </div>
 );

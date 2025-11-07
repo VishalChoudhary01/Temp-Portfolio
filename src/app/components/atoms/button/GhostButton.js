@@ -18,9 +18,9 @@ const GhostButton = ({
       transition={{ duration: 1.5, delay: 0.5 }}
 
       onClick={onClick}
-      className={`px-5 py-2 rounded flex items-center gap-2 cursor-pointer transition-all duration-300 bg-white text-black hover:bg-[#4f7577] hover:text-white ${buttonStyle}`}
+      className={` ${buttonStyle}`}
     >
-      <span className="flex items-center gap-2">
+      <span className="flex items-center md:gap-x-2 gap-x-1 ">
         {leftIcon && <span className={leftStyle}>{leftIcon}</span>}
         <span>{buttonText}</span>
         {rightIcon && <span className={rightStyle}>{rightIcon}</span>}
@@ -30,3 +30,5 @@ const GhostButton = ({
 };
 
 export default GhostButton;
+
+

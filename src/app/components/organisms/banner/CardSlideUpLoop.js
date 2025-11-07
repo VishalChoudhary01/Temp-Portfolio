@@ -40,6 +40,7 @@ const CardSlideUpLoop = () => {
           </motion.div>
         </AnimatePresence>
       </div>
+      
     </div>
   );
 };

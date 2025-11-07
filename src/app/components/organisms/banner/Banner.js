@@ -1,11 +1,11 @@
 "use client";
-import React, { useRef ,useEffect} from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { FiArrowDown } from "react-icons/fi";
-import AboutMe from "../aboutMe/aboutMe";
 import "./Banner.css";
 import useDarkMode from "@/app/hooks/useDarkMode";
-import MenuSlideUp from "../banner/CardSlideUpLoop";
+import CardSlideUpLoop from "../banner/CardSlideUpLoop";
+import AboutMe from "../aboutMe/aboutMe";
+import { CgScrollV } from "react-icons/cg";
 
 const Banner = () => {
   const ref = useRef(null);
@@ -36,13 +36,13 @@ const Banner = () => {
       {/* Name Center */}
       <motion.div
         style={{ scale: nameScale, opacity: nameOpacity }}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none md:whitespace-nowrap"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none md:whitespace-nowrap w-full px-4"
       >
         <motion.h2
           initial={{ opacity: 0, y: -150 }}
           animate={{ opacity: 1, y: 0 }}  
           transition={{ delay: 0.2, duration: 1 }} 
-          className={`text-[2.7rem] leading-11 ${isDarkMode?"darkRadGrad ":"radGrad"} font-extrabold relative md:leading-20 md:text-8xl font-arimo md:tracking-wide`}
+          className={`text-[2.7rem] leading-11 ${isDarkMode?"darkRadGrad ":"radGrad"} font-extrabold relative md:leading-20 md:text-8xl font-arimo md:tracking-wide text-center`}
         >
           Vishal Kumar Choudhary
         </motion.h2>
@@ -52,7 +52,7 @@ const Banner = () => {
           transition={{ delay: 0.5, duration: 1 }}
           className={`xl:text-7xl lg:text-6xl md:text-5xl text-3xl font-bold font-noto-serif pb-2 md:mt-5 mt-3 whitespace-nowrap relative text-shimmer ${
             isDarkMode ? "darktext-shimmer" : "text-shimmer"
-          }`}
+          } text-center`}
           data-text="Frontend Developer"
         >
           Frontend Developer
@@ -62,21 +62,65 @@ const Banner = () => {
       {/* Scroll Indicator */}
       <motion.div
         style={{ opacity: indicatorOpacity }}
-        className="fixed md:top-[85vh] top-[80vh] left-1/2 transform -translate-x-1/2 z-40 flex flex-col items-center"
+        className="fixed md:top-[85vh] top-[78vh] left-1/2 transform -translate-x-1/2 z-40 w-full max-w-sm mx-auto px-4"
       >
-        <div className="w-full flex justify-center">
-          <div className="flex items-center justify-center gap-x-2 xl:text-[1.1rem] font-merriweather lg:text-[1.15rem] md:text-[1.1rem]">
+        <div className="flex flex-col items-center justify-center gap-x-4 w-full">
+          {/* Text with sliding menu - Horizontally centered */}
+          <div className="flex items-center justify-center gap-x-2 xl:text-[1.1rem] font-merriweather lg:text-[1.15rem] md:text-[1.1rem] text-sm w-full text-center">
             <span className="text-para3 dark:text-darkPara3 text-nowrap">Scroll Down</span>
             <span className="dark:text-darkPara2 text-para2 italic">for</span> 
-            <MenuSlideUp />
+            <div className="flex justify-center min-w-[140px]">
+              <CardSlideUpLoop />
+            </div>
+          </div>
+          
+          {/* Desktop: Mouse Animation */}
+          <div className="hidden md:block">
+            <motion.div
+              className="flex flex-col items-center"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <motion.div
+                className={`w-6 h-10 border-2 rounded-full flex justify-center ${
+                  isDarkMode ? "border-gray-300" : "border-gray-500"
+                }`}
+              >
+                <motion.div
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className={`w-1 h-3 rounded-full mt-2 ${
+                    isDarkMode ? "bg-gray-300" : "bg-gray-500"
+                  }`}
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+
+          <div className="md:hidden block">
+            <motion.div
+              className="flex flex-col items-center"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <motion.div
+                className={`text-2xl ${isDarkMode ? "text-gray-300" : "text-gray-600"}`}
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <CgScrollV/>
+              </motion.div>
+              <motion.p 
+                className={`text-xs mt-1 ${isDarkMode ? "text-gray-400" : "text-gray-500"}`}
+                initial={{ opacity: 0.7 }}
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                scroll
+              </motion.p>
+            </motion.div>
           </div>
         </div>
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        >
-          <FiArrowDown className="text-3xl text-neutral-400" />
-        </motion.div>
       </motion.div>
 
       {/* About Section */}

@@ -3,7 +3,7 @@ import DesktopContent from "./DesktopContent";
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
-const DesktopSlideItem = ({ item, index, isMain, isMobile, previewCount }) => {
+const DesktopSlideItem = ({ item, index, isMain, isMobile, previewCount,seeMorePage }) => {
   if (isMobile && isMain) {
     return null;
   }
@@ -53,7 +53,7 @@ const DesktopSlideItem = ({ item, index, isMain, isMobile, previewCount }) => {
           src={item.image}
           alt={item.name}
           fill
-          className="object-cover "
+          className="object-fill "
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
         />
       ) : (
@@ -70,7 +70,7 @@ const DesktopSlideItem = ({ item, index, isMain, isMobile, previewCount }) => {
         </div>
       )}
 
-      {isMain && !isMobile && <DesktopContent item={item} />}
+      {isMain && !isMobile && <DesktopContent item={item} seeMore={seeMorePage} />}
     </motion.div>
   );
 };

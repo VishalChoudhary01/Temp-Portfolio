@@ -1,9 +1,11 @@
 "use client";
 
 import React,{useState,useRef,useCallback,useEffect} from "react";
-import {DesktopNavigationButtons,DesktopSlideItem} from './Desktop/index'
-import {MobileBackgroundImage,MobileContent} from './Mobile/index'
-import {slideData} from '@/app/lib/data/index'
+import {DesktopNavigationButtons,DesktopSlideItem} from './Desktop/index';
+import {MobileBackgroundImage,MobileContent} from './Mobile/index';
+import { useRouter } from "next/navigation";
+import { slideData } from "@/app/lib/data";
+
 
 
 
@@ -12,6 +14,8 @@ const CarouselProjects = () => {
   const [previewCount, setPreviewCount] = useState(3);
   const [isMobile, setIsMobile] = useState(false);
   const intervalRef = useRef(null);
+  const router =useRouter()
+
 
   const nextSlide = useCallback(() => {
     setItems((prev) => {
@@ -73,6 +77,10 @@ const CarouselProjects = () => {
     return () => clearInterval(intervalRef.current);
   }, [startAutoSlide]);
 
+   const handleSeeMore = (projectId) => {
+    router.push(`/project/${projectId}`);
+  };
+
   return (
     <section className="relative overflow-hidden">
       <div className="w-screen h-screen  overflow-hidden relative ">
@@ -95,6 +103,7 @@ const CarouselProjects = () => {
                 isMain={index === 0}
                 isMobile={isMobile}
                 previewCount={previewCount}
+                seeMorePage={handleSeeMore}
               />
             ))}
           </div>
@@ -105,6 +114,7 @@ const CarouselProjects = () => {
               item={items[0]} 
               onPrev={handlePrevSlide}
               onNext={handleNextSlide}
+              handleSeeMore={handleSeeMore}
             />
           )}
 
