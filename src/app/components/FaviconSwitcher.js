@@ -19,7 +19,7 @@ export default function FaviconSwitcher() {
     const faviconLink = document.createElement("link");
     faviconLink.rel = "icon";
     faviconLink.type = "image/png";
-    faviconLink.href = isDarkMode ? "/favicon/light.png" : "/favicon/dark.png";
+    faviconLink.href = isDarkMode ? "/favicon/dark.png" : "/favicon/light.png";
 
     document.head.appendChild(faviconLink);
     console.log("FaviconSwitcher: Favicon updated to:", faviconLink.href);
