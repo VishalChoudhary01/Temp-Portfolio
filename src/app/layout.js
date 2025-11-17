@@ -1,11 +1,22 @@
 import "./globals.css";
 import ClientProvider from "./redux/clientProvider";
-import {Poppins,Roboto,Merriweather,Michroma,Noto_Serif,Work_Sans,Arimo} from 'next/font/google';
+import FaviconSwitcher from "./components/FaviconSwitcher";
+import {
+  Poppins,
+  Roboto,
+  Merriweather,
+  Michroma,
+  Noto_Serif,
+  Work_Sans,
+  Arimo,
+} from "next/font/google";
 
 export const metadata = {
   title: "Vishal Kumar Choudhary | Frontend Developer",
-  description: "Portfolio of Vishal Kumar Choudhary, a passionate Frontend Developer specializing in creating dynamic and responsive web applications.",
-  keywords: "Vishal Kumar Choudhary, Frontend Developer,Banaras Hindu University, MCA , Master of Computer Applications, Portfolio, Web Development, React, JavaScript, CSS, HTML,Tailwind CSS, Next.js, Web Design, UI/UX, Responsive Design, Frontend Engineer, Software Developer, Web Applications,Framer Motion, Animation, Web Portfolio, Personal Website, Developer Portfolio, Tech Portfolio, Frontend Projects, Open Source Contributions, GitHub Portfolio",
+  description:
+    "Portfolio of Vishal Kumar Choudhary, a passionate Frontend Developer specializing in creating dynamic and responsive web applications.",
+  keywords:
+    "Vishal Kumar Choudhary, Frontend Developer,Banaras Hindu University, MCA , Master of Computer Applications, Portfolio, Web Development, React, JavaScript, CSS, HTML,Tailwind CSS, Next.js, Web Design, UI/UX, Responsive Design, Frontend Engineer, Software Developer, Web Applications,Framer Motion, Animation, Web Portfolio, Personal Website, Developer Portfolio, Tech Portfolio, Frontend Projects, Open Source Contributions, GitHub Portfolio",
 };
 
 const poppins = Poppins({
@@ -14,13 +25,13 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 const roboto = Roboto({
-  subsets: ["latin"], 
+  subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-roboto",
 });
 const merriweather = Merriweather({
-  subsets: ["latin"], 
-  weight: [  "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-merriweather",
 });
 const michroma = Michroma({
@@ -29,12 +40,12 @@ const michroma = Michroma({
   variable: "--font-michroma",
 });
 const notoSerif = Noto_Serif({
-  subsets: ["latin"], 
+  subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-noto-serif",
 });
 const workSans = Work_Sans({
-  subsets: ["latin"], 
+  subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-work-sans",
 });
@@ -54,6 +65,7 @@ export default function RootLayout({ children }) {
         `}
       >
         <ClientProvider>
+          <FaviconSwitcher />
           {children}
         </ClientProvider>
       </body>

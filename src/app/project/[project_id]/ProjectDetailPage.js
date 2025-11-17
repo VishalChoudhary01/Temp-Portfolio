@@ -35,6 +35,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import { slideData } from '@/app/lib/data/index';
+import TopGradientWave from "@/app/components/templates/TopGradientWave";
 
 // Technology icons mapping
 const techIcons = {
@@ -292,7 +293,7 @@ export default function ProjectDetailPage({ projectId }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="min-h-screen flex items-center justify-center bg-black">
         <motion.div 
           className="text-center"
           initial={{ opacity: 0 }}
@@ -322,7 +323,7 @@ export default function ProjectDetailPage({ projectId }) {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="min-h-screen flex items-center justify-center bg-black ">
         <motion.div 
           className="text-center"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -345,7 +346,8 @@ export default function ProjectDetailPage({ projectId }) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+    <div className="min-h-screen bg-black overflow-hidden">
+      <TopGradientWave/>
       {/* Enhanced Background Elements */}
       <motion.div 
         className="fixed inset-0 pointer-events-none z-0"
