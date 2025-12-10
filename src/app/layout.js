@@ -9,6 +9,7 @@ import {
   Noto_Serif,
   Work_Sans,
   Arimo,
+  Rubik_Maze
 } from "next/font/google";
 
 export const metadata = {
@@ -54,13 +55,20 @@ const arimo = Arimo({
   weight: ["400", "500", "600", "700"],
   variable: "--font-arimo",
 });
+const rubikMaze = Rubik_Maze({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-rubik-maze",
+});
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
         className={`
-          ${poppins.variable} ${roboto.variable} ${merriweather.variable} ${michroma.variable} ${notoSerif.variable} ${workSans.variable} ${arimo.variable}
+          ${poppins.variable} ${roboto.variable} ${merriweather.variable} ${michroma.variable} ${notoSerif.variable} ${workSans.variable} ${arimo.variable} ${rubikMaze.variable}
+          
           antialiased
         `}
       >

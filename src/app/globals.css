@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Michroma&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Maze&display=swap');
 @import "tailwindcss";
 html {
   scroll-behavior: smooth;
@@ -150,9 +150,9 @@ html {
   --icon-bg-hover: rgba(6, 182, 212, 0.1);
 
   /* SECTION colors */
-  --navbarBG: #e3e4e4;
+  --navbarBG: #dde4e4;
   --scrolledNavbarBG: #f4f8f86e;
-  --navbarDarkBG: #070a11;
+  --navbarDarkBG: #111111;
   --scrolledNavbarDarkBG: #6867677b;
   --contextBG: #ebf2f2;
   --contextDarkBG: #050505;
@@ -256,11 +256,9 @@ html {
   --font-arimo: 'Arimo', sans-serif;
   --font-merriweather: 'Merriweather', serif;
   --font-michroma: 'Michroma', sans-serif;
-  --font-noto-serif: 'Noto Serif', serif;
   --font-poppins: 'Poppins', sans-serif;
   --font-roboto: 'Roboto', sans-serif;
-  --font-workSans: 'Work Sans', sans-serif;
-
+  --font-rubik-maze: 'Rubik Maze', sans-serif;
   /* Typography */
   --color-h1: var(--h1);
   --color-Head1dark: var(--Head1dark);
@@ -417,4 +415,89 @@ html {
   --color-dark-work-tech-text: var(--dark-work-tech-text);
 
 
+  /* Animation */
+  --animate-rotate-shine: rotate-shine 3s linear infinite;
+  --animate-rotate-shine-fast: rotate-shine 2s linear infinite;
+  --animate-rotate-shine-medium: rotate-shine 3s linear infinite;
+  --animate-rotate-shine-slow: rotate-shine 4s linear infinite;
+
+  @keyframes rotate-shine {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 }
+
+@utility shine-ring {
+  background: conic-gradient(
+    from 0deg at 60% 50%,
+    transparent 0deg,
+    #ffffff 90deg,
+    transparent 180deg
+  );
+}
+
+@utility shine-conic {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    #ffffff 80deg,
+    transparent 160deg
+  );
+}
+
+
+@utility shine-continuous {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    #60a5fa 60deg,
+    #3b82f6 90deg,
+    #60a5fa 120deg,
+    transparent 180deg
+  );
+}
+
+@utility shine-double {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    #ffffff 30deg,
+    #3b82f6 45deg,
+    #ffffff 60deg,
+    transparent 90deg,
+    transparent 180deg,
+    #ffffff 210deg,
+    #3b82f6 225deg,
+    #ffffff 240deg,
+    transparent 270deg
+  );
+}
+
+@utility shine-sparkle {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    transparent 30deg,
+    #fbbf24 35deg,
+    #f59e0b 40deg,
+    #fbbf24 45deg,
+    transparent 50deg,
+    transparent 150deg,
+    #fbbf24 155deg,
+    #f59e0b 160deg,
+    #fbbf24 165deg,
+    transparent 170deg,
+    transparent 270deg,
+    #fbbf24 275deg,
+    #f59e0b 280deg,
+    #fbbf24 285deg,
+,
+    transparent 290deg
+  );
+}
+

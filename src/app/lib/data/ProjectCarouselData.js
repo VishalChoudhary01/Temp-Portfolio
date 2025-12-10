@@ -7,8 +7,13 @@ import rene from '../../../../public/images/project carousel/rene.jpg';
 // Amurtam imports
 import amurtamBanner from '../../../../public/images/project carousel/amurtam/amurtamBanner.png';
 
+
 // crypto imports
-import crypto from '../../../../public/images/project carousel/crypto-tracker/cryptoBanner.png'
+import crypto from '../../../../public/images/project carousel/crypto-tracker/cryptoBanner.png';
+
+// trailor ride imports
+import trailorRide from '../../../../public/images/project carousel/trailor-ride/trailorRideBanner.png';
+import trailorbanner from '../../../../public/images/project carousel/trailor-ride/trailorBanner.png';
 
 export const slideData = [
 
@@ -156,9 +161,9 @@ export const slideData = [
   },
   {
     id: 1,
-    name: "Switzerland",
+    name: "Trailor Ride",
     description: "A breathtaking journey through the Swiss Alps with stunning landscapes and pristine lakes. Experience the perfect blend of natural beauty and modern architecture.",
-    image: claudio,
+    image: trailorbanner,
     gallery: [claudio, pawel, rene, delta, claudio, pawel],
     technologies: ["NextJS", "Tailwind CSS", "Framer Motion", "TypeScript"],
     liveUrl: "https://switzerland-project.demo",

@@ -84,7 +84,7 @@ const CarouselProjects = () => {
   return (
     <section className="relative overflow-hidden">
       <div className="w-screen h-screen  overflow-hidden relative ">
-        <div className="absolute bottom-48    left-0 w-full h-full ">
+        <div className="absolute md:bottom-48    left-0 w-full h-full ">
           {isMobile && (
             <MobileBackgroundImage 
               image={items[0].image} 
@@ -93,8 +93,7 @@ const CarouselProjects = () => {
             />
           )}
           
-          <div className="relative w-full h-[60vw]">
-
+          <div className="relative w-full h-[60vw] ">
             {items.slice(0, previewCount + 1).map((item, index) => (
               <DesktopSlideItem
                 key={item.id}
@@ -108,7 +107,7 @@ const CarouselProjects = () => {
             ))}
           </div>
 
-          {/* Mobile content block - minimal gradient at bottom */}
+          {/* Mobile content block  */}
           {isMobile && (
             <MobileContent 
               item={items[0]} 

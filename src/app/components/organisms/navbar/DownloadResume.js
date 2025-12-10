@@ -4,8 +4,8 @@ import { Button } from "../../atoms/button/index";
 const DownloadResume = ({ isScrolled, isDarkMode }) => {
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/resume/Vishal Kumar Choudhary.pdf";
-    link.download = "Resume.pdf";
+    link.href = "/documents/Vishal_Kumar_Resume_frontend.pdf";
+    link.download = "Vishal_Kumar_frontend_resume.pdf";
     link.click();
   };
 

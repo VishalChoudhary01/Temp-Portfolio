@@ -7,7 +7,7 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 import { HiExternalLink } from "react-icons/hi";
 
 const MobileContent = ({ item, onPrev, onNext ,handleSeeMore}) => (
-  <div className="absolute bottom-24 left-0 w-full  py-6 z-30">
+  <div className="absolute bottom-24 left-0 w-full  py-6 z-30 ">
 
     <div className=" px-4 sm:px-6">
       <motion.div
@@ -30,8 +30,8 @@ const MobileContent = ({ item, onPrev, onNext ,handleSeeMore}) => (
         </Paragraph>
         
         <div className='space-x-1.5'>
-        <GhostButton onClick={()=>handleSeeMore(item.id)} buttonText={"See More"} buttonStyle={"bg-btnBG dark:bg-darkbtnBG text-btnTXT dark:text-darkbtnTXT font-medium font-poppins px-4 py-1.5 rounded-lg select-none text-slate-50 text-[0.95rem]"} />
-        <GhostButton onClick={()=>handleSeeMore(item.id)} rightIcon={<HiExternalLink/>} buttonText={"Live"} buttonStyle={"bg-btnBG dark:bg-darkbtnBG text-btnTXT dark:text-darkbtnTXT font-medium font-poppins select-none px-5 py-1.5 rounded-lg text-slate-50 text-[0.95rem]"} />
+        <GhostButton onClick={()=>handleSeeMore(item.id)} buttonText={"See More"} buttonStyle={"bg-btnBG dark:bg-darkbtnBG text-btnTXT dark:text-darkbtnTXT font-medium font-poppins px-4 py-1.5 rounded-lg select-none text-slate-50 md:text-[0.95rem] text-[0.85rem] "} />
+        <GhostButton onClick={()=>handleSeeMore(item.id)} rightIcon={<HiExternalLink/>} buttonText={"Live"} buttonStyle={"bg-btnBG dark:bg-darkbtnBG text-btnTXT dark:text-darkbtnTXT font-medium font-poppins select-none px-5 py-1.5 rounded-lg text-slate-50 md:text-[0.95rem] text-[0.85rem]"} />
         </div>
       </motion.div>
     </div>
