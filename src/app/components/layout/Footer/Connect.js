@@ -30,7 +30,7 @@ const socialLinks = [
 export default function Connect() {
   return (
     <div className="group flex flex-col items-center md:items-start text-center md:text-left">
-      <h3 className="font-semibold text-h1 dark:text-Head1dark md:mb-4 mb-2 md:text-lg  text-[0.9rem]">
+      <h3 className="font-semibold text-h1 dark:text-Head1dark md:mb-4 mb-2 md:text-lg  text-[0.9rem] backdrop-blur-[1px] dark:bg-neutral-700/5 bg-neutral-400/5    rounded-lg px-1">
         Connect
       </h3>
       <div className="space-y-4 w-full max-w-xs">
@@ -48,7 +48,7 @@ export default function Connect() {
             </a>
           ))}
         </div>
-        <div className="pt-2 flex md:flex-col md:justify-start justify-center ">
+        <div className="pt-2 flex md:flex-col md:justify-start justify-center  ">
           <p className="text-[0.8rem] md:text-sm text-h3 dark:text-Head2dark mb-1  font-medium">Email<GoTriangleRight className="inline-block md:hidden " /> </p>
           <a 
             href="mailto:vishal.bhumca21@gmail.com"
@@ -59,7 +59,7 @@ export default function Connect() {
         </div>
         <div className='flex text-h3 dark:text-Head2dark md:flex-col md:justify-start justify-center md:items-start items-center'>
           <p className="text-[0.8rem] md:text-sm  font-medium mb-1">Location</p>
-          <GoTriangleRight className="inline-block md:hidden " />
+          <GoTriangleRight className="inline-block md:hidden text-[0.8rem] " />
           <p className="text-[0.8rem] md:text-sm text-para1 dark:text-darkPara3">
             Patna, Bihar, India
           </p>

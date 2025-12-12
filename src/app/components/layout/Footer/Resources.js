@@ -15,7 +15,7 @@ export default function Resources({
         Resources
       </h3>
       <ul className="space-y-3">
-        <li >
+        <li className='backdrop-blur-[1px] dark:bg-neutral-700/5 bg-neutral-400/5    rounded-lg px-1'>
           <button
             onClick={onViewResume}
             className="text-para3 dark:text-darkPara3 hover:text-orange-600 group/link dark:hover:text-orange-400 transition-all duration-300 inline-flex items-center gap-2 group/link text-[0.8rem] md:text-base "
@@ -28,7 +28,7 @@ export default function Resources({
           </button>
         </li>
         
-        <li className='md:text-left text-right'>
+        <li className='md:text-left text-right backdrop-blur-[1px] dark:bg-neutral-700/5 bg-neutral-400/5    rounded-lg px-1'>
           <a 
             href="https://github.com/VishalChoudhary01"
             target="_blank"
