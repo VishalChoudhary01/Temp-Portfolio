@@ -16,6 +16,9 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { IoSparkles } from "react-icons/io5";
+import Heading from "../../atoms/typography/Heading/Heading";
+import GlowingCard from "../../molecules/cards/GlowingCard";
+import useDarkMode from "@/app/hooks/useDarkMode";
 
 const featureIcons = [
   FaRocket,
@@ -35,49 +38,43 @@ const featureIcons = [
 const scaleIn = {
   initial: { opacity: 0, scale: 0.95 },
   animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.5, ease: "easeOut" },
+  transition: { duration: 0.4, ease: "easeOut" },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.08,
     },
   },
 };
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
-};
-
-export default function KeyFeaturesSection({ project, colors }) {
+export default function KeyFeaturesSection({ project }) { 
+  const { isDarkMode } = useDarkMode(); 
+  
   if (!project.keyFeatures || project.keyFeatures.length === 0) {
     return null;
   }
+
+  // Determine colors based on theme
+  const accentColor = isDarkMode ? "var(--darkgrad-primary)" : "var(--grad-primary)";
+  const secondaryColor = isDarkMode ? "var(--darkgrad-secondary)" : "var(--grad-secondary)";
 
   return (
     <motion.section
       initial="initial"
       whileInView="animate"
-      viewport={{ once: true, margin: "-100px" }}
-      className="max-w-6xl mx-auto"
+      viewport={{ once: true, margin: "-50px" }}
+      className="max-w-6xl mx-auto px-4 sm:px-6"
     >
-      <motion.div className="text-center mb-12" variants={fadeInUp}>
-        <div className="inline-flex items-center gap-2 mb-4">
-          <FaStar className={`text-2xl ${colors.text}`} />
-          <h2 className={`text-3xl sm:text-4xl font-bold ${colors.text}`}>
-            Key Features
-          </h2>
-        </div>
-        <p className={`max-w-2xl mx-auto text-lg ${colors.textSecondary}`}>
-          Innovative features that make this project stand out
-        </p>
-      </motion.div>
+      <Heading
+        heading="Key Features"
+        subheading="Innovative features that make this project stand out"
+        align="center"
+      />
 
       <motion.div
-        className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         variants={staggerContainer}
       >
         {project.keyFeatures.map((feature, index) => {
@@ -85,33 +82,94 @@ export default function KeyFeaturesSection({ project, colors }) {
           return (
             <motion.div
               key={index}
-              className={`rounded-xl p-6 ${colors.cardBg} border ${colors.accent} backdrop-blur-xl`}
+              className="group relative"
               variants={scaleIn}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              whileHover={{ y: -4, transition: { duration: 0.2 } }}
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div className={`p-3 rounded-lg ${colors.secondary}`}>
-                  <Icon className="text-white text-lg" />
+              <GlowingCard 
+                color={accentColor}
+                className="h-full border border-gray-400/15   dark:border-neutral-400/20 shadow"
+                borderRadius="12px"
+                isDarkMode={isDarkMode}
+              >
+                <div className="relative z-20 h-full p-4 sm:p-6">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="p-2 sm:p-3 rounded-lg flex-shrink-0">
+                      <Icon 
+                        className="text-md md:text-xl sm:text-base"
+                        style={{ color: accentColor }}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-base sm:text-lg font-semibold text-h3 dark:text-Head3dark mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-para2 dark:text-darkPara2 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {feature.highlight && (
+                    <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-lightBorder dark:border-darkBorder">
+                      <div 
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs sm:text-sm"
+                        style={{
+                          background: `linear-gradient(to right, ${accentColor}10, ${secondaryColor}10)`,
+                          border: `1px solid ${accentColor}20`
+                        }}
+                      >
+                        <IoSparkles 
+                          className="text-sm"
+                          style={{ color: accentColor }}
+                        />
+                        <span 
+                          className="font-medium"
+                          style={{ color: accentColor }}
+                        >
+                          {feature.highlight}
+                        </span>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <h3 className={`text-lg font-semibold ${colors.text}`}>
-                  {feature.title}
-                </h3>
-              </div>
-              <p className={`mb-4 ${colors.textSecondary}`}>
-                {feature.description}
-              </p>
-              {feature.highlight && (
-                <div
-                  className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm ${colors.bg}`}
-                >
-                  <IoSparkles className={colors.text} />
-                  <span className={colors.text}>{feature.highlight}</span>
-                </div>
-              )}
+              </GlowingCard>
+              
             </motion.div>
           );
         })}
       </motion.div>
+
+      {/* Optional: Feature count badge */}
+      {project.keyFeatures.length > 0 && (
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-8 sm:mt-12 text-center"
+        >
+          <div 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
+            style={{
+              background: `linear-gradient(to right, ${accentColor}05, ${secondaryColor}05)`,
+              border: `1px solid ${accentColor}20`
+            }}
+          >
+            <FaStar 
+              className="text-sm"
+              style={{ color: accentColor }}
+            />
+            <span className="text-sm text-para2 dark:text-darkPara2">
+              <span 
+                className="font-medium"
+                style={{ color: accentColor }}
+              >
+                {project.keyFeatures.length}
+              </span> key features
+            </span>
+          </div>
+        </motion.div>
+      )}
     </motion.section>
   );
 }

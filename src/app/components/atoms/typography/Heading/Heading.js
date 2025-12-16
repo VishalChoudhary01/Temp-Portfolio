@@ -29,7 +29,7 @@ const Heading = ({
       }}
       className={`w-full flex flex-col ${alignment} md:mb-16 mb-8 `}
     >
-      <h1 className={`${isDarkMode?"dark-heading font-poppins":"heading font-merriweather"} md:text-5xl text-[1.5rem]  tracking-wider font-semibold`}>
+      <h1 className={`${isDarkMode?"dark-heading font-poppins":"heading font-merriweather"} md:text-5xl text-[1.3rem]    tracking-wider font-semibold`}>
         {heading}
         <span className={`${isDarkMode?"dark-underline-animated":"underline-animated"}`}></span>
       </h1>
@@ -40,7 +40,7 @@ const Heading = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-5 text-para2 dark:text-darkPara2 text-base md:text-lg max-w-2xl"
+          className="mt-5 text-para2 dark:text-darkPara2 text-[0.9rem] md:text-lg max-w-2xl"
         >
           {subheading}
         </motion.p>

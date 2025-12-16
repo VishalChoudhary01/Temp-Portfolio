@@ -1,3 +1,4 @@
+// Updated ProjectDetailPage with better mobile spacing
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
@@ -28,19 +29,14 @@ export default function ProjectDetailPage({ projectId }) {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const { isDarkMode, toggleMode } = useDarkMode();
-
   const contentRef = useRef(null);
 
   const { scrollYProgress } = useScroll();
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.97]);
 
-  // In your ProjectDetailPage component
-const project = slideData.find((p) => p.id === projectId);
-
+  const project = slideData.find((p) => p.id === projectId);
   const colors = getProjectColors(project, isDarkMode);
-
-  
 
   if (!project) {
     return <ProjectNotFoundState />;
@@ -48,19 +44,23 @@ const project = slideData.find((p) => p.id === projectId);
 
   return (
     <div className="min-h-screen overflow-hidden bg-transparent">
-      <DarkModeToggle/>
-      {/* Background Shader - Full screen */}
+      <DarkModeToggle />
+      
+      {/* Background Shader */}
       <div className="fixed inset-0 -z-10">
         <GridBackground />
       </div>
 
-      {/* Gradient Overlay */}
-      {isDarkMode ? null : <div
-        className={`fixed inset-0 -z-5 bg-gradient-to-br ${colors.primary}`}
-      />}
+      {/* Gradient Overlay - Only in light mode */}
+      {!isDarkMode && (
+        <div className="fixed inset-0 -z-5 bg-gradient-to-br from-transparent  to-orange-50/30" />
+      )}
       
-      <ProjectFloatingNav router={router} isDarkMode={isDarkMode} handleShare={() => handleShare(project)}/>
-
+      <ProjectFloatingNav 
+        router={router} 
+        isDarkMode={isDarkMode} 
+        handleShare={() => handleShare(project)}
+      />
 
       {/* Main Content */}
       <div className="relative z-10">
@@ -75,7 +75,7 @@ const project = slideData.find((p) => p.id === projectId);
         {/* Content Sections */}
         <div
           ref={contentRef}
-          className="space-y-16 sm:space-y-24 px-4 sm:px-6 pb-24 md:mt-10 mt-16"
+          className="space-y-12 sm:space-y-16 md:space-y-24 px-4 sm:px-6 pb-16 sm:pb-24 md:mt-10 mt-12"
         >
           {/* Project Overview */}
           <ProjectOverviewSection

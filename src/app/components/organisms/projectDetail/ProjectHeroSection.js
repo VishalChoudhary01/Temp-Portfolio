@@ -46,7 +46,7 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
           
           {/* Project Description */}
           <motion.p 
-            className={`text-[0.85rem] sm:text-xl md:text-2xl md:mb-10 mb-6 max-w-3xl mx-auto leading-relaxed dark:text-darkPara3 text-para3`}
+            className={`text-[0.9rem] sm:text-xl md:text-2xl md:mb-10 mb-6 max-w-3xl mx-auto leading-relaxed dark:text-darkPara3 text-para3`}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
@@ -72,9 +72,9 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
                   whileHover={{ scale: 1.05, y: -2 }}
                 >
                   <GlowingCard
-                    className="md:px-4 md:py-2 px-3 py-2 border-transparent"
-                    color={isDarkMode ? "#3b82f6" : "#1d4ed8"}
-                    isDarkMode={isDarkMode}
+
+                    className="md:px-4 md:py-2 px-3 py-2 border border-gray-300 dark:border-neutral-400/20  shadow"
+                    color={isDarkMode ? "#ff9f1a" : "#00bbf9"}
                     borderRadius="10px"
                   >
                     <div className="flex items-center md:gap-x-2 gap-x-1 md:text-[0.9rem] text-[0.8rem] dark:text-Head2dark text-h3">

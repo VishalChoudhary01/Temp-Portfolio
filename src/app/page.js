@@ -1,5 +1,6 @@
 
-import {Navbar,Banner,Footer,Main} from "./components";
+import {Navbar,Banner,Main} from "./components";
+import DarkModeToggle  from "@/app/components/atoms/theme-toggle/DarkModeToggle";
 
 export default function Home() {
   return (
@@ -7,7 +8,9 @@ export default function Home() {
       <Navbar/>
       <Banner/>
       <Main/>
-      <Footer/>
+      <div className="md:hidden">
+      <DarkModeToggle/>
+      </div>
     </div>
   );
 }

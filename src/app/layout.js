@@ -1,6 +1,7 @@
 import "./globals.css";
 import ClientProvider from "./redux/clientProvider";
 import FaviconSwitcher from "./components/FaviconSwitcher";
+import { Footer } from "./components";
 import {
   Poppins,
   Roboto,
@@ -76,6 +77,7 @@ export default function RootLayout({ children }) {
           <FaviconSwitcher />
           {children}
         </ClientProvider>
+        <Footer />
       </body>
     </html>
   );

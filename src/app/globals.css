@@ -509,22 +509,40 @@ html {
 }
 
 
+/* @utility shine-double-light {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(221, 90, 3, 0.1) 0deg,
+    var(--grad-primary) 30deg,
+    var(--grad-secondary) 60deg,
+    var(--grad-tertiary) 90deg,
+    var(--grad-quaternary) 120deg,
+    rgba(246, 137, 177, 0.1) 150deg,
+    rgba(246, 137, 177, 0.1) 180deg,
+    var(--grad-primary) 210deg,
+    var(--grad-secondary) 240deg,
+    var(--grad-tertiary) 270deg,
+    var(--grad-quaternary) 300deg,
+    rgba(221, 90, 3, 0.1) 330deg,
+    rgba(221, 90, 3, 0.1) 360deg
+  );
+} */
+
 @utility shine-double-light {
   background: conic-gradient(
     from 0deg at 50% 50%,
-    rgba(59, 130, 246, 0.2) 0deg,
-    rgba(59, 130, 246, 0.4) 30deg,
-    #60a5fa 60deg,
-    #2563eb 90deg,
-    #60a5fa 120deg,
-    rgba(96, 165, 250, 0.4) 150deg,
-    rgba(96, 165, 250, 0.2) 180deg,
-    rgba(59, 130, 246, 0.2) 180deg,
-    rgba(59, 130, 246, 0.4) 210deg,
-    #60a5fa 240deg,
-    #2563eb 270deg,
-    #60a5fa 300deg,
-    rgba(96, 165, 250, 0.4) 330deg,
-    rgba(96, 165, 250, 0.2) 360deg
+    rgba(255, 107, 107, 0.1) 0deg,
+    var(--darkgrad-primary) 30deg,
+    var(--darkgrad-secondary) 60deg,
+    var(--darkgrad-tertiary) 90deg,
+    var(--darkgrad-quaternary) 120deg,
+    rgba(107, 207, 127, 0.1) 150deg,
+    rgba(107, 207, 127, 0.1) 180deg,
+    var(--darkgrad-primary) 210deg,
+    var(--darkgrad-secondary) 240deg,
+    var(--darkgrad-tertiary) 270deg,
+    var(--darkgrad-quaternary) 300deg,
+    rgba(255, 107, 107, 0.1) 330deg,
+    rgba(255, 107, 107, 0.1) 360deg
   );
 }
