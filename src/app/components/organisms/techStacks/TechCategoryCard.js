@@ -41,16 +41,16 @@ const TechCategoryCard = ({
   return (
     <GlowingCard
       color={iconColor}
-      className="rounded-xl md:rounded-2xl h-full w-full mx-auto max-w-[280px] min-h-[400px]   sm:max-w-none sm:w-full"
+      className="rounded-xl md:rounded-2xl h-full w-full mx-auto max-w-[380px] min-h-[400px]   sm:max-w-none sm:w-full"
       isDarkMode={isDarkMode}
       glowIntensity={0.4}
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="group relative h-full flex flex-col"
+        className="group relative h-full md:w-[350px] w-[280px]   flex flex-col"
       >
         <div className="relative z-10 p-4 md:p-6 flex flex-col items-center text-center space-y-4 md:space-y-6 h-full font-poppins">
           {/* Icon Container */}

@@ -174,7 +174,7 @@ const Tech = () => {
 
         {/* Skills Grid - Centered with 3 columns */}
         <div className="flex justify-center  ">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 relative z-10 max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 lg:gap-8 relative z-10 max-w-5xl">
             {categories.map((category, index) => (
               <TechCategoryCard
                 key={index}
