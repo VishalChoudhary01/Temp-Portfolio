@@ -1,5 +1,5 @@
 
-import ProjectDetailPage from "./ProjectDetailPage_new";
+import ProjectDetailPage from "./ProjectDetailPage";
 
 export default async function Page({ params }) {
   const { project_id } = await params;
