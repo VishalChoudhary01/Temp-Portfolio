@@ -77,7 +77,7 @@ const TechCategoryCard = ({
 
           {/* Title */}
           <HeadingTwo 
-            className=" mb-6 select-none  text-md font-bold text-h2 dark:text-Head2dark leading-tight transition-colors duration-300 tracking-wider"
+            className=" mb-6 text-md md:text-lg select-none  font-bold text-h2 dark:text-Head2dark leading-tight transition-colors duration-300 tracking-wider"
           >
             {category.title}
           </HeadingTwo>
