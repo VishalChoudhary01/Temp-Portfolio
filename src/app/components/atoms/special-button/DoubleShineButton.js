@@ -1,24 +1,30 @@
 "use client";
 
 import React from "react";
+import useDarkMode from "@/app/hooks/useDarkMode";
 
-const DoubleShineButton = () => {
+const DoubleShineButton = ({buttonText,buttonStyle,leftIcon,leftIconStyle,rightIcon,rightIconStyle,buttonClick,buttonType="button"}) => {
+  const { isDarkMode } = useDarkMode();
+
   return (
-    <button className="relative group px-12 py-6 bg-gray-900 rounded-2xl overflow-hidden  cursor-pointer transition-transform duration-300">
-      <span className="relative z-10 text-white font-bold text-xl">
-        Double Shine
+    <button type={buttonType} className={`relative group px-8 py-3 bg-neutral-800   rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] `} onClick={buttonClick}>
+      <span className={`relative z-10 text-white flex items-center ${buttonStyle}`}>
+        {leftIcon && <span className={`mr-2 ${leftIconStyle}`}>{leftIcon}</span>}
+        <span>{buttonText}</span>
+        {rightIcon && <span className={`ml-2 ${rightIconStyle}`}>{rightIcon}</span>}
       </span>
 
-      {/* Shine border */}
-      <div className="absolute inset-0 rounded-2xl overflow-hidden">
-        <div className="absolute inset-0 shine-double animate-rotate-shine-medium opacity-70 blur-md" />
+      {/* Enhanced shine border with proper sizing */}
+      <div className="absolute inset-0 rounded-xl overflow-hidden">
+        <div 
+          className={`absolute inset-[-50%] ${
+            isDarkMode ? 'shine-double-dark' : 'shine-double-light'
+          } animate-rotate-shine-slowest  opacity-80  blur-[2px] dark:blur-md`} 
+        />
       </div>
-
-      {/* Inner overlay */}
-      <div className="absolute inset-[2px] bg-gray-900 group-hover:bg-gray-950 transition-all rounded-2xl z-0" />
-
-      {/* Glow effect */}
-      <div className="absolute inset-0 shine-double animate-rotate-shine-medium opacity-0 transition-opacity duration-500 blur-xl rounded-2xl" />
+      
+      {/* Inner overlay - adjusted for better shine visibility */}
+      <div className="absolute inset-[2px] bg-black dark:bg-zinc-950 hover:dark:bg-neutral-950 transition-all rounded-xl z-0" />
     </button>
   );
 };

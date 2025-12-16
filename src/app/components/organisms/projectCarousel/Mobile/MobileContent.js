@@ -7,7 +7,7 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 import { HiExternalLink } from "react-icons/hi";
 
 const MobileContent = ({ item, onPrev, onNext ,handleSeeMore}) => (
-  <div className="absolute bottom-24 left-0 w-full  py-6 z-30 ">
+  <div className="absolute bottom-0   left-0 w-full  py-6 z-30  ">
 
     <div className=" px-4 sm:px-6">
       <motion.div

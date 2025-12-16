@@ -4,8 +4,7 @@ import { FaChevronRight } from "react-icons/fa6";
 import {motion} from 'motion/react'
 
 const MobileNavigationButtons = ({ onPrev, onNext }) => (
-  <div className="flex items-center absolute justify-between -top-44    w-full px-1.5 ">
-
+  <div className="flex items-center  justify-between bottom-72 relative    w-full px-1.5 ">
     <motion.button
       onClick={onPrev}
       whileTap={{ scale: 0.9 }}

@@ -30,26 +30,26 @@ export const categories = [
     skills: skillsData.frontend,
     colorIndex: 0
   },
-  {
-    title: "Backend Development",
-    icon: <FaDatabase />,
-    gradientColor: "var(--grad-secondary)",
-    darkGradientColor: "var(--darkgrad-secondary)",
-    lightTextShadow: "var(--grad-secondary)",
-    darkTextShadow: "var(--darkgrad-secondary)",
-    skills: skillsData.backend,
-    colorIndex: 1
-  },
-  {
-    title: "Programming Languages",
-    icon: <LuLanguages />,
-    gradientColor: "var(--grad-tertiary)",
-    darkGradientColor: "var(--darkgrad-tertiary)",
-    lightTextShadow: "var(--grad-tertiary)",
-    darkTextShadow: "var(--darkgrad-tertiary)",
-    skills: skillsData.languages,
-    colorIndex: 2
-  },
+  // {
+  //   title: "Backend Development",
+  //   icon: <FaDatabase />,
+  //   gradientColor: "var(--grad-secondary)",
+  //   darkGradientColor: "var(--darkgrad-secondary)",
+  //   lightTextShadow: "var(--grad-secondary)",
+  //   darkTextShadow: "var(--darkgrad-secondary)",
+  //   skills: skillsData.backend,
+  //   colorIndex: 1
+  // },
+  // {
+  //   title: "Programming Languages",
+  //   icon: <LuLanguages />,
+  //   gradientColor: "var(--grad-tertiary)",
+  //   darkGradientColor: "var(--darkgrad-tertiary)",
+  //   lightTextShadow: "var(--grad-tertiary)",
+  //   darkTextShadow: "var(--darkgrad-tertiary)",
+  //   skills: skillsData.languages,
+  //   colorIndex: 2
+  // },
   {
     title: "Tools & Software",
     icon: <BsTools />,

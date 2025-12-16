@@ -420,6 +420,8 @@ html {
   --animate-rotate-shine-fast: rotate-shine 2s linear infinite;
   --animate-rotate-shine-medium: rotate-shine 3s linear infinite;
   --animate-rotate-shine-slow: rotate-shine 4s linear infinite;
+  --animate-rotate-shine-slower: rotate-shine 6s linear infinite;
+  --animate-rotate-shine-slowest: rotate-shine 8s linear infinite;
 
   @keyframes rotate-shine {
     from {
@@ -462,21 +464,7 @@ html {
   );
 }
 
-@utility shine-double {
-  background: conic-gradient(
-    from 0deg at 50% 50%,
-    transparent 0deg,
-    #ffffff 30deg,
-    #3b82f6 45deg,
-    #ffffff 60deg,
-    transparent 90deg,
-    transparent 180deg,
-    #ffffff 210deg,
-    #3b82f6 225deg,
-    #ffffff 240deg,
-    transparent 270deg
-  );
-}
+
 
 @utility shine-sparkle {
   background: conic-gradient(
@@ -501,3 +489,42 @@ html {
   );
 }
 
+
+
+
+@utility shine-double-dark {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    #ffffff 30deg,
+    var(--darkgrad-primary) 45deg,
+    #ffffff 60deg,
+    transparent 90deg,
+    transparent 180deg,
+    #ffffff 210deg,
+    var(--darkgrad-primary) 225deg,
+    #ffffff 240deg,
+    transparent 270deg
+  );
+}
+
+
+@utility shine-double-light {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(59, 130, 246, 0.2) 0deg,
+    rgba(59, 130, 246, 0.4) 30deg,
+    #60a5fa 60deg,
+    #2563eb 90deg,
+    #60a5fa 120deg,
+    rgba(96, 165, 250, 0.4) 150deg,
+    rgba(96, 165, 250, 0.2) 180deg,
+    rgba(59, 130, 246, 0.2) 180deg,
+    rgba(59, 130, 246, 0.4) 210deg,
+    #60a5fa 240deg,
+    #2563eb 270deg,
+    #60a5fa 300deg,
+    rgba(96, 165, 250, 0.4) 330deg,
+    rgba(96, 165, 250, 0.2) 360deg
+  );
+}

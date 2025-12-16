@@ -82,8 +82,8 @@ const CarouselProjects = () => {
   };
 
   return (
-    <section className="relative overflow-hidden">
-      <div className="w-screen h-screen  overflow-hidden relative ">
+    <section className="relative overflow-hidden  ">
+      <div className="w-screen md:h-[800px] h-[500px]      overflow-hidden relative ">
         <div className="absolute md:bottom-48    left-0 w-full h-full ">
           {isMobile && (
             <MobileBackgroundImage 

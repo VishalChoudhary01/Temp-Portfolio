@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 
 const MobileBackgroundImage = ({ image, name, id }) => (
-  <div className="absolute bottom-20 inset-0 z-10" style={{ perspective: '1000px' }}>
+  <div className="absolute bottom-48   inset-0 z-10" style={{ perspective: '1000px' }}>
     <AnimatePresence mode="wait">
       <motion.div
         key={id}
