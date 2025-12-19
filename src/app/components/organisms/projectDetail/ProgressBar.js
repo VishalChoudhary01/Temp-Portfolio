@@ -9,7 +9,6 @@ const ProgressBar = ({ score, label, colorClass, showScore = true }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   
-  // Function to get Tailwind color classes based on score
   const getScoreColorClasses = (scoreValue) => {
     if (scoreValue >= 90) return {
       bar: " bg-linear-to-r from-emerald-500 to-emerald-600 dark:from-emerald-700/85 dark:to-emerald-300/85",
