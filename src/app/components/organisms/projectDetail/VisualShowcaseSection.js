@@ -3,6 +3,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaEye, FaExpand, FaTimes } from "react-icons/fa";
 import { useState } from "react";
+import { Heading } from "../../atoms/typography";
+
 
 const scaleIn = {
   initial: { opacity: 0, scale: 0.95 },
@@ -73,15 +75,7 @@ export default function VisualShowcaseSection({
         className="max-w-6xl mx-auto"
       >
         <motion.div className="text-center mb-12" variants={fadeInUp}>
-          <div className="inline-flex items-center gap-2 mb-4">
-            <FaEye className={`text-2xl ${colors.text}`} />
-            <h2 className={`text-3xl sm:text-4xl font-bold ${colors.text}`}>
-              Project Screenshots
-            </h2>
-          </div>
-          <p className={`max-w-2xl mx-auto text-lg ${colors.textSecondary}`}>
-            Interactive gallery showcasing the project's design and features
-          </p>
+          <Heading heading="Project Screenshots" subheading=""/>
         </motion.div>
 
         <motion.div

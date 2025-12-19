@@ -1,4 +1,3 @@
-// components/atoms/DigitSlideCounter.jsx
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -7,6 +6,8 @@ const DigitSlideCounter = ({
   value,
   duration = 1800,
   triggerAnimation = true,
+  textColorClass = "text-gray-900 dark:text-neutral-100/75", 
+  className = "",
 }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -72,7 +73,7 @@ const DigitSlideCounter = ({
   return (
     <div
       ref={ref}
-      className="flex items-center justify-center gap-0 text-github-repo-count dark:text-github-repo-count-dark"
+      className={`flex items-center justify-center gap-0 ${textColorClass} ${className}`}
       style={{
         fontVariantNumeric: "tabular-nums", // Ensures consistent digit width
       }}
@@ -81,7 +82,6 @@ const DigitSlideCounter = ({
         // Determine animation direction based on position
         // Even indices slide up, odd indices slide down
         const direction = index % 2 === 0 ? "up" : "down";
-
         const initialY = direction === "up" ? 25 : -25;
 
         return (

@@ -1,17 +1,3 @@
-import claudio from '../../../../public/images/project carousel/claudio.jpg'; 
-import delta from '../../../../public/images/project carousel/delta.jpg'; 
-import pawel from '../../../../public/images/project carousel/pawel.jpg'; 
-import rene from '../../../../public/images/project carousel/rene.jpg'; 
-
-//common react icons imports
-import { BsFillRocketTakeoffFill } from "react-icons/bs";
-import { FaMobileAlt } from "react-icons/fa";
-import { RiSparkling2Line } from "react-icons/ri";
-import { IoSearch } from "react-icons/io5";
-import { FaUserCog } from "react-icons/fa";
-
-
-// Amurtam imports
 import amurtamBanner from '../../../../public/images/project carousel/amurtam/amurtamBanner.png';
 import amurtam_features from '../../../../public/images/project carousel/amurtam/gallery/features.png';
 import amurtam_hero from '../../../../public/images/project carousel/amurtam/gallery/hero.png';
@@ -21,414 +7,348 @@ import amurtam_tablet from '../../../../public/images/project carousel/amurtam/g
 import amurtam_testimonial from '../../../../public/images/project carousel/amurtam/gallery/testimonial.png';
 import amurtam_process from '../../../../public/images/project carousel/amurtam/gallery/process.png';
 
+import trailorBanner from '../../../../public/images/project carousel/trailor-ride/trailorBanner.png';
+import trailor_mobile from '../../../../public/images/project carousel/trailor-ride/gallery/mobile.png';
+import trailor_mobile_community from '../../../../public/images/project carousel/trailor-ride/gallery/mobile_community.png';
+import trailor_mobile_brands from '../../../../public/images/project carousel/trailor-ride/gallery/mobileBrands.png'; 
+import trailor_community from '../../../../public/images/project carousel/trailor-ride/gallery/coumminity-bentogrid.png';
+import trailor_tablet from '../../../../public/images/project carousel/trailor-ride/gallery/tablet_hero.png';
 
-
-// crypto imports
-import crypto from '../../../../public/images/project carousel/crypto-tracker/cryptoBanner.png';
-
-// trailor ride imports
-import trailorRide from '../../../../public/images/project carousel/trailor-ride/trailorRideBanner.png';
-import trailorbanner from '../../../../public/images/project carousel/trailor-ride/trailorBanner.png';
+// Common react icons imports
+import { BsFillRocketTakeoffFill } from "react-icons/bs";
+import { FaMobileAlt } from "react-icons/fa";
+import { RiSparkling2Line } from "react-icons/ri";
+import { FaUserCog } from "react-icons/fa";
 
 export const slideData = [
- {
-  // BASIC INFORMATION
-  id: 25,
-  name: "Amrutam ",
-  projectType: "Healthcare Landing Page",
-  description: "A modern healthcare platform bridging traditional Ayurvedic medicine with digital accessibility. Designed for intuitive doctor discovery and consultations.",
-  image: amurtamBanner,
-  technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite", "React Router"],
-  liveUrl: "https://amurtam-frontend.vercel.app/",
-  githubUrl: "https://github.com/VishalChoudhary01/amurtam-frontend",
-  figmaUrl: "https://www.figma.com/design/6sg7GHDwjkcXdPq6ULtZDS/Amurtam-frontend?t=OwWMbZZQpFhaxf7A-1",
-  category: "Healthcare & Wellness",
-  year: "2023",
-  gallery: [amurtam_features, amurtam_hero, amurtam_iphone, amurtam_landscape, amurtam_tablet, amurtam_testimonial, amurtam_process],
-
-  // ENHANCED DATA
-  longDescription: "Amrutam is a personal project showcasing a healthcare platform that connects users with Ayurvedic practitioners. Built with modern React patterns, it demonstrates advanced UI/UX principles, performance optimization techniques, and responsive design implementation.",
-  
-  
-  stats: {
-    developmentTime: "4 Days",
-    pages: "2",
-    components: "10+",
-    performanceScore: "95",
-    responsiveBreakpoints: "3"
-  },
-
-  // Challenges focused on technical learning
-  challenges: [
-    {
-      title: "Performance Optimization",
-      description: "Implemented lazy loading, image optimization, and code splitting to achieve 60% faster load times",
-      icon: BsFillRocketTakeoffFill,
-    },
-    {
-      title: "Responsive Design System",
-      description: "Built mobile-first responsive layouts using Tailwind CSS with consistent breakpoints",
-      icon: FaMobileAlt,
-    },
-    {
-      title: "Animation Implementation",
-      description: "Integrated smooth animations with Framer Motion while maintaining 60fps performance",
-      icon: RiSparkling2Line,
-    },
-    {
-      title: "State Management",
-      description: "Managed complex UI states with React hooks for dynamic filtering and carousels",
-      icon: FaUserCog,
-    }
-  ],
-
-   bentoGrid: [
-    {
-      id: 1,
-      title: "Homepage Design",
-      description: "Hero section with featured doctors and call-to-action",
-      image: amurtam_hero,
-      gridPosition: "col-span-2 row-span-2",
-      category: "design",
-      size: "large"
-    },
-    {
-      id: 2,
-      title: "Doctor Search",
-      description: "Advanced filtering and search functionality",
-      image: amurtam_features,
-      gridPosition: "col-span-1 row-span-1",
-      category: "search",
-      size: "medium"
-    },
-    {
-      id: 3,
-      title: "Testimonials",
-      description: "Customer reviews carousel section",
-      image: amurtam_testimonial,
-      gridPosition: "col-span-1 row-span-1",
-      category: "testimonials",
-      size: "medium"
-    },
-    {
-      id: 4,
-      title: "Mobile View",
-      description: "Responsive design on mobile devices",
-      image: amurtam_iphone,
-      gridPosition: "col-span-1 row-span-2",
-      category: "mobile",
-      size: "tall"
-    },
-    {
-      id: 5,
-      title: "Process Steps",
-      description: "Four-step appointment process",
-      image: amurtam_process,
-      gridPosition: "col-span-1 row-span-1",
-      category: "process",
-      size: "medium"
-    },
-    {
-      id: 6,
-      title: "Tablet View",
-      description: "Layout optimization for tablets",
-      image: amurtam_tablet,
-      gridPosition: "col-span-2 row-span-1",
-      category: "responsive",
-      size: "wide"
-    }
-  ],
-  // Key features - cleaned and focused
-  keyFeatures: [
-    {
-      title: "Interactive Doctor Discovery",
-      description: "Advanced search and filtering system with real-time results",
-      highlight: "Dynamic Filtering"
-    },
-    {
-      title: "Responsive Design",
-      description: "Mobile-first approach with consistent experience across all devices",
-      highlight: "Mobile Optimized"
-    },
-    {
-      title: "Performance Focused",
-      description: "Optimized assets and lazy loading for fast page loads",
-      highlight: "95 Performance Score"
-    },
-    {
-      title: "Modern Animations",
-      description: "Smooth transitions and micro-interactions using Framer Motion",
-      highlight: "60fps Animations"
-    }
-  ],
-
-  // Simplified tech stack
-  techStack: {
-    frontend: [
-      {
-        name: "React",
-        version: "18.3.1",
-        description: "Built component-based UI with hooks and context API"
-      },
-      {
-        name: "Vite",
-        version: "6.0.1",
-        description: "Fast build tool for development and production"
-      },
-      {
-        name: "Tailwind CSS",
-        version: "3.4.16",
-        description: "Utility-first CSS for responsive design system"
-      },
-      {
-        name: "React Router",
-        version: "7.0.2",
-        description: "Client-side routing and navigation"
-      },
-      {
-        name: "Motion",
-        version: "11.15.0",
-        description: "Animation library for smooth transitions"
-      },
-      {
-        name: "React Icons",
-        version: "5.4.0",
-        description: "Icon library for UI elements"
-      }
-    ],
-    devTools: [
-      {
-        name: "ESLint",
-        description: "Code quality and linting"
-      },
-      {
-        name: "PostCSS",
-        description: "CSS processing and optimization"
-      },
-      {
-        name: "Autoprefixer",
-        description: "Browser compatibility for CSS"
-      }
-    ],
-    deployment: {
-      platform: "Vercel",
-      branch: "main",
-      autoDeployment: true
-    }
-  },
-
-  // Simplified pages
-  pages: [
-    {
-      name: "Home",
-      description: "Landing page with featured content and navigation",
-      features: [
-        "Hero section",
-        "Doctor carousel",
-        "Process steps",
-        "Testimonials"
-      ]
-    },
-    {
-      name: "Search Doctors",
-      description: "Search interface with filtering options",
-      features: [
-        "Search functionality",
-        "Multiple filters",
-        "Real-time results"
-      ]
-    },
-    {
-      name: "Doctor Profile",
-      description: "Detailed practitioner information",
-      features: [
-        "Doctor details",
-        "Consultation options",
-        "Reviews display"
-      ]
-    }
-  ],
-
-  // Performance metrics - cleaned
-  performanceMetrics: {
-    lighthouse: {
-      performance: 82,
-      accessibility: 85,
-      bestPractices: 92,
-      seo: 91
-    },
-    loadTime: "1.8s",
-    coreWebVitals: "Good"
-  },
-
-  // Learning outcomes - focused on technical skills
-  learningOutcomes: [
-    "Advanced React hooks and custom hooks",
-    "Performance optimization techniques",
-    "Responsive design with Tailwind CSS",
-    "Animation implementation with Framer Motion",
-    "Component composition patterns",
-    "Build optimization with Vite"
-  ],
-
-  // Development info - simplified
-  developmentInfo: {
-    type: "Personal Project",
-    status: "Completed",
-    focus: "UI/UX & Frontend Development"
-  },
-
-  // Future enhancements - realistic for personal project
-  futureEnhancements: [
-    "User authentication system",
-    "Real-time chat functionality",
-    "Advanced filtering options",
-    "Dark mode implementation"
-  ]
-},
-
   {
     id: 1,
-    name: "Trailor Ride",
-    description: "A breathtaking journey through the Swiss Alps with stunning landscapes and pristine lakes. Experience the perfect blend of natural beauty and modern architecture.",
-    image: trailorbanner,
-    gallery: [claudio, pawel, rene, delta, claudio, pawel],
-    technologies: ["NextJS", "Tailwind CSS", "Framer Motion", "TypeScript"],
-    liveUrl: "https://switzerland-project.demo",
-    githubUrl: "https://github.com/yourusername/switzerland-project",
-    category: "Landscape Photography",
+    name: "Amrutam",
+    projectType: "Healthcare Landing Page",
+    description: "A modern healthcare platform bridging traditional Ayurvedic medicine with digital accessibility.",
+    image: amurtamBanner,
+    technologies: ["React", "Tailwind CSS", "Framer Motion", "Vite", "React Router"],
+    liveUrl: "https://amurtam-frontend.vercel.app/",
+    githubUrl: "https://github.com/VishalChoudhary01/amurtam-frontend",
+    figmaUrl: "https://www.figma.com/design/6sg7GHDwjkcXdPq6ULtZDS/Amurtam-frontend?t=OwWMbZZQpFhaxf7A-1",
+    category: "Healthcare & Wellness",
     year: "2023",
-    client: "Travel Co.",
+    gallery: [amurtam_features, amurtam_hero, amurtam_iphone, amurtam_landscape, amurtam_tablet, amurtam_testimonial, amurtam_process],
+
+    longDescription: "Amrutam is a healthcare platform that connects users with Ayurvedic practitioners. Built with modern React patterns, it demonstrates advanced UI/UX principles and responsive design.",
     
-    // ENHANCED DATA BELOW
-    longDescription: "This comprehensive photography project captures the essence of Switzerland's majestic landscapes. From the iconic Matterhorn to the serene waters of Lake Geneva, every image tells a story of natural wonder. The project combines cutting-edge web technologies with stunning visual content to create an immersive digital experience.",
-    
+    // Consolidated stats with performance metrics
     stats: {
-      duration: "6 months",
-      images: "120+",
-      locations: "15+",
-      satisfaction: "98%"
+      developmentTime: "4 Days",
+      pages: "2",
+      components: "10+",
+      responsiveBreakpoints: "3",
+      // Moved performance data here
+      lighthousePerformance: 82,
+      lighthouseAccessibility: 85,
+      lighthouseBestPractices: 92,
+      lighthouseSEO: 91,
+      loadTime: "1.8s",
+      coreWebVitals: "Good"
     },
-    
-    // Project challenges and solutions
-    challenges: [
+
+    bentoGrid: [
       {
-        title: "Performance Optimization",
-        description: "Optimized image loading with Next.js Image component, reducing load time by 60%",
-        icon: "rocket"
+        id: 1,
+        title: "Homepage Design",
+        description: "Hero section with featured doctors and call-to-action",
+        image: amurtam_hero,
+        gridPosition: "col-span-2 row-span-2",
+        category: "design",
+        size: "large"
+      },
+      {
+        id: 2,
+        title: "Doctor Search",
+        description: "Advanced filtering and search functionality",
+        image: amurtam_features,
+        gridPosition: "col-span-1 row-span-1",
+        category: "search",
+        size: "medium"
+      },
+      {
+        id: 3,
+        title: "Testimonials",
+        description: "Customer reviews carousel section",
+        image: amurtam_testimonial,
+        gridPosition: "col-span-1 row-span-1",
+        category: "testimonials",
+        size: "medium"
+      },
+      {
+        id: 4,
+        title: "Mobile View",
+        description: "Responsive design on mobile devices",
+        image: amurtam_iphone,
+        gridPosition: "col-span-1 row-span-2",
+        category: "mobile",
+        size: "tall"
+      },
+      {
+        id: 5,
+        title: "Process Steps",
+        description: "Four-step appointment process",
+        image: amurtam_process,
+        gridPosition: "col-span-1 row-span-1",
+        category: "process",
+        size: "medium"
+      },
+      {
+        id: 6,
+        title: "Tablet View",
+        description: "Layout optimization for tablets",
+        image: amurtam_tablet,
+        gridPosition: "col-span-2 row-span-1",
+        category: "responsive",
+        size: "wide"
+      }
+    ],
+    
+    keyFeatures: [
+      {
+        title: "Interactive Doctor Discovery",
+        description: "Advanced search and filtering system with real-time results",
+        highlight: "Dynamic Filtering"
       },
       {
         title: "Responsive Design",
-        description: "Created fluid layouts that work seamlessly across all device sizes",
-        icon: "mobile"
+        description: "Mobile-first approach with consistent experience across all devices",
+        highlight: "Mobile Optimized"
       },
       {
-        title: "Animation Performance",
-        description: "Implemented smooth 60fps animations using Framer Motion and GPU acceleration",
-        icon: "sparkles"
+        title: "Performance Focused",
+        description: "Optimized assets and lazy loading for fast page loads",
+        highlight: "82 Performance Score"
+      },
+      {
+        title: "Modern Animations",
+        description: "Smooth transitions and micro-interactions using Framer Motion",
+        highlight: "60fps Animations"
       }
     ],
-    
-    // Key features with more detail
-    keyFeatures: [
+
+    techStack: {
+      frontend: [
+        { name: "React", version: "18.3.1" },
+        { name: "Vite", version: "6.0.1" },
+        { name: "Tailwind CSS", version: "3.4.16" },
+        { name: "React Router", version: "7.0.2" },
+        { name: "Motion", version: "11.15.0" },
+        { name: "React Icons", version: "5.4.0" }
+      ]
+    },
+
+    challenges: [
       {
-        title: "Interactive Gallery",
-        description: "Swipeable image gallery with touch gestures and keyboard navigation",
-        highlight: "2000+ interactions"
+        title: "Performance Optimization",
+        description: "Implemented lazy loading and image optimization for faster load times",
+        icon: BsFillRocketTakeoffFill,
       },
       {
-        title: "Dark/Light Mode",
-        description: "Seamless theme switching with persistent user preference",
-        highlight: "System sync"
-      },
-      {
-        title: "SEO Optimized",
-        description: "Meta tags, structured data, and optimized content for search engines",
-        highlight: "100 Score"
-      },
-      {
-        title: "Lazy Loading",
-        description: "Progressive image loading with blur placeholders",
-        highlight: "60% faster"
+        title: "Responsive Design System",
+        description: "Built mobile-first responsive layouts using Tailwind CSS",
+        icon: FaMobileAlt,
       }
     ],
-    
-    // Technical metrics
-    metrics: {
-      performance: 98,
-      accessibility: 100,
-      bestPractices: 95,
-      seo: 100,
-      loadTime: "1.2s",
-      bundleSize: "180kb",
-      lighthouse: 98
+
+    developmentInfo: {
+      type: "Personal Project",
+      status: "Completed",
+      focus: "UI/UX & Frontend Development"
     },
-    
-    // Project timeline
-    timeline: [
-      { phase: "Planning", duration: "2 weeks", status: "completed" },
-      { phase: "Design", duration: "3 weeks", status: "completed" },
-      { phase: "Development", duration: "12 weeks", status: "completed" },
-      { phase: "Testing", duration: "2 weeks", status: "completed" },
-      { phase: "Deployment", duration: "1 week", status: "completed" }
+
+    // Removed separate performanceMetrics object
+    // performanceMetrics is now part of stats
+
+    // Other data
+    pages: [
+      {
+        name: "Home",
+        description: "Landing page with featured content and navigation",
+        features: [
+          "Hero section",
+          "Doctor carousel",
+          "Process steps",
+          "Testimonials"
+        ]
+      }
     ],
-    
-    // Tech stack details
-    techStackDetails: {
-      frontend: ["Next.js 14", "React 18", "TypeScript", "Tailwind CSS"],
-      animations: ["Framer Motion", "GSAP"],
-      performance: ["Turbopack", "Image Optimization", "Code Splitting"],
-      deployment: ["Vercel", "Edge Functions", "ISR"],
-      testing: ["Jest", "React Testing Library", "Playwright"]
-    },
-    
-    // Team members (if applicable)
-    team: [
-      { role: "Frontend Developer", name: "You", focus: "Development & Architecture" },
-      { role: "UI/UX Designer", name: "Design Team", focus: "Visual Design" },
-      { role: "Project Manager", name: "PM Team", focus: "Coordination" }
-    ],
-    
-    // Testimonial
-    testimonial: {
-      text: "The attention to detail and smooth user experience exceeded our expectations. The website perfectly captures the essence of Switzerland.",
-      author: "John Doe",
-      position: "CEO, Travel Co.",
-      rating: 5
-    },
-    
-    // Color palette
-    colorPalette: {
-      primary: "#3B82F6",
-      secondary: "#8B5CF6",
-      accent: "#10B981",
-      background: "#F9FAFB",
-      text: "#111827"
-    },
-    
-    // Browser support
-    browserSupport: ["Chrome 90+", "Firefox 88+", "Safari 14+", "Edge 90+"],
-    
-    // Accessibility features
-    accessibility: [
-      "WCAG 2.1 AA Compliant",
-      "Keyboard Navigation",
-      "Screen Reader Optimized",
-      "High Contrast Mode",
-      "Focus Indicators"
-    ],
-    
-    // Related projects
-    relatedProjects: [2, 4],
-    
-    // Video demo URL (if you have demo videos)
-    demoVideo: "https://youtube.com/demo-video",
-    
-    // Awards or recognition
-    awards: [
-      { name: "Awwwards Site of the Day", date: "2023" },
-      { name: "CSS Design Awards", date: "2023" }
+
+    learningOutcomes: [
+  "Advanced React hooks and custom hooks",
+  "Performance optimization techniques",
+  "Responsive design with Tailwind CSS",
+  "Animation implementation with Framer Motion"
+],
+
+
+    futureEnhancements: [
+      "User authentication system",
+      "Real-time chat functionality",
+      "Advanced filtering options",
+      "Dark mode implementation"
     ]
   },
-  
+
+  {
+    id: 25,
+    name: "Trailor Ride",
+    projectType: "Motorcycle E-Commerce Landing Page",
+    description: "A modern, high-performance motorcycle landing page showcasing premium models, generating leads, and promoting a mobile companion app.",
+    image: trailorBanner,
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Motion", "React Icons"],
+    liveUrl: "https://trailor-ride.vercel.app",
+    githubUrl: "https://github.com/VishalChoudhary01/Trailor-Trade-.git",
+    category: "E-commerce & Automotive",
+    year: "2024",
+    
+    longDescription: "Trailor Ride is a responsive landing page built with Next.js and Tailwind CSS designed to showcase motorcycle models, capture leads through conversion-focused forms, and promote the companion mobile app.",
+
+    // Consolidated stats
+    stats: {
+      developmentTime: "5 Days",
+      pages: "1 (Landing)",
+      components: "20+",
+      responsiveBreakpoints: "3",
+      // Moved performance data here
+      lighthousePerformance: 62,
+      lighthouseAccessibility: 83,
+      lighthouseBestPractices: 100,
+      lighthouseSEO: 92,
+      loadTime: "1.8s",
+      coreWebVitals: "Good"
+    },
+
+    bentoGrid: [
+      {
+        id: 1,
+        title: "Hero / Digital Showroom",
+        description: "Large hero with featured motorcycles and primary CTA.",
+        image: trailor_mobile,
+        gridPosition: "col-span-2 row-span-2",
+        category: "design",
+        size: "large"
+      },
+      {
+        id: 2,
+        title: "Bikes Showcase",
+        description: "Model cards with specs and quick actions.",
+        image: trailor_mobile_community,
+        gridPosition: "col-span-1 row-span-1",
+        category: "showcase",
+        size: "medium"
+      },
+      {
+        id: 3,
+        title: "Testimonials",
+        description: "Customer reviews carousel to build trust.",
+        image: trailor_mobile_brands,
+        gridPosition: "col-span-1 row-span-1",
+        category: "testimonials",
+        size: "medium"
+      },
+      {
+        id: 4,
+        title: "Mobile App Promo",
+        description: "Promotional section for the companion app with CTA to download.",
+        image: trailor_community,
+        gridPosition: "col-span-1 row-span-2",
+        category: "mobile",
+        size: "tall"
+      },
+      {
+        id: 6,
+        title: "Tablet / Responsive Preview",
+        description: "Showcase layout optimized for tablet breakpoints.",
+        image: trailor_tablet,
+        gridPosition: "col-span-2 row-span-1",
+        category: "responsive",
+        size: "wide"
+      }
+    ],
+
+    keyFeatures: [
+      {
+        title: "Digital Showroom",
+        description: "Showcase multiple motorcycle models with specifications and CTAs.",
+        highlight: "Model Cards & CTAs"
+      },
+      {
+        title: "Lead Generation",
+        description: "Conversion-focused forms for quotes and test ride bookings.",
+        highlight: "High-converting Forms"
+      },
+      {
+        title: "Performance Focused",
+        description: "Optimized assets, dynamic imports, and minimal client JS.",
+        highlight: "62 Performance Score"
+      },
+      {
+        title: "Modern Animations",
+        description: "Smooth transitions and micro-interactions using Motion.",
+        highlight: "60fps Animations"
+      }
+    ],
+
+    techStack: {
+      frontend: [
+        { name: "Next.js", version: "16.0.7" },
+        { name: "React", version: "19.2.0" },
+        { name: "TypeScript", version: "5" },
+        { name: "Tailwind CSS", version: "4" },
+        { name: "Motion", version: "12.23.24" },
+        { name: "React Icons", version: "5.5.0" }
+      ]
+    },
+
+    challenges: [
+      {
+        title: "Performance Optimization",
+        description: "Implemented image optimization, dynamic imports to improve Lighthouse scores.",
+        icon: BsFillRocketTakeoffFill
+      },
+      {
+        title: "Responsive Design System",
+        description: "Built a mobile-first responsive system using Tailwind CSS.",
+        icon: FaMobileAlt
+      }
+    ],
+
+    developmentInfo: {
+      type: "Personal Project",
+      status: "Completed",
+      focus: "UI/UX & Frontend Development"
+    },
+
+    // Removed separate performanceMetrics object
+    // performanceMetrics is now part of stats
+
+    // Other data
+    pages: [
+      {
+        name: "Home",
+        description: "Landing page with hero, bike showcase, and CTAs",
+        features: ["Hero section", "Bikes showcase", "Lead capture forms", "App promo"]
+      }
+    ],
+
+    learningOutcomes: [
+  "Next.js App Router and server components",
+  "Performance optimization with dynamic imports and image optimization",
+  "Responsive design using Tailwind CSS",
+  "Animation and interaction design using Motion"
+],
+
+    futureEnhancements: [
+      "User authentication and profile flows",
+      "In-app booking and real-time availability",
+      "Advanced filtering and search for models",
+      "Dark mode and theming"
+    ]
+  }
 ];

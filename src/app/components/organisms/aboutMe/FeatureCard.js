@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { LuSparkles, LuTarget } from "react-icons/lu";
 import { SiRefinedgithub } from "react-icons/si";
 import GlowingCard from "@/app/components/molecules/cards/GlowingCard";
-import DigitSlideCounter from "@/app/components/atoms/DigitSlideCounter";
+import {DigitSlideCounter} from "@/app/components/atoms/animation/index";
 
 const FeatureCard = ({ type, isDarkMode, repoCount, delay }) => {
   const cardConfig = {

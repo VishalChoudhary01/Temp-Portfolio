@@ -29,7 +29,7 @@ const DesktopSlideItem = ({ item, index, isMain, isMobile, previewCount,seeMoreP
     const previewLeft = `calc(100% - ${(previewCount - index + 1) * offset}px)`;
 
     positionStyle = {
-      top: "80%",
+      top: "50%",
       left: previewLeft,
       width: "180px",
       height: "250px",
@@ -51,7 +51,7 @@ const DesktopSlideItem = ({ item, index, isMain, isMobile, previewCount,seeMoreP
         // Main image - use fill layout
         <Image
           src={item.image}
-          alt={item.name}
+        alt={item.name}
           fill
           className="object-fill "
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
@@ -66,7 +66,7 @@ const DesktopSlideItem = ({ item, index, isMain, isMobile, previewCount,seeMoreP
             fill
             className="object-cover"
             sizes="180px"
-          />
+      />
         </div>
       )}
 

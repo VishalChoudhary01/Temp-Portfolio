@@ -6,9 +6,6 @@ import {MobileBackgroundImage,MobileContent} from './Mobile/index';
 import { useRouter } from "next/navigation";
 import { slideData } from "@/app/lib/data";
 
-
-
-
 const CarouselProjects = () => {
   const [items, setItems] = useState(slideData);
   const [previewCount, setPreviewCount] = useState(3);

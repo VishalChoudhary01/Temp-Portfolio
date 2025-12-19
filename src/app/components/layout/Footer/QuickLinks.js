@@ -1,5 +1,5 @@
+// QuickLinks.jsx
 "use client";
-
 import React from 'react';
 
 const quickLinks = [
@@ -11,7 +11,7 @@ const quickLinks = [
 export default function QuickLinks() {
   return (
     <div className="group">
-      <h3 className="font-semibold text-h1 dark:text-Head1dark mb-4 text-lg">
+      <h3 className="font-semibold text-h4 dark:text-Head4dark mb-4 text-base">
         Quick Links
       </h3>
       <ul className="space-y-3">
@@ -19,9 +19,9 @@ export default function QuickLinks() {
           <li key={index}>
             <a 
               href={link.href} 
-              className="text-gray-600 dark:text-gray-400 hover:text-orange-600 dark:hover:text-orange-400 transition-all duration-300 inline-flex items-center group/link text-sm md:text-base"
+              className="text-para3 dark:text-darkPara3 hover:text-accent dark:hover:text-darkAccent transition-all duration-300 inline-flex items-center group/link text-sm"
             >
-              <span className="group-hover/link:translate-x-1 transition-transform duration-300">
+              <span className="group-hover/link:translate-x-1 transition-transform duration-300 backdrop-blur-[1px]  px-1">
                 {link.name}
               </span>
             </a>

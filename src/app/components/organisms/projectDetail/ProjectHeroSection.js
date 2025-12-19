@@ -7,6 +7,7 @@ import { techIcons } from "../../../lib/utils/iconMappings.js";
 import { DoubleShineButton } from '@/app/components/atoms/special-button/index.js';
 import { FaFigma } from "react-icons/fa6";
 import { IoRocketOutline, IoChevronDown } from "react-icons/io5";
+import { SimpleDigitAnimation,MinimalDigitCounter } from "@/app/components/atoms/animation/index.js";
 
 const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
   return (
@@ -30,8 +31,9 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
           >
             <IoSparkles />
             <span className="font-medium font-roboto md:text-[0.8rem] text-[0.7rem]">
-              {project.projectType} • {project.year}
+              {project.projectType} ● <MinimalDigitCounter duration={2500}  value={project.year}/>
             </span>
+            
           </motion.div>
 
           {/* Project Title */}

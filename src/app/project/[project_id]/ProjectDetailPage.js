@@ -9,20 +9,12 @@ import ProjectFloatingNav from "@/app/components/organisms/projectDetail/Project
 import useDarkMode from "@/app/hooks/useDarkMode";
 import DarkModeToggle from '@/app/components/atoms/theme-toggle/DarkModeToggle'
 
-import {
-  ProjectHeroSection,
-  ProjectOverviewSection,
-  KeyFeaturesSection,
-  TechStackSection,
-  VisualShowcaseSection,
-  ChallengesSolutionsSection,
-  FinalCTASection,
-  ProjectNotFoundState,
-} from "@/app/components/organisms/projectDetail";
-import {
-  getProjectColors,
-  handleShare,
-} from "@/app/components/organisms/projectDetail/utils";
+import { ProjectHeroSection, ProjectOverviewSection, KeyFeaturesSection, TechStackSection, VisualShowcaseSection, ChallengesSolutionsSection, FinalCTASection, ProjectNotFoundState,} from "@/app/components/organisms/projectDetail";
+import {getProjectColors, handleShare,} from "@/app/components/organisms/projectDetail/utils";
+
+import PerformanceMetricsSection from "@/app/components/organisms/projectDetail/PerformanceMetricsSection";
+import LearningOutcomesSection from "@/app/components/organisms/projectDetail/LearningOutcomesSection";
+import PagesStructureSection from "@/app/components/organisms/projectDetail/PagesStructureSection";
 
 export default function ProjectDetailPage({ projectId }) {
   const router = useRouter();
@@ -90,6 +82,12 @@ export default function ProjectDetailPage({ projectId }) {
           {/* Technology Stack Details */}
           <TechStackSection project={project} colors={colors} />
 
+          {/* Performance Metrics */}
+          <PerformanceMetricsSection project={project} />
+
+          {/* Pages Structure */}
+          <PagesStructureSection project={project} />
+
           {/* Visual Showcase */}
           <VisualShowcaseSection
             project={project}
@@ -101,6 +99,9 @@ export default function ProjectDetailPage({ projectId }) {
 
           {/* Challenges Section */}
           <ChallengesSolutionsSection project={project} colors={colors} />
+
+          {/* Learning Outcomes & Future Enhancements */}
+          <LearningOutcomesSection project={project} colors={colors} isDarkMode={isDarkMode} />
 
           {/* Final CTA */}
           <FinalCTASection
