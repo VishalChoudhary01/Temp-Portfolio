@@ -7,7 +7,7 @@ import GridBackground from "@/app/components/molecules/animation-background/Shad
 import ProjectFloatingNav from "@/app/components/organisms/projectDetail/ProjectNavigation";
 import useDarkMode from "@/app/hooks/useDarkMode";
 import DarkModeToggle from '@/app/components/atoms/theme-toggle/DarkModeToggle'
-import ProjectHeader from "@/app/components/atoms/typography/Heading/ProjectHeader";
+import ParticleOverlayBackground from "@/app/components/molecules/animation-background/ParticleOverlayBackground";
 
 import { ProjectHeroSection, ProjectOverviewSection, KeyFeaturesSection, TechStackSection, VisualShowcaseSection, ChallengesSolutionsSection, FinalCTASection, ProjectNotFoundState,} from "@/app/components/organisms/projectDetail";
 import {getProjectColors, handleShare,} from "@/app/components/organisms/projectDetail/utils";
@@ -43,10 +43,8 @@ export default function ProjectDetailPage({ projectId }) {
         <GridBackground />
       </div>
 
-      {/* Gradient Overlay - Only in light mode */}
-      {!isDarkMode && (
-        <div className="fixed inset-0 -z-5 bg-gradient-to-br from-transparent  to-orange-50/30" />
-      )}
+      <ParticleOverlayBackground/>
+
       
       <ProjectFloatingNav 
         router={router} 
