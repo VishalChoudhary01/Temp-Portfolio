@@ -8,3 +8,5 @@ export { default as ChallengesSolutionsSection } from "./ChallengesSolutionsSect
 export { default as FinalCTASection } from "./FinalCTASection";
 export { default as ProjectLoadingState } from "./ProjectLoadingState";
 export { default as ProjectNotFoundState } from "./ProjectNotFoundState";
+export {default as ProjectStats} from './Overview/ProjectStats';
+

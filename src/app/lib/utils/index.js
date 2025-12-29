@@ -1,2 +1,4 @@
 import {getIconColor} from './getIconColor';
-export {getIconColor}
+import {getStatusColor} from './getStatusColor';
+
+export {getIconColor, getStatusColor}

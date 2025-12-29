@@ -8,11 +8,12 @@ import { DoubleShineButton } from '@/app/components/atoms/special-button/index.j
 import { FaFigma } from "react-icons/fa6";
 import { IoRocketOutline, IoChevronDown } from "react-icons/io5";
 import { SimpleDigitAnimation,MinimalDigitCounter } from "@/app/components/atoms/animation/index.js";
+import ProjectHeader from "../../atoms/typography/Heading/ProjectHeader.js";
 
 const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
   return (
     <motion.section 
-      className="relative min-h-[100svh] flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden"
+      className="relative min-h-[100svh]  select-none  flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden"
       style={{
         opacity: heroOpacity,
         scale: heroScale
@@ -30,25 +31,19 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
             transition={{ duration: 0.5 }}
           >
             <IoSparkles />
-            <span className="font-medium font-roboto md:text-[0.8rem] text-[0.7rem]">
+            <span className="font-medium font-roboto lg:text-desktopPara3 md:text-tabletPara1 text-[0.7rem]">
               {project.projectType} ● <MinimalDigitCounter duration={2500}  value={project.year}/>
             </span>
             
           </motion.div>
 
           {/* Project Title */}
-          <motion.h1 
-            className="text-3xl sm:text-5xl md:text-7xl font-bold md:mb-6 mb-2 font-poppins leading-tight bg-clip-text text-transparent bg-gradient-to-b dark:from-white dark:via-neutral-100 dark:to-neutral-600 from-black via-gray-600 to-gray-300"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            {project.name}
-          </motion.h1>
+          
+          <ProjectHeader  title={project.name} />
           
           {/* Project Description */}
           <motion.p 
-            className={`text-[0.9rem] sm:text-xl md:text-2xl md:mb-10 mb-6 max-w-3xl mx-auto leading-relaxed dark:text-darkPara3 text-para3`}
+            className={`lg:text-deskHead1 md:text-tabHead1 text-mobHead1 md:mb-10 mb-6 max-w-3xl mx-auto leading-relaxed dark:text-darkPara3 text-para3 `}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
@@ -75,11 +70,11 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
                 >
                   <GlowingCard
 
-                    className="md:px-4 md:py-2 px-3 py-2 border border-gray-300 dark:border-neutral-400/20  shadow"
+                    className="lg:px-5 md:px-4 md:py-2.5 px-2 py-2 border border-gray-300 dark:border-neutral-400/20  shadow"
                     color={isDarkMode ? "#ff9f1a" : "#00bbf9"}
                     borderRadius="10px"
                   >
-                    <div className="flex items-center md:gap-x-2 gap-x-1 md:text-[0.9rem] text-[0.8rem] dark:text-Head2dark text-h3">
+                    <div className="flex items-center md:gap-x-2 gap-x-1 lg:text-deskPara1 md:text-tabPara1 text-mobPara1  md:text-tabPara1 dark:text-Head2dark text-h3">
                       <TechIcon />
                       <span className="font-medium">{tech}</span>    
                     </div> 
@@ -96,6 +91,7 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
           >
+
             <motion.a
               href={project.liveUrl}
               target="_blank"
@@ -106,7 +102,7 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
               <DoubleShineButton 
                 leftIcon={<IoRocketOutline />} 
                 buttonText="Live Demo" 
-                buttonStyle="md:w-24 md:h-7 w-20 h-5.5 text-nowrap justify-center md:text-[0.98rem] text-[0.75rem]" 
+                buttonStyle="md:w-24 md:h-7 w-20 h-5.5 text-nowrap justify-center text-mobPara2 md:text-tabPara2 lg:text-deskPara2" 
               />
             </motion.a>
             
@@ -122,10 +118,12 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
                 leftIconStyle="" 
                 leftIcon={<FaGithub />} 
                 buttonText="Source Code" 
-                buttonStyle="md:w-24 md:h-7 w-16 text-nowrap justify-center h-5.5 md:text-[0.98rem] text-[0.8rem]" 
+                buttonStyle="md:w-24 md:h-7 w-16 text-nowrap justify-center h-5.5 text-mobPara2 md:text-tabPara2 lg:text-deskPara2" 
               />
             </motion.a>
-            <motion.a
+
+            {project.figmaUrl && (
+              <motion.a
               href={project.figmaUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -136,9 +134,12 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
                 leftIconStyle="" 
                 leftIcon={<FaFigma />} 
                 buttonText="Figma Design" 
-                buttonStyle="md:w-24 md:h-7 w-16 text-nowrap justify-center h-5.5 md:text-[0.98rem] text-[0.8rem]" 
+                buttonStyle="md:w-24 md:h-7 w-16 text-nowrap justify-center h-5.5 text-mobPara2 md:text-tabPara2 lg:text-deskPara2" 
               />
             </motion.a>
+            )}
+
+            
           </motion.div>
         </motion.div>
       </div>

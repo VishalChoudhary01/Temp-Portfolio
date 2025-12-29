@@ -1,3 +1,4 @@
+// Amrutam imports
 import amurtamBanner from '../../../../public/images/project carousel/amurtam/amurtamBanner.png';
 import amurtam_features from '../../../../public/images/project carousel/amurtam/gallery/features.png';
 import amurtam_hero from '../../../../public/images/project carousel/amurtam/gallery/hero.png';
@@ -7,6 +8,7 @@ import amurtam_tablet from '../../../../public/images/project carousel/amurtam/g
 import amurtam_testimonial from '../../../../public/images/project carousel/amurtam/gallery/testimonial.png';
 import amurtam_process from '../../../../public/images/project carousel/amurtam/gallery/process.png';
 
+// Trailor Ride imports
 import trailorBanner from '../../../../public/images/project carousel/trailor-ride/trailorBanner.png';
 import trailor_mobile from '../../../../public/images/project carousel/trailor-ride/gallery/mobile.png';
 import trailor_mobile_community from '../../../../public/images/project carousel/trailor-ride/gallery/mobile_community.png';
@@ -14,15 +16,187 @@ import trailor_mobile_brands from '../../../../public/images/project carousel/tr
 import trailor_community from '../../../../public/images/project carousel/trailor-ride/gallery/coumminity-bentogrid.png';
 import trailor_tablet from '../../../../public/images/project carousel/trailor-ride/gallery/tablet_hero.png';
 
+// Crypto imports
+import crypto_banner from '../../../../public/images/project carousel/crypto-tracker/cryptoBanner.png';
+
 // Common react icons imports
 import { BsFillRocketTakeoffFill } from "react-icons/bs";
 import { FaMobileAlt } from "react-icons/fa";
 import { RiSparkling2Line } from "react-icons/ri";
 import { FaUserCog } from "react-icons/fa";
+import { ImDatabase } from "react-icons/im";
 
 export const slideData = [
+
   {
-    id: 1,
+id: 1,
+name: "Crypto Tracker",
+projectType: "Cryptocurrency Price Dashboard ",
+description: "A responsive dashboard that lists cryptocurrencies, provides trending coins, allows saving favorites, and displays simple charts for price trends.",
+image: crypto_banner,
+technologies: ["Vite", "React", "Tailwind CSS", "Recharts", "Redux Toolkit", "React Router", "Axios", "React Icons", "Motion"],
+liveUrl: "https://crypto-tracker-two-olive.vercel.app/",
+githubUrl: "https://github.com/VishalChoudhary01/Crypto-Tracker",
+category: "Finance & Dashboard",
+year: "2024",
+
+longDescription: "Crypto Tracker is a client-side dashboard built with Vite and React that fetches crypto market data, displays it in a searchable table with charts, provides a trending view, and supports saving coins to a local store.",
+about: {
+    short:
+      "Crypto Tracker is a personal frontend project focused on building a responsive cryptocurrency dashboard using live market data, with emphasis on clean UI, state management, and data visualization."
+  },
+stats: {
+developmentTime: "7 days",
+pages: "3 (Home, Trending, Saved Coins) + modal",
+components: "6+ (CoinTable, Navbar, Searchbar, Loader, Logo, Toast, etc.)",
+responsiveBreakpoints: "3",
+lighthousePerformance: 61,
+lighthouseAccessibility: 85,
+lighthouseBestPractices: 100,
+lighthouseSEO: 91,
+loadTime: "Depends on environment",
+coreWebVitals: "Unknown"
+},
+
+bentoGrid: [
+{
+id: 1,
+title: "Coin Table (Home)",
+description: "Main table listing live coin prices, 24h changes, and quick actions (save/view).",
+image: "coin_table_image",
+gridPosition: "col-span-2 row-span-2",
+category: "data",
+size: "large"
+},
+{
+id: 2,
+title: "Search & Filters",
+description: "Searchbar to find coins with debounce and filter controls.",
+image: "search_filter_image",
+gridPosition: "col-span-1 row-span-1",
+category: "utility",
+size: "medium"
+},
+{
+id: 3,
+title: "Trending",
+description: "Trending coins view highlighting movers and short charts.",
+image: "trending_image",
+gridPosition: "col-span-1 row-span-1",
+category: "showcase",
+size: "medium"
+},
+{
+id: 4,
+title: "Saved Coins Panel",
+description: "User-saved coins persisted in Redux for quick access.",
+image: "saved_coins_image",
+gridPosition: "col-span-1 row-span-2",
+category: "persistence",
+size: "tall"
+},
+{
+id: 5,
+title: "Details Modal",
+description: "Modal with coin details and Recharts visual for selected coin.",
+image: "details_modal_image",
+gridPosition: "col-span-2 row-span-1",
+category: "details",
+size: "wide"
+}
+],
+
+keyFeatures: [
+{
+title: "Live Market Data",
+description: "Fetches crypto prices and updates the UI with Axios-powered API calls.",
+highlight: "Real-time Lists & Updates"
+},
+{
+title: "Search & Debounce",
+description: "Debounced search for smooth typing experience using use-debounce.",
+highlight: "Fast Search"
+},
+{
+title: "Saved Coins",
+description: "Save and retrieve favorite coins via Redux Toolkit store.",
+highlight: "Persistent Favorites"
+},
+{
+title: "Charts",
+description: "Visualize price trends using recharts for small inline charts.",
+highlight: "Mini Trend Charts"
+}
+],
+
+techStack: {
+frontend: [
+{ name: "Vite", version: "^6.2.0" },
+{ name: "React", version: "^19.0.0" },
+{ name: "Tailwind CSS", version: "^4.0.15" },
+{ name: "Recharts", version: "^2.15.1" },
+{ name: "Redux Toolkit", version: "^2.6.1" },
+{ name: "React Router", version: "^7.4.0" },
+{ name: "Axios", version: "^1.8.4" },
+{ name: "Motion", version: "^12.6.3" },
+{ name: "React Icons", version: "^5.5.0" }
+]
+},
+
+challenges: [
+{
+title: "Data freshness & rate limits",
+description: "Balancing live fetch frequency with API rate limits and UX.",
+icon: RiSparkling2Line
+},
+{
+title: "State & persistence",
+description: "Designing a small Redux slice to persist saved coins and sync UI.",
+icon: ImDatabase
+}
+],
+
+developmentInfo: {
+type: "Personal Project",
+status: "Completed",
+focus: "UI, data visualization, frontend state management"
+},
+
+pages: [
+{
+name: "Home",
+description: "Coin table with search, sorting, and quick actions.",
+features: ["Coin table", "Search bar", "Save coin action", "Details modal"]
+},
+{
+name: "Trending",
+description: "Lists trending movers with compact charts and links.",
+features: ["Trending list", "Mini charts"]
+},
+{
+name: "Saved Coins",
+description: "Shows user-saved coins with quick navigation to details.",
+features: ["Saved list", "Remove/save actions"]
+}
+],
+
+learningOutcomes: [
+"Building a Vite + React app with fast HMR",
+"State management using Redux Toolkit",
+"API integration and debounced search UX",
+"Data visualization with Recharts",
+"Responsive UI with Tailwind CSS"
+],
+
+futureEnhancements: [
+"Add user authentication and cloud-synced favorites",
+"Improve caching and server-side aggregation for rate limits",
+"Add dark mode and theming support",
+"Convert to PWA for offline access and notifications"
+]
+},
+  {
+    id: 4,
     name: "Amrutam",
     projectType: "Healthcare Landing Page",
     description: "A modern healthcare platform bridging traditional Ayurvedic medicine with digital accessibility.",
@@ -34,16 +208,18 @@ export const slideData = [
     category: "Healthcare & Wellness",
     year: "2023",
     gallery: [amurtam_features, amurtam_hero, amurtam_iphone, amurtam_landscape, amurtam_tablet, amurtam_testimonial, amurtam_process],
+    about: {
+    short:
+    "Frontend assignment focused on converting a provided Figma design into a responsive, production-ready healthcare landing page using React and Tailwind CSS, with emphasis on layout accuracy and smooth animations."
+    },
 
     longDescription: "Amrutam is a healthcare platform that connects users with Ayurvedic practitioners. Built with modern React patterns, it demonstrates advanced UI/UX principles and responsive design.",
     
-    // Consolidated stats with performance metrics
     stats: {
       developmentTime: "4 Days",
       pages: "2",
       components: "10+",
       responsiveBreakpoints: "3",
-      // Moved performance data here
       lighthousePerformance: 82,
       lighthouseAccessibility: 85,
       lighthouseBestPractices: 92,
@@ -162,9 +338,6 @@ export const slideData = [
       focus: "UI/UX & Frontend Development"
     },
 
-    // Removed separate performanceMetrics object
-    // performanceMetrics is now part of stats
-
     // Other data
     pages: [
       {
@@ -202,11 +375,16 @@ export const slideData = [
     description: "A modern, high-performance motorcycle landing page showcasing premium models, generating leads, and promoting a mobile companion app.",
     image: trailorBanner,
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Motion", "React Icons"],
-    liveUrl: "https://trailor-ride.vercel.app",
+    liveUrl: "https://trailor-trade.vercel.app",
     githubUrl: "https://github.com/VishalChoudhary01/Trailor-Trade-.git",
+    figmaUrl:"https://www.figma.com/design/Z3IQPsEokQ9c2ho1n1wDTC/NextJS-Assignment--Part-1--by-webbywolf--Community---Copy-?node-id=31-6&t=I8ARFhLP9W6uRNVQ-1",
     category: "E-commerce & Automotive",
     year: "2024",
-    
+    about: {
+  short:
+    "Landing page implementation built from a provided design to showcase motorcycle models, focusing on responsive layout engineering, performance optimization, and polished UI animations using Next.js."
+},
+
     longDescription: "Trailor Ride is a responsive landing page built with Next.js and Tailwind CSS designed to showcase motorcycle models, capture leads through conversion-focused forms, and promote the companion mobile app.",
 
     // Consolidated stats

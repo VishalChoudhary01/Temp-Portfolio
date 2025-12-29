@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Michroma&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Maze&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Manrope:wght@200..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Michroma&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss";
 html {
   scroll-behavior: smooth;
@@ -24,6 +25,53 @@ html {
   --darkPara1: #e2e5e5;
   --darkPara2: #c7caca;
   --darkPara3: #aec0c0;
+
+  /* Project Headings */
+  --deskProjectHead:4.2rem;
+  --tabProjectHead:4rem;
+  --mobProjectHead:1.7rem;
+
+  /* heading 1 */
+  --deskHead1:1.4rem;
+  --tabHead1:1.2rem;
+  --mobHead1:1rem;
+
+  /* heading 2 */
+  --deskHead2:1.2rem;
+  --tabHead2:1.1rem;
+  --mobHead2:0.95rem;
+
+  /* heading 3 */
+  --deskHead3:1rem;
+  --tabHead3:0.9rem;
+  --mobHead3:0.85rem;
+
+  /* heading 4 */
+  --deskHead4:0.9rem;
+  --tabHead4:0.8rem;
+  --mobHead4:0.75rem;
+
+  /* heading 5 */
+  --deskHead5:0.8rem;
+  --tabHead5:0.7rem;
+  --mobHead5:0.7rem;
+
+  /* paragraph 1 */
+  --deskPara1:0.98rem;
+  --tabPara1:0.94rem;
+  --mobPara1:0.89rem;
+
+  /* paragraph 2 */
+  --deskPara2:0.95rem;
+  --tabPara2:0.9rem;
+  --mobPara2:0.85rem;
+  
+  /* paragraph 3 */
+  --deskPara3:0.72rem;
+  --tabPara3:0.85rem;
+  --mobPara3:0.8rem;
+
+
 
   /* Gradient Colors */
   --grad-primary: #dd5a03;
@@ -253,12 +301,18 @@ html {
 @theme inline {
 
   /* fonts */
-  --font-arimo: 'Arimo', sans-serif;
-  --font-merriweather: 'Merriweather', serif;
-  --font-michroma: 'Michroma', sans-serif;
-  --font-poppins: 'Poppins', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
-  --font-rubik-maze: 'Rubik Maze', sans-serif;
+  --font-poppins: var(--font-poppins);
+  --font-roboto: var(--font-roboto);
+  --font-merriweather: var(--font-merriweather);
+  --font-michroma: var(--font-michroma);
+  --font-cormorant: var(--font-cormorant);
+  --font-open-sans: var(--font-open-sans);
+  --font-outfit: var(--font-outfit);
+  --font-playfair-display: var(--font-playfair-display);
+  --font-manrope: var(--font-manrope);
+  --font-lora: var(--font-lora);
+
+
   /* Typography */
   --color-h1: var(--h1);
   --color-Head1dark: var(--Head1dark);
@@ -277,6 +331,35 @@ html {
   --color-darkPara1: var(--darkPara1);
   --color-darkPara2: var(--darkPara2);
   --color-darkPara3: var(--darkPara3);
+
+  /* font sizes */
+  --text-deskProjectHead: var(--deskProjectHead);
+  --text-tabProjectHead:var(--tabProjectHead);
+  --text-mobProjectHead:var(--mobProjectHead);
+  --text-deskHead1:var(--deskHead1);
+  --text-tabHead1:var(--tabHead1);
+  --text-mobHead1:var(--mobHead1);
+  --text-deskHead2:var(--deskHead2);
+  --text-tabHead2:var(--tabHead2);
+  --text-mobHead2:var(--mobHead2);
+  --text-deskHead3:var(--deskHead3);
+  --text-tabHead3:var(--tabHead3);
+  --text-mobHead3:var(--mobHead3);
+  --text-deskHead4:var(--deskHead4);
+  --text-tabHead4:var(--tabHead4);
+  --text-mobHead4:var(--mobHead4);
+  --text-deskHead5:var(--deskHead5);
+  --text-tabHead5:var(--tabHead5);
+  --text-mobHead5:var(--mobHead5);
+  --text-deskPara1:var(--deskPara1);
+  --text-tabPara1:var(--tabPara1);
+  --text-mobPara1:var(--mobPara1);
+  --text-deskPara2:var(--deskPara2);
+  --text-tabPara2:var(--tabPara2);
+  --text-mobPara2:var(--mobPara2);
+  --text-deskPara3:var(--deskPara3);
+  --text-tabPara3:var(--tabPara3);
+  --text-mobPara3:var(--mobPara3);  
 
   /* Gradient Colors */
   --color-grad-primary: var(--grad-primary);

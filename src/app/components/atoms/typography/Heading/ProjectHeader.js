@@ -1,34 +1,56 @@
 "use client";
 import { motion } from "framer-motion";
 
-export default function ProjectHeader({ title, subtitle }) {
+export default function ProjectHeader({ 
+  title, 
+  subtitle,
+  titleCase = "uppercase" 
+}) {
+  const caseClasses = {
+    uppercase: "uppercase",
+    capitalize: "capitalize",
+    "normal-case": "normal-case"
+  };
+
+  const titleClass = caseClasses[titleCase] || "uppercase";
+
   return (
-    <div className="py-12 md:py-20 text-center">
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="
-          text-5xl md:text-7xl font-bold mb-4 md:mb-6
-          bg-linear-to-r
-          from-neutral-900 via-neutral-800 to-neutral-700
-          dark:from-white dark:via-neutral-200 dark:to-neutral-400
-          bg-clip-text text-transparent
-        "
-      >
-        {title}
-      </motion.h1>
-      
+    <div className={`text-center font-lora`}>
+      <div className="relative inline-block">
+
+        {/* TEXT OUTLINE (always visible) */}
+        <h1
+          className={`absolute inset-0 lg:text-deskProjectHead [word-spacing:1rem] md:text-tabProjectHead text-mobProjectHead font-bold text-transparent [-webkit-text-stroke:1px_rgba(120,120,120,0.5)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.35)] pointer-events-none ${titleClass}`}>
+          {title}
+        </h1>
+
+        {/* Base light text */}
+        <h1
+          className={`lg:text-deskProjectHead md:text-tabProjectHead [word-spacing:1rem] text-mobProjectHead font-bold bg-linear-to-t from-neutral-300 via-neutral-200 to-neutral-100 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-950 bg-clip-text text-transparent ${titleClass}`}>
+          {title}
+        </h1>
+
+        {/* Dark filling overlay */}
+        <motion.div
+          initial={{ clipPath: "inset(100% 0 0 0)" }}
+          whileInView={{ clipPath: "inset(0% 0 0 0)" }}
+          viewport={{ once: true }} 
+          transition={{ duration: 2.5, delay: 0.8, ease: "easeOut" }}  
+          className={`absolute inset-0 bg-linear-to-t from-neutral-900 via-neutral-800 to-neutral-700 dark:from-white dark:via-white dark:to-white bg-clip-text text-transparent pointer-events-none ${titleClass}`}
+        >
+          <h1 className="lg:text-deskProjectHead md:text-tabProjectHead [word-spacing:1rem] text-mobProjectHead font-bold">
+            {title}
+          </h1>
+        </motion.div>
+      </div>
+
       {subtitle && (
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="
-            text-xl md:text-2xl
-            text-gray-600 dark:text-gray-400
-            max-w-3xl mx-auto px-4
-          "
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto px-4 mt-6"
         >
           {subtitle}
         </motion.p>

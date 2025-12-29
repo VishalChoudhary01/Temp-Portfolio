@@ -74,20 +74,16 @@ const DigitSlideCounter = ({
     <div
       ref={ref}
       className={`flex items-center justify-center gap-0 ${textColorClass} ${className}`}
-      style={{
-        fontVariantNumeric: "tabular-nums", // Ensures consistent digit width
-      }}
+      
     >
       {digits.map((digit, index) => {
-        // Determine animation direction based on position
-        // Even indices slide up, odd indices slide down
         const direction = index % 2 === 0 ? "up" : "down";
         const initialY = direction === "up" ? 25 : -25;
 
         return (
           <motion.span
             key={`${digit}-${index}-${displayValue}`}
-            className="inline-block min-w-[0.5em] text-center font-bold text-base sm:text-lg font-poppins"
+            className="inline-block min-w-[0.5em] text-center font-semibold text-base sm:text-lg font-poppins"
             initial={{ y: initialY, opacity: 0, scale: 0.8 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             transition={{

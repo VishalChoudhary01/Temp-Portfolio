@@ -20,10 +20,11 @@ export const skillsData = {
   ],
   backend: ["Node.js", "Express.js", "MongoDB", "REST APIs"],
   languages: ["JavaScript", "HTML", "CSS"],
-  tools: ["Git", "VS Code", "Postman", "Figma", "Vite"],
+  tools: ["Git", "Vite","Figma", "VS Code", "Postman","Swagger", "Responsively App"],
 };
 
 export const categories = [
+  
   {
     title: "Frontend Development",
     icon: <HiCode />,

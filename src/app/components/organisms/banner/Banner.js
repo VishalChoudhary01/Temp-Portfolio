@@ -42,7 +42,7 @@ const Banner = () => {
           initial={{ opacity: 0, y: -150 }}
           animate={{ opacity: 1, y: 0 }}  
           transition={{ delay: 0.2, duration: 1 }} 
-          className={`text-[2.7rem] leading-11 ${isDarkMode?"darkRadGrad ":"radGrad"} font-extrabold relative md:leading-20 md:text-8xl font-arimo md:tracking-wide text-center`}
+          className={`text-[2.7rem] leading-11 ${isDarkMode?"darkRadGrad ":"radGrad"} font-bold   relative md:leading-20 md:text-8xl font-arimo  md:tracking-wide text-center`}
         >
           Vishal Kumar Choudhary
         </motion.h2>
@@ -50,7 +50,7 @@ const Banner = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
-          className={`xl:text-7xl lg:text-6xl md:text-5xl text-3xl font-bold font-noto-serif pb-2 md:mt-5 mt-3 whitespace-nowrap relative text-shimmer ${
+          className={`xl:text-7xl lg:text-6xl md:text-5xl text-3xl font-bold font-playfair-display  pb-2 md:mt-5 mt-3 whitespace-nowrap relative text-shimmer ${
             isDarkMode ? "darktext-shimmer" : "text-shimmer"
           } text-center`}
           data-text="Frontend Developer"

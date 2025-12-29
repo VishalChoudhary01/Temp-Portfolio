@@ -64,7 +64,7 @@ const DesktopSlideItem = ({ item, index, isMain, isMobile, previewCount,seeMoreP
             src={item.image}
             alt={item.name}
             fill
-            className="object-cover"
+            className="object-cover "
             sizes="180px"
       />
         </div>
