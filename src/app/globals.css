@@ -31,6 +31,11 @@ html {
   --tabProjectHead:4rem;
   --mobProjectHead:1.7rem;
 
+  /* name font size */
+  --deskName:5rem; 
+  --tabName:4rem;
+  --mobName:2.5rem;
+
   /* heading 1 */
   --deskHead1:1.4rem;
   --tabHead1:1.2rem;
@@ -336,6 +341,10 @@ html {
   --text-deskProjectHead: var(--deskProjectHead);
   --text-tabProjectHead:var(--tabProjectHead);
   --text-mobProjectHead:var(--mobProjectHead);
+  --text-deskName:var(--deskName);
+  --text-tabName:var(--tabName);
+  --text-mobName:var(--mobName);
+
   --text-deskHead1:var(--deskHead1);
   --text-tabHead1:var(--tabHead1);
   --text-mobHead1:var(--mobHead1);

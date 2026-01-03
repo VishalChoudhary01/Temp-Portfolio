@@ -35,7 +35,7 @@ const MobileConnectionLine = ({ index, scrollProgress, totalItems }) => {
 
   return (
     <motion.div
-      className={`absolute top-8 left-4.5 h-0.5 bg-gradient-to-r ${gradientClass}`}
+      className={`absolute top-[29px]  left-4.5 h-0.5 bg-gradient-to-r ${gradientClass}`}
       style={{ 
         width, 
         opacity,

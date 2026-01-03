@@ -43,7 +43,7 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
           
           {/* Project Description */}
           <motion.p 
-            className={`lg:text-deskHead1 md:text-tabHead1 text-mobHead1 md:mb-10 mb-6 max-w-3xl mx-auto leading-relaxed dark:text-darkPara3 text-para3 `}
+            className={`lg:text-deskHead1 md:text-tabHead1 font-open-sans text-mobHead1 md:mb-10 mb-6 max-w-3xl mx-auto leading-relaxed dark:text-darkPara3 text-para3 `}
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
@@ -76,7 +76,7 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
                   >
                     <div className="flex items-center md:gap-x-2 gap-x-1 lg:text-deskPara1 md:text-tabPara1 text-mobPara1  md:text-tabPara1 dark:text-Head2dark text-h3">
                       <TechIcon />
-                      <span className="font-medium">{tech}</span>    
+                      <span className="font-medium font-roboto">{tech}</span>    
                     </div> 
                   </GlowingCard>
                 </motion.div>
@@ -86,7 +86,7 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
           
           {/* Call to Action Buttons */}
           <motion.div 
-            className="flex md:gap-10 gap-3.5 justify-center"
+            className="flex md:gap-10 gap-3.5 justify-center font-roboto"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
@@ -169,7 +169,7 @@ const ProjectHero = ({ project, isDarkMode, heroOpacity, heroScale }) => {
             }
           }}
         >
-          <span className="text-xs text-neutral-700 dark:text-neutral-200/80  font-medium tracking-wider group-hover:text-blue-400 transition-colors">
+          <span className="text-xs text-neutral-700 dark:text-neutral-200/80  font-open-sans font-medium tracking-wider group-hover:text-blue-400 transition-colors">
             EXPLORE
           </span>
           <div className="relative h-12 flex items-center justify-center">

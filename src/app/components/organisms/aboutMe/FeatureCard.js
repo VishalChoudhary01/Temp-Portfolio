@@ -1,4 +1,3 @@
-// FeatureCard.jsx - Updated
 import React from "react";
 import { motion } from "framer-motion";
 import { LuSparkles, LuTarget } from "react-icons/lu";
@@ -52,7 +51,7 @@ const FeatureCard = ({ type, isDarkMode, repoCount, delay }) => {
           {config.icon}
         </div>
         
-        <h3 className={`text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2 ${
+        <h3 className={`text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2 font-roboto ${
           type === 'passion' 
             ? (isDarkMode ? "text-btn-modern-to" : "text-accent")
             : type === 'goals'
@@ -64,8 +63,8 @@ const FeatureCard = ({ type, isDarkMode, repoCount, delay }) => {
 
         {config.showCounter ? (
           <>
-            <div className="text-lg sm:text-xl md:text-2xl font-bold mb-1 text-github-repo-count dark:text-github-repo-count-dark">
-              <DigitSlideCounter value={repoCount} duration={2000} />
+            <div className="text-lg sm:text-xl md:text-2xl   font-bold mb-1 text-github-repo-count dark:text-github-repo-count-dark">
+              <DigitSlideCounter textColorClass="text-h1 dark:text-Head2dark" value={repoCount} duration={2000} />
             </div>
             <p className="text-xs sm:text-sm text-para3 dark:text-darkPara3">
               {config.content}
@@ -73,7 +72,7 @@ const FeatureCard = ({ type, isDarkMode, repoCount, delay }) => {
           </>
         ) : (
           <p 
-            className="text-xs sm:text-sm leading-relaxed text-para2 dark:text-darkPara2"
+            className="text-xs sm:text-sm leading-relaxed text-para2 dark:text-darkPara2 font-open-sans"
             dangerouslySetInnerHTML={{ __html: config.content }}
           />
         )}

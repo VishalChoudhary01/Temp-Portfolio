@@ -6,6 +6,8 @@ import useDarkMode from "@/app/hooks/useDarkMode";
 import CardSlideUpLoop from "../banner/CardSlideUpLoop";
 import AboutMe from "../aboutMe/aboutMe";
 import { CgScrollV } from "react-icons/cg";
+import ProjectHeader from "../../atoms/typography/Heading/ProjectHeader";
+import NameHeading from "../../atoms/typography/Heading/NameHeading/NameHeading";
 
 const Banner = () => {
   const ref = useRef(null);
@@ -36,27 +38,11 @@ const Banner = () => {
       {/* Name Center */}
       <motion.div
         style={{ scale: nameScale, opacity: nameOpacity }}
-        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none md:whitespace-nowrap w-full px-4"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2 z-30 pointer-events-none md:whitespace-nowrap w-full px-4"
       >
-        <motion.h2
-          initial={{ opacity: 0, y: -150 }}
-          animate={{ opacity: 1, y: 0 }}  
-          transition={{ delay: 0.2, duration: 1 }} 
-          className={`text-[2.7rem] leading-11 ${isDarkMode?"darkRadGrad ":"radGrad"} font-bold   relative md:leading-20 md:text-8xl font-arimo  md:tracking-wide text-center`}
-        >
-          Vishal Kumar Choudhary
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className={`xl:text-7xl lg:text-6xl md:text-5xl text-3xl font-bold font-playfair-display  pb-2 md:mt-5 mt-3 whitespace-nowrap relative text-shimmer ${
-            isDarkMode ? "darktext-shimmer" : "text-shimmer"
-          } text-center`}
-          data-text="Frontend Developer"
-        >
-          Frontend Developer
-        </motion.p>
+        
+        <NameHeading title={"Vishal Kumar Choudhary"} subtitle={"Frontend Developer"} shimmerEffect={true} isDarkMode={isDarkMode}/>
+
       </motion.div>
 
       {/* Scroll Indicator */}
@@ -64,11 +50,11 @@ const Banner = () => {
         style={{ opacity: indicatorOpacity }}
         className="fixed md:top-[85vh] top-[78vh] left-1/2 transform -translate-x-1/2 z-40 w-full max-w-sm mx-auto px-4"
       >
-        <div className="flex flex-col items-center justify-center gap-x-4 w-full">
+        <div className="flex flex-col items-center justify-center gap-x-4 w-full ">
           {/* Text with sliding menu - Horizontally centered */}
-          <div className="flex items-center justify-center gap-x-2 xl:text-[1.1rem] font-merriweather lg:text-[1.15rem] md:text-[1.1rem] text-sm w-full text-center">
-            <span className="text-para3 dark:text-darkPara3 text-nowrap">Scroll Down</span>
-            <span className="dark:text-darkPara2 text-para2 italic">for</span> 
+          <div className="flex items-center  relative left-9 justify-center gap-x-2 text-[rgba(0,0,0,0.6)] dark:text-[rgba(255,255,255,0.6)] font-open-sans xl:text-[1.1rem]  lg:text-[1.15rem] md:text-[1.1rem] text-sm w-full text-center">
+            <span className=" text-nowrap ">Scroll Down</span>
+            <span className=" italic normal-case">for</span> 
             <div className="flex justify-center min-w-[140px]">
               <CardSlideUpLoop />
             </div>

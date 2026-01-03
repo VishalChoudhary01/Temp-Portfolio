@@ -150,9 +150,9 @@ const TimelineCard = ({
 
               {/* Year */}
               <span
-                className={`text-para2 select-none dark:text-darkPara3 ${
+                className={`text-para2 select-none dark:text-darkPara3 font-roboto font-medium ${
                   isMobile ? "text-xs" : "text-base"
-                } font-semibold backdrop-blur-sm bg-icon-bg dark:bg-icon-darkBg px-2 py-1 rounded-full border border-white/50 dark:border-gray-600/50 ${
+                } font-semibold rounded-full  ${
                   isRight ? "mr-1" : "ml-1"
                 }`}
               >
@@ -162,7 +162,7 @@ const TimelineCard = ({
 
             {/* Degree */}
             <h3
-              className={`font-bold text-h1 select-none dark:text-Head1dark ${
+              className={`font-bold text-h1 select-none dark:text-Head1dark font-roboto  ${
                 isMobile ? "text-lg mb-1" : "text-2xl mb-2"
               }`}
             >
@@ -171,7 +171,7 @@ const TimelineCard = ({
 
             {/* Institution */}
             <p
-              className={`font-medium text-h2 dark:text-Head2dark ${
+              className={`font-medium text-h2 dark:text-Head2dark font-open-sans   ${
                 isMobile ? "text-xs mb-2 leading-tight" : "mb-3"
               }`}
             >
@@ -179,7 +179,7 @@ const TimelineCard = ({
             </p>
 
             {/* Description */}
-            <p className={`text-h3 select-none dark:text-Head3dark leading-relaxed ${
+            <p className={`text-h3 select-none dark:text-Head3dark font-open-sans leading-relaxed ${
               isMobile ? "text-xs leading-snug" : "text-sm"
             } grow`}>
               {item.description}

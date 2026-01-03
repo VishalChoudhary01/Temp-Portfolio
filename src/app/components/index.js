@@ -10,4 +10,4 @@ export {default as Skills} from './templates/SkillsTemplate';
 export {default as CarouselProjects} from './organisms/projectCarousel/CarouselProjects'
 export {default as ProjectsCarousel} from './organisms/ProjectsCarousel'
 
-export {default as Experience} from './organisms/experience/Experience';
+export {default as WorkExperience} from './organisms/work-experience/WorkExperience'

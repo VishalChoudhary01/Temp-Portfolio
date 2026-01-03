@@ -83,7 +83,7 @@ const DigitSlideCounter = ({
         return (
           <motion.span
             key={`${digit}-${index}-${displayValue}`}
-            className="inline-block min-w-[0.5em] text-center font-semibold text-base sm:text-lg font-poppins"
+            className="inline-block min-w-[0.5em] text-center font-semibold text-base sm:text-lg font-roboto"
             initial={{ y: initialY, opacity: 0, scale: 0.8 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             transition={{

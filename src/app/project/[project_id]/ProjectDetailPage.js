@@ -45,7 +45,12 @@ export default function ProjectDetailPage({ projectId }) {
 
       <ParticleOverlayBackground/>
 
+      {/* Gradient Overlay - Only in light mode */}
+      {!isDarkMode && (
+        <div className="fixed inset-0 -z-5 bg-linear-to-br from-transparent  to-orange-50/30" />
+      )}
       
+
       <ProjectFloatingNav 
         router={router} 
         isDarkMode={isDarkMode} 
@@ -69,7 +74,7 @@ export default function ProjectDetailPage({ projectId }) {
         >
          <div className="text-center">
           <motion.h3 
-            className="font-bold md:mb-6 mb-2 lg:text-6xl md:text-5xl text-2xl   leading-tight font-open-sans bg-clip-text text-transparent bg-linear-to-b dark:from-white dark:via-neutral-100 dark:to-neutral-600 from-black via-gray-600 to-gray-300"
+            className="font-bold md:mb-6 mb-2 lg:text-6xl md:text-5xl text-2xl   leading-tight font-lora bg-clip-text text-transparent bg-linear-to-b dark:from-white dark:via-neutral-100 dark:to-neutral-600 from-black via-gray-600 to-gray-300"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}

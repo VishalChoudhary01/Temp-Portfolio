@@ -1,39 +1,12 @@
 "use client";
-import {
-  FaStar,
-  FaRocket,
-  FaMobile,
-  FaPalette,
-  FaCog,
-  FaDatabase,
-  FaServer,
-  FaShieldAlt,
-  FaBolt,
-  FaUsers,
-  FaChartLine,
-  FaLayerGroup,
-  FaToolbox,
-} from "react-icons/fa";
-import { motion } from "framer-motion";
+import {FaStar,FaRocket,FaMobile,FaPalette,FaCog,FaDatabase,FaServer,FaShieldAlt,FaBolt,FaUsers,FaChartLine,FaLayerGroup,FaToolbox,} from "react-icons/fa";
+import { motion } from "motion/react";
 import { IoSparkles } from "react-icons/io5";
 import Heading from "../../atoms/typography/Heading/Heading";
 import GlowingCard from "../../molecules/cards/GlowingCard";
 import useDarkMode from "@/app/hooks/useDarkMode";
 
-const featureIcons = [
-  FaRocket,
-  FaMobile,
-  FaPalette,
-  FaCog,
-  FaDatabase,
-  FaServer,
-  FaShieldAlt,
-  FaBolt,
-  FaUsers,
-  FaChartLine,
-  FaLayerGroup,
-  FaToolbox,
-];
+const featureIcons = [FaRocket,FaMobile,FaPalette,FaCog,FaDatabase,FaServer,FaShieldAlt,FaBolt,FaUsers,FaChartLine,FaLayerGroup,FaToolbox,];
 
 const scaleIn = {
   initial: { opacity: 0, scale: 0.95 },
@@ -90,21 +63,20 @@ export default function KeyFeaturesSection({ project }) {
                 color={accentColor}
                 className="h-full border border-gray-400/15   dark:border-neutral-400/20 shadow"
                 borderRadius="12px"
-                isDarkMode={isDarkMode}
               >
                 <div className="relative z-20 h-full p-4 sm:p-6">
                   <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                    <div className="p-2 sm:p-3 rounded-lg flex-shrink-0">
+                    <div className="p-2 sm:p-3 rounded-lg shrink-0">
                       <Icon 
                         className="text-md md:text-xl sm:text-base"
                         style={{ color: accentColor }}
                       />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-semibold text-h3 dark:text-Head3dark mb-1">
+                      <h3 className="text-base sm:text-lg font-roboto font-semibold text-h3 dark:text-Head3dark mb-1">
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-para2 dark:text-darkPara2 leading-relaxed">
+                      <p className="text-sm text-para2 font-open-sans dark:text-darkPara2 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>

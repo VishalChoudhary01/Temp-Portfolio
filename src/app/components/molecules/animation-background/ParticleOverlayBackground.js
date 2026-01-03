@@ -20,9 +20,9 @@ export default function ParticleOverlayBackground() {
       ]
     : [
         // Light mode → bluish + subtle accent
-        "rgba(0, 102, 255, 0.38)",  // Primary blue (clearly visible)
-        "rgba(0, 170, 255, 0.32)",  // Sky cyan
-        "rgba(30, 30, 30, 0.18)",   // Neutral contrast
+        "rgba(0, 122, 255, 0.25)",   // Soft Apple-like blue
+        "rgba(0, 180, 216, 0.22)",   // Cyan / sky blue
+        "rgba(80, 80, 80, 0.12)",    // Neutral gray for balance
       ];
 }, [isDarkMode]);
 

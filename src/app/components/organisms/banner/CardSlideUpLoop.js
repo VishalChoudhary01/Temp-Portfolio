@@ -25,7 +25,7 @@ const CardSlideUpLoop = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="relative md:w-[158px] w-[142px] h-14 overflow-hidden ">
+      <div className="relative md:w-[168px] w-[142px] h-14 overflow-hidden ">
         <AnimatePresence mode="wait">
           <motion.div
             key={menu[index]}
@@ -34,7 +34,7 @@ const CardSlideUpLoop = () => {
             animate="animate"
             exit="exit"
             transition={{ duration: 0.6, ease: 'easeInOut' }}
-            className="absolute w-full h-full flex items-center font-medium text-nowrap  tracking-wider font-poppins dark:text-darkPara1 text-para1"
+            className="absolute w-full h-full flex items-center font-medium text-nowrap [letter-spacing:0.12em]  tracking-wider font-open-sans text-[rgba(0,0,0,0.6)] dark:text-[rgba(255,255,255,0.6)]"
           >
             {menu[index]}
           </motion.div>

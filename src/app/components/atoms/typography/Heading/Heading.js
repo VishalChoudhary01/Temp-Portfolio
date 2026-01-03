@@ -29,7 +29,7 @@ const Heading = ({
       }}
       className={`w-full flex flex-col ${alignment} md:mb-16 mb-8 `}
     >
-      <h1 className={`${isDarkMode?"dark-heading ":"heading "} lg:text-[3.25rem] md:text-5xl text-[1.5rem]  font-roboto  tracking-wider font-semibold`}>
+      <h1 className={`${isDarkMode?"dark-heading ":"heading "} lg:text-[3.25rem] md:text-5xl text-[1.5rem]  font-lora   tracking-wider font-semibold`}>
         {heading}
         <span className={`${isDarkMode?"dark-underline-animated":"underline-animated"}`}></span>
       </h1>

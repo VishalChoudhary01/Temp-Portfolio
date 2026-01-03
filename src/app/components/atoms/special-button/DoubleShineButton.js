@@ -24,7 +24,7 @@ const DoubleShineButton = ({buttonText,buttonStyle,leftIcon,leftIconStyle,rightI
       </div>
       
       {/* Inner overlay - adjusted for better shine visibility */}
-      <div className="absolute inset-[2px] bg-black dark:bg-zinc-950 hover:dark:bg-neutral-950 transition-all rounded-xl z-0" />
+      <div className="absolute inset-0.5 bg-black dark:bg-zinc-950 hover:dark:bg-neutral-950 transition-all rounded-xl z-0" />
     </button>
   );
 };
