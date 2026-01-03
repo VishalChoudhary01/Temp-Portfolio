@@ -9,7 +9,7 @@ const GlowingCard = ({
   color = '#0565ff',
   className = '',
   borderRadius = '20px',
-  isDarkMode: externalDarkMode = null // Allow external control
+  isDarkMode: externalDarkMode = null 
 }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -40,7 +40,7 @@ const GlowingCard = ({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      whileHover={{ scale: 1.02 }}
+      // whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3 }}
     >
       {/* Glowing gradient effect that follows cursor - similar to GlowingCornerHover */}

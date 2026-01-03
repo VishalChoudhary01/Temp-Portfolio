@@ -14,7 +14,7 @@ export default function ExperienceCard({ experience }) {
     <GlowingCard
       color={experience.color}
       className="p-6 md:p-10 min-h-[360px]"
-      isDarkMode={isDarkMode}
+      borderRadius="0.75rem"
     >
       <motion.div
         key={experience.id}

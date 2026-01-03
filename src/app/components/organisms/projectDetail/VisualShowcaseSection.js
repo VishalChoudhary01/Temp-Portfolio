@@ -5,7 +5,6 @@ import { FaEye, FaExpand, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 import { Heading } from "../../atoms/typography";
 
-
 const scaleIn = {
   initial: { opacity: 0, scale: 0.95 },
   animate: { opacity: 1, scale: 1 },
@@ -34,15 +33,19 @@ export default function VisualShowcaseSection({
   setSelectedImage,
 }) {
   // If no bentoGrid, create one from gallery
-  const visualItems = project.bentoGrid || (project.gallery ? project.gallery.map((img, index) => ({
-    id: index + 1,
-    title: `Screenshot ${index + 1}`,
-    description: "Project screenshot",
-    image: img,
-    gridPosition: getGridPosition(index),
-    category: "screenshot",
-    size: getSize(index)
-  })) : []);
+  const visualItems =
+    project.bentoGrid ||
+    (project.gallery
+      ? project.gallery.map((img, index) => ({
+          id: index + 1,
+          title: `Screenshot ${index + 1}`,
+          description: "Project screenshot",
+          image: img,
+          gridPosition: getGridPosition(index),
+          category: "screenshot",
+          size: getSize(index),
+        }))
+      : []);
 
   function getGridPosition(index) {
     const positions = [
@@ -58,7 +61,15 @@ export default function VisualShowcaseSection({
   }
 
   function getSize(index) {
-    const sizes = ["large", "medium", "medium", "tall", "medium", "wide", "medium"];
+    const sizes = [
+      "large",
+      "medium",
+      "medium",
+      "tall",
+      "medium",
+      "wide",
+      "medium",
+    ];
     return sizes[index % sizes.length];
   }
 
@@ -75,14 +86,14 @@ export default function VisualShowcaseSection({
         className="max-w-6xl mx-auto"
       >
         <motion.div className="text-center mb-12" variants={fadeInUp}>
-          <Heading heading="Project Screenshots" subheading=""/>
+          <Heading heading="Project Screenshots" subheading="" />
         </motion.div>
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px] sm:auto-rows-[250px]"
           variants={staggerContainer}
         >
-          {visualItems.slice(0, 6).map((item) => (
+          {visualItems.slice(0, 6).map((item, index) => (
             <motion.div
               key={item.id}
               className={`relative group cursor-pointer rounded-xl overflow-hidden border backdrop-blur-lg ${
@@ -94,7 +105,7 @@ export default function VisualShowcaseSection({
               whileHover={{ scale: 1.02 }}
               onClick={() => setSelectedImage(item.image)}
             >
-              {typeof item.image === 'string' ? (
+              {typeof item.image === "string" ? (
                 // For external URLs
                 <img
                   src={item.image}
@@ -108,6 +119,8 @@ export default function VisualShowcaseSection({
                   src={item.image}
                   alt={item.title}
                   fill
+                  priority={index === 0}
+                  quality={85}
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
@@ -158,7 +171,7 @@ export default function VisualShowcaseSection({
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
             >
-              {typeof selectedImage === 'string' ? (
+              {typeof selectedImage === "string" ? (
                 <img
                   src={selectedImage}
                   alt="Enlarged view"

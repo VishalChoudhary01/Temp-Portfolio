@@ -22,7 +22,7 @@ const TickerItem = ({ tech, index, techStackLength, isMounted }) => {
           >
             {tech.icon}
           </div>
-          <h3 className="text-[0.6rem]  mt-1 nd:mb-2 md:text-sm select-none font-poppins  font-medium text-h2  dark:text-Head2dark text-center leading-tight">
+          <h3 className="text-[0.6rem]  mt-1 md:mb-2 md:text-sm select-none font-roboto  font-medium text-h2  dark:text-Head2dark text-center leading-tight">
             {tech.name}
           </h3>
         </div>

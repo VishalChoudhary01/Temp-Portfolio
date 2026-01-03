@@ -11,7 +11,7 @@ export default function WorkExperience() {
   const activeExperience = experiences.find(e => e.id === activeId);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+    <section id="experience" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24">
       <Heading
         heading="Work Experience"
         subheading="A focused look at my professional journey, responsibilities, and impact."

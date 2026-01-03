@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import TechCategoryCard from "./TechCategoryCard";
 import { categories } from "@/app/lib/data/index";
 
@@ -47,7 +47,6 @@ const Tech = () => {
 
   const skillColor = getHoveredSkillColor();
 
-  // Don't render animated components during SSR
   if (!isMounted) {
     return (
       <section className="min-h-screen py-8 md:py-20 px-4 md:px-6 overflow-hidden bg-contextBG dark:bg-contextDarkBG">

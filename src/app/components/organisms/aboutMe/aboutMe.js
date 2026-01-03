@@ -26,7 +26,6 @@ const AboutMe = () => {
 
   return (
     <section 
-      id="about" 
       className="min-h-[90vh] flex items-center justify-center mt-[200px] md:mt-[400px] py-8 md:py-12 px-1.5 sm:px-8"
     >
       <div className="w-full md:max-w-6xl mx-auto relative z-10">

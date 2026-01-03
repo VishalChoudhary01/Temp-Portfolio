@@ -4,7 +4,7 @@ import CarouselProjects from '@/app/components/organisms/projectCarousel/Carouse
 
 const ProjectsCarousel = () => {
   return (
-    <div>
+    <div id='projects'>
         <Heading heading='Projects'/>
         <CarouselProjects/>
     </div>

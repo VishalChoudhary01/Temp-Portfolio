@@ -34,7 +34,7 @@ const Education = () => {
   });
 
   return (
-    <section className="min-h-screen py-20 px-4">
+    <section id='education' className="min-h-screen py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <Heading heading='Education' />
         

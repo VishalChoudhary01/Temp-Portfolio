@@ -48,7 +48,7 @@ const Banner = () => {
       {/* Scroll Indicator */}
       <motion.div
         style={{ opacity: indicatorOpacity }}
-        className="fixed md:top-[85vh] top-[78vh] left-1/2 transform -translate-x-1/2 z-40 w-full max-w-sm mx-auto px-4"
+        className="fixed md:top-[85vh] top-[78vh]  left-1/2 transform -translate-x-1/2 z-40 w-full max-w-sm mx-auto px-4"
       >
         <div className="flex flex-col items-center justify-center gap-x-4 w-full ">
           {/* Text with sliding menu - Horizontally centered */}
@@ -111,9 +111,10 @@ const Banner = () => {
 
       {/* About Section */}
       <motion.div
+      id="about" 
         ref={aboutRef}
         style={{ opacity: aboutOpacity, y: aboutY }}
-        className="absolute md:top-[350vh] top-[290vh] left-0 w-full h-screen flex justify-center items-center md:px-3 px-2.5 z-50"
+        className="absolute md:top-[350vh] top-[290vh]  left-0 w-full h-screen flex justify-center items-center md:px-3 px-2.5 z-50"
       >
         <AboutMe />
       </motion.div>

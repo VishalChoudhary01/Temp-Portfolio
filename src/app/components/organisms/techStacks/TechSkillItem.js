@@ -2,15 +2,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const TechSkillItem = ({ 
-  skill, 
-  isHovered, 
-  isDarkMode, 
-  onHover, 
-  onLeave, 
-  category, 
+const TechSkillItem = ({
+  skill,
+  isHovered,
+  isDarkMode,
+  onHover,
+  onLeave,
+  category,
   isMobile,
-  gradientColor 
+  gradientColor,
 }) => {
   return (
     <motion.li
@@ -18,23 +18,32 @@ const TechSkillItem = ({
       onMouseEnter={() => onHover(skill)}
       onMouseLeave={onLeave}
       animate={{
-        backgroundColor: isHovered && !isMobile
-          ? (isDarkMode 
-              ? `${gradientColor}15` 
-              : `${gradientColor}08`)
-          : "transparent",
+        backgroundColor:
+          isHovered && !isMobile
+            ? isDarkMode
+              ? `${gradientColor}15`
+              : `${gradientColor}08`
+            : "rgba(0, 0, 0, 0)",
         y: isHovered && !isMobile ? -1 : 0,
       }}
-      transition={{ type: "spring", stiffness: 500, damping: 30, duration: 0.2 }}
+      transition={{
+        type: "spring",
+        stiffness: 500,
+        damping: 30,
+        duration: 0.2,
+      }}
     >
       <div className="flex items-center">
         <motion.span
           className="mr-2 md:mr-3 text-[10px] shrink-0"
           animate={{
             scale: isHovered && !isMobile ? 1.3 : 1,
-            color: isHovered && !isMobile
-              ? gradientColor
-              : (isDarkMode ? "var(--darkPara2)" : "var(--para2)"),
+            color:
+              isHovered && !isMobile
+                ? gradientColor
+                : isDarkMode
+                ? "var(--darkPara2)"
+                : "var(--para2)",
           }}
           transition={{ duration: 0.2 }}
         >
@@ -44,14 +53,18 @@ const TechSkillItem = ({
         <motion.span
           className="text-[0.8rem] md:text-sm font-roboto text-left select-none flex-1 font-light leading-tight md:leading-normal wrap-break-word hyphens-auto transition-all duration-200"
           animate={{
-            fontWeight: isHovered && !isMobile ? "600" : "400",
-            color: isHovered && !isMobile
-              ? gradientColor
-              : (isDarkMode ? "var(--darkPara1)" : "var(--para1)"),
+            fontWeight: isHovered && !isMobile ? 600 : 400,
+            color:
+              isHovered && !isMobile
+                ? gradientColor
+                : isDarkMode
+                ? "var(--darkPara1)"
+                : "var(--para1)",
             x: isHovered && !isMobile ? 2 : 0,
-            textShadow: isHovered && !isMobile
-              ? `0 0 8px ${gradientColor}40, 0 0 16px ${gradientColor}20`
-              : "none",
+            textShadow:
+              isHovered && !isMobile
+                ? `0 0 8px ${gradientColor}40, 0 0 16px ${gradientColor}20`
+                : "none",
           }}
           transition={{
             type: "spring",
@@ -69,7 +82,7 @@ const TechSkillItem = ({
           className="absolute inset-0 rounded-lg border-2 -z-5"
           animate={{
             opacity: isHovered ? 1 : 0,
-            borderColor: isHovered ? gradientColor : "transparent",
+            borderColor: gradientColor,
             boxShadow: isHovered
               ? `0 0 15px ${gradientColor}30, 0 0 30px ${gradientColor}15`
               : "none",

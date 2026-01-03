@@ -27,7 +27,7 @@ const Heading = ({
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1]
       }}
-      className={`w-full flex flex-col ${alignment} md:mb-16 mb-8 `}
+      className={`w-full flex flex-col ${alignment} md:mb-16 mb-8  select-none`}
     >
       <h1 className={`${isDarkMode?"dark-heading ":"heading "} lg:text-[3.25rem] md:text-5xl text-[1.5rem]  font-lora   tracking-wider font-semibold`}>
         {heading}
