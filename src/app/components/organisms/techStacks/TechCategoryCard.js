@@ -65,7 +65,7 @@ const TechCategoryCard = ({
             }}
           >
             <motion.div
-              className="text-xl md:text-2xl transition-colors duration-300"
+              className={`lg:text-3xl  text-2xl    transition-colors duration-300`}
               style={{
                 color: iconColor,
               }}
@@ -77,7 +77,7 @@ const TechCategoryCard = ({
 
           {/* Title */}
           <HeadingTwo 
-            className=" mb-6 text-md md:text-lg select-none  font-bold text-h2 dark:text-Head2dark leading-tight transition-colors duration-300 tracking-wider"
+            className=" mb-6 md:text-lg lg:text-[1.2rem] text-[1.15rem]   select-none font-roboto  font-bold text-h2 dark:text-Head2dark leading-tight transition-colors duration-300 tracking-wider"
           >
             {category.title}
           </HeadingTwo>

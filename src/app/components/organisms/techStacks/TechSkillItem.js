@@ -51,7 +51,7 @@ const TechSkillItem = ({
         </motion.span>
 
         <motion.span
-          className="text-[0.8rem] md:text-sm font-roboto text-left select-none flex-1 font-light leading-tight md:leading-normal wrap-break-word hyphens-auto transition-all duration-200"
+          className="text-[0.85rem] md:text-md  lg:text-[0.9rem]  font-open-sans text-left select-none flex-1 font-light leading-tight md:leading-normal wrap-break-word hyphens-auto transition-all duration-200"
           animate={{
             fontWeight: isHovered && !isMobile ? 600 : 400,
             color:

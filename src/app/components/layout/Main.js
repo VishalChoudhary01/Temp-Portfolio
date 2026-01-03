@@ -3,7 +3,7 @@ import {Education,Skills,ProjectsCarousel,WorkExperience} from '../../components
 
 const Main = () => {
   return (
-    <div className='w-full md:mt-96 mt-[700px] '>
+    <div lazy="true" className='w-full md:mt-96 mt-[700px] '>
         <Education/>
         <WorkExperience/>
         <Skills/>

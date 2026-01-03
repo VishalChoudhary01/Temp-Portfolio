@@ -2,6 +2,8 @@ import { LuLanguages } from "react-icons/lu";
 import { HiCode } from "react-icons/hi";
 import { FaDatabase } from "react-icons/fa";
 import { BsTools } from "react-icons/bs";
+// import { FaReact } from "react-icons/fa6";
+import { FaReact } from "react-icons/fa"
 
 export const skillsData = {
   frontend: [
@@ -27,7 +29,7 @@ export const categories = [
   
   {
     title: "Frontend Development",
-    icon: <HiCode />,
+    icon: <FaReact />,
     gradientColor: "var(--grad-primary)",
     darkGradientColor: "var(--darkgrad-primary)",
     lightTextShadow: "var(--grad-primary)",

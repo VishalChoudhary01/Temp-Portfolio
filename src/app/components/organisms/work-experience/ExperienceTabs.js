@@ -6,7 +6,7 @@ const TABS = ["overview", "build", "challenges", "impact"];
 
 export default function ExperienceTabs({ activeTab, setActiveTab }) {
   return (
-    <div className="flex gap-5 md:gap-8 border-b border-lightBorder dark:border-darkBorder pb-2 ">
+    <div className="flex gap-5 md:gap-8 border-b border-lightBorder dark:border-darkBorder md:pb-1.5  pb-1 ">
       {TABS.map((tab) => (
         <button
           key={tab}
@@ -16,7 +16,7 @@ export default function ExperienceTabs({ activeTab, setActiveTab }) {
           {activeTab === tab && (
             <motion.span
               layoutId="tab-underline"
-              className=" absolute left-0 right-0 -bottom-2 h-px   bg-linear-to-r from-gray-500/50     to-gray-800/40     dark:from-gray-200/40 dark:to-gray-50/80 " /> )}
+              className=" absolute left-0 right-0 md:-bottom-2   -bottom-1 md:h-1 h-0.5     bg-linear-to-r from-gray-500/50     to-gray-800/40     dark:from-gray-200/40 dark:to-gray-50/80 " /> )}
         </button>
       ))}
     </div>

@@ -56,7 +56,7 @@ const Tech = () => {
               {categories.map((category, index) => (
                 <div key={index} className="rounded-xl md:rounded-2xl h-full w-full mx-auto max-w-[280px] sm:max-w-none sm:w-full bg-white dark:bg-gray-800 p-6">
                   <div className="flex flex-col items-center text-center space-y-4">
-                    <div className="p-3 md:p-4 rounded-lg md:rounded-xl bg-gray-100 dark:bg-gray-700 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
+                    <div className="p-3 md:p-4  rounded-lg md:rounded-xl bg-gray-100 dark:bg-gray-700 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
                       {category.icon}
                     </div>
                     <h3 className="text-base md:text-lg font-semibold text-gray-800 dark:text-gray-200">
