@@ -46,7 +46,6 @@ const Banner = () => {
         style={{ scale: nameScale, opacity: nameOpacity }}
         className="fixed top-1/2 left-1/2 -translate-x-1/2  -translate-y-1/2 z-30 pointer-events-none md:whitespace-nowrap w-full px-4"
       >
-        
         <NameHeading title={"Vishal Kumar Choudhary"} subtitle={"Frontend Developer"} shimmerEffect={true} isDarkMode={isDarkMode}/>
 
       </motion.div>
