@@ -16,7 +16,7 @@ export default function ExperienceTabs({ activeTab, setActiveTab }) {
           {activeTab === tab && (
             <motion.span
               layoutId="tab-underline"
-              className=" absolute left-0 right-0 md:-bottom-2   -bottom-1 md:h-1 h-0.5     bg-linear-to-r from-gray-500/50     to-gray-800/40     dark:from-gray-200/40 dark:to-gray-50/80 " /> )}
+              className=" absolute left-0 right-0 md:-bottom-2   -bottom-1 md:h-1 h-0.5     bg-linear-to-r from-gray-500/50       to-gray-800/40     dark:from-gray-200/20 dark:to-gray-50/40 " /> )}
         </button>
       ))}
     </div>

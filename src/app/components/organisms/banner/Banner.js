@@ -24,11 +24,17 @@ const Banner = () => {
     offset: ["start start", "end start"],
   });
 
-  const nameScale = useTransform(scrollYProgress, [0, 0.6], [1, 40]);
+  const nameScale = useTransform(scrollYProgress, [0, 0.6], [1, 4]);
   const nameOpacity = useTransform(scrollYProgress, [0.45, 0.6], [1, 0]);
   const aboutOpacity = useTransform(scrollYProgress, [0.78, 0.85], [0, 1]);
   const aboutY = useTransform(scrollYProgress, [0.78, 0.85], [100, 0]);
   const indicatorOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+  const nameBlur = useTransform(
+  scrollYProgress,
+  [0.4, 0.6],
+  ["0px", "20px"]
+);
+
 
   return (
     <motion.section

@@ -35,7 +35,7 @@ const DesktopContent = ({ item,seeMore }) => (
          buttonText={"View Repo"} buttonStyle={" transition-color active:scale-105 cursor-pointer bg-gray-900 dark:bg-black  text-white rounded-md md:px-3 md:py-2.5 "} leftIcon={<RxGithubLogo/>} rightStyle={"flex items-center"}/>
         <GhostButton
           onClick={() => window.open(item.liveUrl, "_blank")}
-         buttonText={"Live Demo"} buttonStyle={" active:scale-105 cursor-pointer bg-gray-900 dark:bg-black  text-white rounded-md md:px-3 md:py-2.5 "} rightIcon={<LuExternalLink/>} rightStyle={"flex items-center"}/>
+         buttonText={"Live Demo"} buttonStyle={" active:scale-105 cursor-pointer group bg-gray-900 dark:bg-black  text-white rounded-md md:px-3 md:py-2.5 "} rightIcon={<LuExternalLink/>} rightStyle={"flex items-center group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"}/>
       </div>
     </motion.div>
   </div>
