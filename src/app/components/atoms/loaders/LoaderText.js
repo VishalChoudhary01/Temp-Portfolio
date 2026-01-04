@@ -1,7 +1,7 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
-export default function LoaderText({  reduceMotion }) {
+export default function LoaderText({ reduceMotion }) {
   return (
     <motion.div
       className="flex items-baseline gap-1 text-h1 dark:text-Head1dark ml-12 "

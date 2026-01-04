@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import GlowingCard from "../../molecules/cards/GlowingCard";
 import useDarkMode from "@/app/hooks/useDarkMode";
 
@@ -17,10 +17,10 @@ const TimelineCard = ({
   const { isDarkMode } = useDarkMode();
 
   // Use existing gradient variables
-  const glowColors = isDarkMode 
+  const glowColors = isDarkMode
     ? [
         "var(--darkgrad-primary)",
-        "var(--darkgrad-secondary)", 
+        "var(--darkgrad-secondary)",
         "var(--darkgrad-tertiary)",
         "var(--darkgrad-quaternary)",
       ]
@@ -35,11 +35,14 @@ const TimelineCard = ({
 
   // Get gradient pair for blob and icon
   const getGradientColors = (idx) => {
-    const gradients = isDarkMode 
+    const gradients = isDarkMode
       ? [
           { from: "var(--darkgrad-primary)", to: "var(--darkgrad-secondary)" },
           { from: "var(--darkgrad-secondary)", to: "var(--darkgrad-tertiary)" },
-          { from: "var(--darkgrad-tertiary)", to: "var(--darkgrad-quaternary)" },
+          {
+            from: "var(--darkgrad-tertiary)",
+            to: "var(--darkgrad-quaternary)",
+          },
           { from: "var(--darkgrad-quaternary)", to: "var(--darkgrad-primary)" },
         ]
       : [
@@ -48,7 +51,7 @@ const TimelineCard = ({
           { from: "var(--grad-tertiary)", to: "var(--grad-quaternary)" },
           { from: "var(--grad-quaternary)", to: "var(--grad-primary)" },
         ];
-    
+
     return gradients[idx % gradients.length];
   };
 
@@ -66,21 +69,21 @@ const TimelineCard = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { 
-        duration: 0.5, 
-        type: "spring", 
-        stiffness: 100, 
-        damping: 15 
+      transition: {
+        duration: 0.5,
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
       },
     },
   };
 
   const blobVariants = {
     initial: { opacity: 0.1, scale: 0.8 },
-    hover: { 
-      opacity: 0.3, 
-      scale: 1.2, 
-      transition: { duration: 0.4, ease: "easeOut" } 
+    hover: {
+      opacity: 0.3,
+      scale: 1.2,
+      transition: { duration: 0.4, ease: "easeOut" },
     },
   };
 
@@ -134,16 +137,18 @@ const TimelineCard = ({
                 whileHover="hover"
               >
                 {/* Gradient background for icon */}
-                <div 
+                <div
                   className="absolute inset-0 opacity-20"
                   style={{
                     background: `linear-gradient(45deg, ${colors.from}, ${colors.to})`,
                   }}
                 />
                 <Icon
-                  className={`${isMobile ? "text-base" : "text-2xl"} relative z-10`}
-                  style={{ 
-                    color: colors.from
+                  className={`${
+                    isMobile ? "text-base" : "text-2xl"
+                  } relative z-10`}
+                  style={{
+                    color: colors.from,
                   }}
                 />
               </motion.div>
@@ -152,9 +157,7 @@ const TimelineCard = ({
               <span
                 className={`text-para2 select-none dark:text-darkPara3 font-roboto font-medium ${
                   isMobile ? "text-xs" : "text-base"
-                } font-semibold rounded-full  ${
-                  isRight ? "mr-1" : "ml-1"
-                }`}
+                } font-semibold rounded-full  ${isRight ? "mr-1" : "ml-1"}`}
               >
                 {item.year}
               </span>
@@ -179,9 +182,11 @@ const TimelineCard = ({
             </p>
 
             {/* Description */}
-            <p className={`text-h3 select-none dark:text-Head3dark font-open-sans leading-relaxed ${
-              isMobile ? "text-xs leading-snug" : "text-sm"
-            } grow`}>
+            <p
+              className={`text-h3 select-none dark:text-Head3dark font-open-sans leading-relaxed ${
+                isMobile ? "text-xs leading-snug" : "text-sm"
+              } grow`}
+            >
               {item.description}
             </p>
           </div>

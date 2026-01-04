@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
+import { motion } from "motion/react";
 
-const Paragraph = ({ 
-  children, 
-  className = "", 
-  delay = 0.4, 
+const Paragraph = ({
+  children,
+  className = "",
+  delay = 0.4,
   duration = 1.5,
-  ...props 
+  ...props
 }) => {
   return (
     <motion.p

@@ -1,16 +1,20 @@
 "use client";
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FiSun, FiMoon } from 'react-icons/fi';
-import useDarkMode from '@/app/hooks/useDarkMode';
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import { FiSun, FiMoon } from "react-icons/fi";
+import useDarkMode from "@/app/hooks/useDarkMode";
 
 const CleanDarkModeToggle = () => {
   const { isDarkMode, toggleMode } = useDarkMode();
   const [isHovered, setIsHovered] = useState(false);
 
   // Get accent colors based on theme
-  const accentColor = isDarkMode ? "var(--darkgrad-primary)" : "var(--grad-primary)";
-  const secondaryAccent = isDarkMode ? "var(--darkgrad-secondary)" : "var(--grad-secondary)";
+  const accentColor = isDarkMode
+    ? "var(--darkgrad-primary)"
+    : "var(--grad-primary)";
+  const secondaryAccent = isDarkMode
+    ? "var(--darkgrad-secondary)"
+    : "var(--grad-secondary)";
 
   return (
     <motion.div
@@ -30,11 +34,11 @@ const CleanDarkModeToggle = () => {
           transition={{
             duration: 3,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
           style={{
             background: `radial-gradient(circle at center, ${accentColor}15, transparent 70%)`,
-            borderColor: `${accentColor}30`
+            borderColor: `${accentColor}30`,
           }}
         />
       )}
@@ -45,15 +49,15 @@ const CleanDarkModeToggle = () => {
         onMouseLeave={() => setIsHovered(false)}
         className="group relative w-12 h-12 rounded-xl backdrop-blur-md border flex items-center justify-center overflow-hidden transition-all duration-300 shadow-lg"
         style={{
-          background: isDarkMode 
+          background: isDarkMode
             ? `linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(15, 15, 15, 0.7))`
             : `linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.7))`,
-          borderColor: isDarkMode 
+          borderColor: isDarkMode
             ? "rgba(172, 166, 166, 0.3)"
             : "rgba(100, 104, 105, 0.2)",
-          boxShadow: isDarkMode 
+          boxShadow: isDarkMode
             ? "0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)"
-            : "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)"
+            : "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
         }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -62,7 +66,7 @@ const CleanDarkModeToggle = () => {
         <motion.div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(circle at center, ${accentColor}15, transparent 70%)`
+            background: `radial-gradient(circle at center, ${accentColor}15, transparent 70%)`,
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
@@ -84,10 +88,7 @@ const CleanDarkModeToggle = () => {
             }}
             className="absolute"
           >
-            <FiSun 
-              className="w-5 h-5" 
-              style={{ color: accentColor }}
-            />
+            <FiSun className="w-5 h-5" style={{ color: accentColor }} />
           </motion.div>
 
           {/* Moon icon */}
@@ -104,18 +105,15 @@ const CleanDarkModeToggle = () => {
             }}
             className="absolute"
           >
-            <FiMoon 
-              className="w-5 h-5" 
-              style={{ color: secondaryAccent }}
-            />
+            <FiMoon className="w-5 h-5" style={{ color: secondaryAccent }} />
           </motion.div>
         </div>
 
         {/* Subtle border highlight on hover */}
         <motion.div
           className="absolute inset-0 rounded-xl pointer-events-none border"
-          style={{ 
-            borderColor: isHovered ? accentColor + '40' : 'transparent'
+          style={{
+            borderColor: isHovered ? accentColor + "40" : "transparent",
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
@@ -127,22 +125,23 @@ const CleanDarkModeToggle = () => {
       <motion.div
         className="absolute -top-8 left-1/3 transform -translate-x-1/2 px-2 py-1 rounded text-xs font-medium whitespace-nowrap pointer-events-none shadow-md backdrop-blur-sm"
         style={{
-          background: isDarkMode 
+          background: isDarkMode
             ? "rgba(10, 10, 10, 0.9)"
             : "rgba(255, 255, 255, 0.9)",
-          border: `1px solid ${isDarkMode ? 'rgba(172, 166, 166, 0.3)' : 'rgba(100, 104, 105, 0.2)'}`,
-          color: isDarkMode ? "var(--darkPara2)" : "var(--para2)"
+          border: `1px solid ${
+            isDarkMode ? "rgba(172, 166, 166, 0.3)" : "rgba(100, 104, 105, 0.2)"
+          }`,
+          color: isDarkMode ? "var(--darkPara2)" : "var(--para2)",
         }}
         initial={{ opacity: 0, y: 5 }}
-        animate={{ 
+        animate={{
           opacity: isHovered ? 1 : 0,
-          y: isHovered ? 0 : 5
+          y: isHovered ? 0 : 5,
         }}
         transition={{ duration: 0.2 }}
       >
-        {isDarkMode ? 'Light mode' : 'Dark mode'}
+        {isDarkMode ? "Light mode" : "Dark mode"}
       </motion.div>
-      
     </motion.div>
   );
 };

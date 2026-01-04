@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import GlowingCard from "@/app/components/molecules/cards/GlowingCard";
 import ExperienceTabs from "./ExperienceTabs";
 import useDarkMode from "@/app/hooks/useDarkMode";
@@ -18,8 +18,8 @@ export default function ExperienceCard({ experience }) {
     >
       <motion.div
         key={experience.id}
-        initial={{ opacity: 0, y: 40,filter:"blur(10px)" }}
-        animate={{ opacity: 1, y: 0,filter:"blur(0px)" }}
+        initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="w-full flex items-center h-full"
       >
@@ -34,7 +34,7 @@ export default function ExperienceCard({ experience }) {
             <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-h1 dark:text-Head1dark font-roboto">
               {experience.role}
             </h3>
-            
+
             {/* Company */}
             <p className="text-[0.85rem] md:text-md lg:text-[0.95rem] text-para2 font-open-sans dark:text-darkPara2">
               {experience.company}
@@ -42,10 +42,7 @@ export default function ExperienceCard({ experience }) {
           </div>
 
           {/* Tabs */}
-          <ExperienceTabs
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-          />
+          <ExperienceTabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">
@@ -55,7 +52,8 @@ export default function ExperienceCard({ experience }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25 }}
-              className="text-sm md:text-base leading-relaxed text-para2 font-open-sans dark:text-darkPara2 max-w-3xl md:min-h-[50px] min-h-32   ">
+              className="text-sm md:text-base leading-relaxed text-para2 font-open-sans dark:text-darkPara2 max-w-3xl md:min-h-[50px] min-h-32   "
+            >
               {experience.tabs[activeTab]}
             </motion.p>
           </AnimatePresence>

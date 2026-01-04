@@ -1,20 +1,20 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function LoaderParticles({ size, reduceMotion }) {
   if (reduceMotion) return null;
 
   const particles = Array.from({ length: 6 }, (_, i) => {
-    const angle = (i * 60) * Math.PI / 180;
+    const angle = (i * 60 * Math.PI) / 180;
     const radius = size * 0.28;
-    const color = i % 2 === 0 ? 'primary' : 'tertiary';
+    const color = i % 2 === 0 ? "primary" : "tertiary";
 
     return {
       id: i,
       x: Math.cos(angle) * radius,
       y: Math.sin(angle) * radius,
       color,
-      delay: i * 0.2
+      delay: i * 0.2,
     };
   });
 
@@ -31,11 +31,13 @@ export default function LoaderParticles({ size, reduceMotion }) {
           animate={{
             x: [
               particle.x,
-              Math.cos(((particle.id * 60 + 360) * Math.PI) / 180) * (size * 0.28),
+              Math.cos(((particle.id * 60 + 360) * Math.PI) / 180) *
+                (size * 0.28),
             ],
             y: [
               particle.y,
-              Math.sin(((particle.id * 60 + 360) * Math.PI) / 180) * (size * 0.28),
+              Math.sin(((particle.id * 60 + 360) * Math.PI) / 180) *
+                (size * 0.28),
             ],
             opacity: [0.3, 1, 0.3],
           }}

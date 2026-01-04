@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import DownloadButton from "@/app/components/atoms/button/DownloadButton";
 import SocialLinks from "../../molecules/navigation/SocialLinks";
 
@@ -14,7 +14,7 @@ const ActionButtons = ({ isDarkMode }) => {
       className="flex flex-col sm:flex-row items-center justify-between gap-5 pt-6 border-t border-lightBorder dark:border-darkBorder"
     >
       <SocialLinks className="order-2 sm:order-1" iconSize="w-5 h-5" />
-      
+
       <div className="order-1 sm:order-2">
         <DownloadButton isDarkMode={isDarkMode} />
       </div>

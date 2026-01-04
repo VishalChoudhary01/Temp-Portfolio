@@ -60,13 +60,11 @@ const openSans = Open_Sans({
   variable: "--font-open-sans",
 });
 
-
 const outfit = Outfit({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-outfit",
 });
-
 
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
@@ -74,14 +72,11 @@ const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
 });
 
-
-
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-manrope",
 });
-
 
 const lora = Lora({
   subsets: ["latin"],
@@ -108,9 +103,16 @@ export default function RootLayout({ children }) {
           antialiased
         `}
       >
+        {/* Skip to content link for accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded"
+        >
+          Skip to main content
+        </a>
         <ClientProvider>
           <FaviconSwitcher />
-          {children}
+          <main id="main-content">{children}</main>
         </ClientProvider>
         <Footer />
       </body>

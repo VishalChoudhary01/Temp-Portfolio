@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import useDarkMode from '@/app/hooks/useDarkMode';
+import React, { useState } from "react";
+import { motion } from "motion/react";
+import useDarkMode from "@/app/hooks/useDarkMode";
 
 const GlowingCornerHover = ({ color }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const {isDarkMode}=useDarkMode()
+  const { isDarkMode } = useDarkMode();
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e) => {
@@ -18,8 +18,10 @@ const GlowingCornerHover = ({ color }) => {
   };
 
   // Card colors based on theme
-  const cardBg = isDarkMode ? 'rgba(45, 45, 45, 1)' : 'rgba(255, 255, 255, 1)';
-  const innerCardBg = isDarkMode ? 'rgba(45, 45, 45, 0.75)' : 'rgba(255, 255, 255, 0.75)';
+  const cardBg = isDarkMode ? "rgba(45, 45, 45, 1)" : "rgba(255, 255, 255, 1)";
+  const innerCardBg = isDarkMode
+    ? "rgba(45, 45, 45, 0.75)"
+    : "rgba(255, 255, 255, 0.75)";
 
   return (
     <motion.div
@@ -37,25 +39,27 @@ const GlowingCornerHover = ({ color }) => {
         style={{
           left: mousePosition.x,
           top: mousePosition.y,
-          transform: 'translate(-50%, -50%)',
+          transform: "translate(-50%, -50%)",
           background: `radial-gradient(circle, ${color}, transparent 40%, transparent 70%)`,
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.5 }}
       />
-      
+
       {/* Inner card with slight transparency */}
-      <div 
+      <div
         className="absolute inset-[2px] rounded-[18px] z-10"
         style={{ background: innerCardBg }}
       />
-      
+
       {/* Edge glow effect */}
       <motion.div
         className="absolute inset-0 rounded-[20px] pointer-events-none"
         style={{
-          boxShadow: isHovered ? `0 0 30px ${color}, inset 0 0 20px ${color}` : 'none',
+          boxShadow: isHovered
+            ? `0 0 30px ${color}, inset 0 0 20px ${color}`
+            : "none",
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 0.6 : 0 }}
@@ -65,4 +69,4 @@ const GlowingCornerHover = ({ color }) => {
   );
 };
 
-export default GlowingCornerHover
+export default GlowingCornerHover;

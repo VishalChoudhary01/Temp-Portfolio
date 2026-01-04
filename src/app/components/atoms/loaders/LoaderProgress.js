@@ -1,10 +1,10 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function LoaderProgress({ progress, size, reduceMotion }) {
   return (
     <>
-      <div 
+      <div
         className="mt-4 w-48 h-1 bg-gray-300/40 dark:bg-gray-700/40 rounded-full overflow-hidden"
         role="progressbar"
         aria-valuenow={Math.round(progress)}

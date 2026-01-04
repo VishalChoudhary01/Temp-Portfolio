@@ -1,7 +1,10 @@
 "use client";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleSidebar, closeSidebar } from "../../../redux/featuresSlice/UISlice";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  toggleSidebar,
+  closeSidebar,
+} from "../../../redux/featuresSlice/UISlice";
+import { motion, AnimatePresence } from "motion/react";
 import { IoClose } from "react-icons/io5";
 import useDarkMode from "../../../hooks/useDarkMode";
 import { HiSun } from "react-icons/hi";
@@ -23,13 +26,13 @@ const SideMenu = () => {
   // Close on escape key
   useEffect(() => {
     const handleEscape = (e) => {
-      if (e.key === 'Escape' && isSidebarOpen) {
+      if (e.key === "Escape" && isSidebarOpen) {
         dispatch(closeSidebar());
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [isSidebarOpen, dispatch]);
 
   return (
@@ -119,7 +122,9 @@ const SideMenu = () => {
                       onClick={handleLinkClick}
                       className="hover:scale-105 transition-all flex items-center gap-2"
                     >
-                      <Icon className={`${activeColor} text-[1.2rem] active:scale-105 text-neutral-600 dark:text-gray-400`} />
+                      <Icon
+                        className={`${activeColor} text-[1.2rem] active:scale-105 text-neutral-600 dark:text-gray-400`}
+                      />
                     </Link>
                   ))}
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 import { FaRocket, FaGithub, FaArrowRight } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import GlowingCard from "../../molecules/cards/GlowingCard";
 import useDarkMode from "@/app/hooks/useDarkMode";
 
@@ -12,10 +12,14 @@ const fadeInUp = {
 
 export default function FinalCTASection({ project }) {
   const { isDarkMode } = useDarkMode();
-  
+
   // Get accent colors from CSS variables
-  const primaryAccent = isDarkMode ? "var(--darkgrad-primary)" : "var(--grad-primary)";
-  const secondaryAccent = isDarkMode ? "var(--darkgrad-secondary)" : "var(--grad-secondary)";
+  const primaryAccent = isDarkMode
+    ? "var(--darkgrad-primary)"
+    : "var(--grad-primary)";
+  const secondaryAccent = isDarkMode
+    ? "var(--darkgrad-secondary)"
+    : "var(--grad-secondary)";
 
   return (
     <motion.section
@@ -25,7 +29,7 @@ export default function FinalCTASection({ project }) {
       className="max-w-4xl mx-auto px-4 sm:px-6"
     >
       <motion.div variants={fadeInUp}>
-        <GlowingCard 
+        <GlowingCard
           color={primaryAccent}
           className="w-full border border-gray-400/15 dark:border-neutral-400/20 shadow-lg"
           borderRadius="16px"
@@ -36,8 +40,8 @@ export default function FinalCTASection({ project }) {
               Ready to Explore?
             </h2>
             <p className="mb-6 sm:mb-8 max-w-2xl mx-auto text-sm sm:text-base lg:text-lg text-para2 dark:text-darkPara2">
-              Experience the project live or dive into the source code to see the
-              implementation details.
+              Experience the project live or dive into the source code to see
+              the implementation details.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               {project.liveUrl && (
@@ -49,19 +53,21 @@ export default function FinalCTASection({ project }) {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div 
+                  <div
                     className="px-6 py-3 sm:px-8 sm:py-4 rounded-xl flex items-center justify-center gap-2 sm:gap-3 font-semibold text-white shadow-lg"
                     style={{
-                      background: `linear-gradient(135deg, ${primaryAccent}, ${secondaryAccent})`
+                      background: `linear-gradient(135deg, ${primaryAccent}, ${secondaryAccent})`,
                     }}
                   >
                     <FaRocket className="text-sm sm:text-base" />
-                    <span className="text-sm sm:text-base">View Live Project</span>
+                    <span className="text-sm sm:text-base">
+                      View Live Project
+                    </span>
                     <FaArrowRight className="text-sm sm:text-base group-hover:translate-x-1 transition-transform" />
                   </div>
                 </motion.a>
               )}
-              
+
               {project.githubUrl && (
                 <motion.a
                   href={project.githubUrl}
@@ -71,12 +77,12 @@ export default function FinalCTASection({ project }) {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div 
+                  <div
                     className="px-6 py-3 sm:px-8 sm:py-4 rounded-xl flex items-center justify-center gap-2 sm:gap-3 font-semibold shadow-lg backdrop-blur-sm border"
                     style={{
                       background: `linear-gradient(to right, ${primaryAccent}05, ${secondaryAccent}05)`,
                       borderColor: `${primaryAccent}30`,
-                      color: primaryAccent
+                      color: primaryAccent,
                     }}
                   >
                     <FaGithub className="text-sm sm:text-base" />

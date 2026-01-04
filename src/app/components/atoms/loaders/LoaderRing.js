@@ -1,9 +1,9 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function LoaderRing({ type, size, speed, reduceMotion }) {
   const isOuter = type === "outer";
-  
+
   const ringConfig = {
     outer: {
       width: size * 0.45,
@@ -16,7 +16,7 @@ export default function LoaderRing({ type, size, speed, reduceMotion }) {
       )`,
       mask: "radial-gradient(circle, transparent 65%, black 66%, black 88%, transparent 89%)",
       rotation: { rotate: 360 },
-      transition: { duration: 3 / speed, repeat: Infinity, ease: "linear" }
+      transition: { duration: 3 / speed, repeat: Infinity, ease: "linear" },
     },
     inner: {
       width: size * 0.36,
@@ -29,8 +29,8 @@ export default function LoaderRing({ type, size, speed, reduceMotion }) {
       )`,
       mask: "radial-gradient(circle, transparent 72%, black 74%, black 90%, transparent 92%)",
       rotation: { rotate: -360 },
-      transition: { duration: 4 / speed, repeat: Infinity, ease: "linear" }
-    }
+      transition: { duration: 4 / speed, repeat: Infinity, ease: "linear" },
+    },
   };
 
   const config = ringConfig[type];

@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaLightbulb } from "react-icons/fa";
 import Heading from "../../atoms/typography/Heading/Heading";
 import GlowingCard from "../../molecules/cards/GlowingCard";
@@ -21,14 +21,18 @@ const staggerContainer = {
 
 export default function ChallengesSolutionsSection({ project }) {
   const { isDarkMode } = useDarkMode();
-  
+
   if (!project.challenges || project.challenges.length === 0) {
     return null;
   }
 
   // Get accent colors from CSS variables
-  const accentColor = isDarkMode ? "var(--darkgrad-primary)" : "var(--grad-primary)";
-  const secondaryColor = isDarkMode ? "var(--darkgrad-secondary)" : "var(--grad-secondary)";
+  const accentColor = isDarkMode
+    ? "var(--darkgrad-primary)"
+    : "var(--grad-primary)";
+  const secondaryColor = isDarkMode
+    ? "var(--darkgrad-secondary)"
+    : "var(--grad-secondary)";
 
   return (
     <motion.section
@@ -53,7 +57,7 @@ export default function ChallengesSolutionsSection({ project }) {
             variants={fadeInUp}
             className="group relative"
           >
-            <GlowingCard 
+            <GlowingCard
               color={index % 2 === 0 ? accentColor : secondaryColor}
               className="h-full border border-gray-400/15 dark:border-neutral-400/20 shadow"
               borderRadius="12px"
@@ -63,11 +67,11 @@ export default function ChallengesSolutionsSection({ project }) {
                 <div className="flex items-start gap-3 sm:gap-4 lg:gap-6 mb-3 sm:mb-4 lg:mb-6">
                   {challenge.icon && (
                     <div className="p-2 sm:p-3 lg:p-4 rounded-lg flex-shrink-0">
-                      {challenge.icon({ 
+                      {challenge.icon({
                         className: "text-sm sm:text-base lg:text-lg",
-                        style: { 
-                          color: index % 2 === 0 ? accentColor : secondaryColor 
-                        } 
+                        style: {
+                          color: index % 2 === 0 ? accentColor : secondaryColor,
+                        },
                       })}
                     </div>
                   )}
@@ -80,15 +84,15 @@ export default function ChallengesSolutionsSection({ project }) {
                     </p>
                   </div>
                 </div>
-                
+
                 {/* Solution highlight if available */}
                 {challenge.solution && (
                   <div className="mt-3 sm:mt-4 lg:mt-8 pt-3 sm:pt-4 lg:pt-6 border-t border-lightBorder dark:border-darkBorder">
                     <div className="flex items-start gap-2 sm:gap-3 lg:gap-4">
-                      <FaLightbulb 
+                      <FaLightbulb
                         className="text-sm lg:text-base mt-0.5 flex-shrink-0"
-                        style={{ 
-                          color: index % 2 === 0 ? accentColor : secondaryColor 
+                        style={{
+                          color: index % 2 === 0 ? accentColor : secondaryColor,
                         }}
                       />
                       <div className="flex-1">
@@ -110,30 +114,25 @@ export default function ChallengesSolutionsSection({ project }) {
 
       {/* Optional: Summary badge */}
       {project.challenges.length > 0 && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-8 sm:mt-12 lg:mt-16 text-center"
         >
-          <div 
+          <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
             style={{
               background: `linear-gradient(to right, ${accentColor}05, ${secondaryColor}05)`,
-              border: `1px solid ${accentColor}20`
+              border: `1px solid ${accentColor}20`,
             }}
           >
-            <FaLightbulb 
-              className="text-sm"
-              style={{ color: accentColor }}
-            />
+            <FaLightbulb className="text-sm" style={{ color: accentColor }} />
             <span className="text-sm text-para2 dark:text-darkPara2">
-              <span 
-                className="font-medium"
-                style={{ color: accentColor }}
-              >
+              <span className="font-medium" style={{ color: accentColor }}>
                 {project.challenges.length}
-              </span> challenges addressed
+              </span>{" "}
+              challenges addressed
             </span>
           </div>
         </motion.div>

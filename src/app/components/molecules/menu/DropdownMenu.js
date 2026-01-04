@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaAngleDown } from "react-icons/fa6";
 import Link from "next/link";
 import { menu } from "../../../constants/index";
@@ -34,7 +34,6 @@ const DropDownMenu = ({ isScrolled }) => {
           >
             {item.name}
           </Link>
-          
         ))}
       </motion.div>
     </div>

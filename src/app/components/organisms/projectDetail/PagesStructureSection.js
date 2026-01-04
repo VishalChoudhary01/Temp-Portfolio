@@ -1,6 +1,12 @@
 "use client";
-import { motion } from "framer-motion";
-import { FaSitemap, FaLayerGroup, FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
+import { motion } from "motion/react";
+import {
+  FaSitemap,
+  FaLayerGroup,
+  FaSearch,
+  FaUser,
+  FaShoppingCart,
+} from "react-icons/fa";
 import { IoMdDesktop, IoMdPhonePortrait } from "react-icons/io";
 import Heading from "../../atoms/typography/Heading/Heading";
 import GlowingCard from "../../molecules/cards/GlowingCard";
@@ -24,20 +30,25 @@ const pageIcons = {
 
 export default function PagesStructureSection({ project }) {
   const { isDarkMode } = useDarkMode();
-  
+
   if (!project.pages || project.pages.length === 0) {
     return null;
   }
 
-  const primaryAccent = isDarkMode ? "var(--darkgrad-primary)" : "var(--grad-primary)";
-  const secondaryAccent = isDarkMode ? "var(--darkgrad-secondary)" : "var(--grad-secondary)";
+  const primaryAccent = isDarkMode
+    ? "var(--darkgrad-primary)"
+    : "var(--grad-primary)";
+  const secondaryAccent = isDarkMode
+    ? "var(--darkgrad-secondary)"
+    : "var(--grad-secondary)";
 
   const getPageIcon = (pageName) => {
     const name = pageName.toLowerCase();
-    if (name.includes('home')) return pageIcons.home;
-    if (name.includes('search')) return pageIcons.search;
-    if (name.includes('profile') || name.includes('user')) return pageIcons.profile;
-    if (name.includes('cart') || name.includes('shop')) return pageIcons.cart;
+    if (name.includes("home")) return pageIcons.home;
+    if (name.includes("search")) return pageIcons.search;
+    if (name.includes("profile") || name.includes("user"))
+      return pageIcons.profile;
+    if (name.includes("cart") || name.includes("shop")) return pageIcons.cart;
     return pageIcons.default;
   };
 
@@ -67,7 +78,7 @@ export default function PagesStructureSection({ project }) {
               // Set a fixed width for consistent card sizing
               style={{ width: "100%", maxWidth: "350px" }}
             >
-              <GlowingCard 
+              <GlowingCard
                 color={index % 2 === 0 ? primaryAccent : secondaryAccent}
                 className="h-full border border-gray-400/15 dark:border-neutral-400/20 shadow"
                 borderRadius="12px"
@@ -75,10 +86,11 @@ export default function PagesStructureSection({ project }) {
                 <div className="h-full p-4 sm:p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 rounded-lg flex-shrink-0">
-                      <PageIcon 
+                      <PageIcon
                         className="text-lg"
-                        style={{ 
-                          color: index % 2 === 0 ? primaryAccent : secondaryAccent 
+                        style={{
+                          color:
+                            index % 2 === 0 ? primaryAccent : secondaryAccent,
                         }}
                       />
                     </div>
@@ -86,31 +98,36 @@ export default function PagesStructureSection({ project }) {
                       {page.name}
                     </h3>
                   </div>
-                  
+
                   <p className="text-sm text-para2 dark:text-darkPara2 mb-4 leading-relaxed">
                     {page.description}
                   </p>
-                  
+
                   {page.features && page.features.length > 0 && (
                     <div className="space-y-2">
                       <p className="text-xs font-medium text-para2 dark:text-darkPara2">
                         Key Features:
                       </p>
                       <ul className="space-y-1.5">
-                        {page.features.slice(0, 3).map((feature, featureIndex) => (
-                          <li 
-                            key={featureIndex}
-                            className="flex items-start gap-2 text-xs text-para2 dark:text-darkPara2"
-                          >
-                            <div 
-                              className="w-1.5 h-1.5 rounded-full mt-1 flex-shrink-0"
-                              style={{ 
-                                backgroundColor: index % 2 === 0 ? primaryAccent : secondaryAccent 
-                              }}
-                            />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
+                        {page.features
+                          .slice(0, 3)
+                          .map((feature, featureIndex) => (
+                            <li
+                              key={featureIndex}
+                              className="flex items-start gap-2 text-xs text-para2 dark:text-darkPara2"
+                            >
+                              <div
+                                className="w-1.5 h-1.5 rounded-full mt-1 flex-shrink-0"
+                                style={{
+                                  backgroundColor:
+                                    index % 2 === 0
+                                      ? primaryAccent
+                                      : secondaryAccent,
+                                }}
+                              />
+                              <span>{feature}</span>
+                            </li>
+                          ))}
                         {page.features.length > 3 && (
                           <li className="text-xs text-para2 dark:text-darkPara2 pl-3.5">
                             +{page.features.length - 3} more features
@@ -127,34 +144,33 @@ export default function PagesStructureSection({ project }) {
       </div>
 
       {/* Mobile/Desktop view summary */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8"
       >
         <div className="flex items-center gap-2">
-          <IoMdDesktop 
-            className="text-lg"
-            style={{ color: primaryAccent }}
-          />
+          <IoMdDesktop className="text-lg" style={{ color: primaryAccent }} />
           <span className="text-sm text-para2 dark:text-darkPara2">
             <span className="font-medium" style={{ color: primaryAccent }}>
               {project.pages.length}
-            </span> pages
+            </span>{" "}
+            pages
           </span>
         </div>
-        
+
         {project.stats?.responsiveBreakpoints && (
           <div className="flex items-center gap-2">
-            <IoMdPhonePortrait 
+            <IoMdPhonePortrait
               className="text-lg"
               style={{ color: secondaryAccent }}
             />
             <span className="text-sm text-para2 dark:text-darkPara2">
               <span className="font-medium" style={{ color: secondaryAccent }}>
                 {project.stats.responsiveBreakpoints}
-              </span> breakpoints
+              </span>{" "}
+              breakpoints
             </span>
           </div>
         )}

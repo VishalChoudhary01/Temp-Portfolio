@@ -1,46 +1,49 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
-export default function ProjectHeader({ 
-  title, 
+export default function ProjectHeader({
+  title,
   subtitle,
-  titleCase = "uppercase" 
+  titleCase = "uppercase",
+  level = 1,
 }) {
   const caseClasses = {
     uppercase: "uppercase",
     capitalize: "capitalize",
-    "normal-case": "normal-case"
+    "normal-case": "normal-case",
   };
 
   const titleClass = caseClasses[titleCase] || "uppercase";
+  const HeadingTag = `h${level}`;
 
   return (
     <div className={`text-center font-lora`}>
       <div className="relative inline-block">
-
         {/* TEXT OUTLINE (always visible) */}
-        <h1
-          className={`absolute inset-0 lg:text-deskProjectHead [word-spacing:1rem] md:text-tabProjectHead text-mobProjectHead font-bold text-transparent [-webkit-text-stroke:1px_rgba(120,120,120,0.5)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.35)] pointer-events-none ${titleClass}`}>
+        <HeadingTag
+          className={`absolute inset-0 lg:text-deskProjectHead [word-spacing:1rem] md:text-tabProjectHead text-mobProjectHead font-bold text-transparent [-webkit-text-stroke:1px_rgba(120,120,120,0.5)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.35)] pointer-events-none ${titleClass}`}
+        >
           {title}
-        </h1>
+        </HeadingTag>
 
         {/* Base light text */}
-        <h1
-          className={`lg:text-deskProjectHead md:text-tabProjectHead [word-spacing:1rem] text-mobProjectHead font-bold bg-linear-to-t from-neutral-300 via-neutral-200 to-neutral-100 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-950 bg-clip-text text-transparent ${titleClass}`}>
+        <HeadingTag
+          className={`lg:text-deskProjectHead md:text-tabProjectHead [word-spacing:1rem] text-mobProjectHead font-bold bg-linear-to-t from-neutral-300 via-neutral-200 to-neutral-100 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-950 bg-clip-text text-transparent ${titleClass}`}
+        >
           {title}
-        </h1>
+        </HeadingTag>
 
         {/* Dark filling overlay */}
         <motion.div
           initial={{ clipPath: "inset(100% 0 0 0)" }}
           whileInView={{ clipPath: "inset(0% 0 0 0)" }}
-          viewport={{ once: true }} 
-          transition={{ duration: 2.5, delay: 0.8, ease: "easeOut" }}  
+          viewport={{ once: true }}
+          transition={{ duration: 2.5, delay: 0.8, ease: "easeOut" }}
           className={`absolute inset-0 bg-linear-to-t from-neutral-900 via-neutral-800 to-neutral-700 dark:from-white dark:via-white dark:to-white bg-clip-text text-transparent pointer-events-none ${titleClass}`}
         >
-          <h1 className="lg:text-deskProjectHead md:text-tabProjectHead [word-spacing:1rem] text-mobProjectHead font-bold">
+          <HeadingTag className="lg:text-deskProjectHead md:text-tabProjectHead [word-spacing:1rem] text-mobProjectHead font-bold">
             {title}
-          </h1>
+          </HeadingTag>
         </motion.div>
       </div>
 

@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import TechStackCard from "./TechStackCard";
 
 export default function TechStackCategory({

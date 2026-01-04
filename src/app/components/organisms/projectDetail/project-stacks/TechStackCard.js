@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { techIcons } from "@/app/lib/utils/techIcons";
 import { IoCodeSlash } from "react-icons/io5";
 import GlowingCard from "@/app/components/molecules/cards/GlowingCard";

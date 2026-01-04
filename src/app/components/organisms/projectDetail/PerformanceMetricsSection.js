@@ -1,21 +1,21 @@
 "use client";
-import { motion } from "framer-motion";
-import { 
-  FaChartLine, 
-  FaTachometerAlt, 
-  FaCheckCircle, 
+import { motion } from "motion/react";
+import {
+  FaChartLine,
+  FaTachometerAlt,
+  FaCheckCircle,
   FaClock,
   FaBolt,
   FaMobile,
   FaLayerGroup,
-  FaCog
+  FaCog,
 } from "react-icons/fa";
 import { SiLighthouse, SiSpeedtest } from "react-icons/si";
 import Heading from "../../atoms/typography/Heading/Heading";
 import GlowingCard from "../../molecules/cards/GlowingCard";
 import useDarkMode from "@/app/hooks/useDarkMode";
 import ProgressBar from "../../organisms/projectDetail/ProgressBar";
-import { DigitSlideCounter } from "@/app/components/atoms/animation/index"; 
+import { DigitSlideCounter } from "@/app/components/atoms/animation/index";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -25,13 +25,17 @@ const fadeInUp = {
 
 export default function PerformanceMetricsSection({ project }) {
   const { isDarkMode } = useDarkMode();
-  
+
   if (!project.stats) {
     return null;
   }
 
-  const primaryAccent = isDarkMode ? "var(--darkgrad-primary)" : "var(--grad-primary)";
-  const secondaryAccent = isDarkMode ? "var(--darkgrad-secondary)" : "var(--grad-secondary)";
+  const primaryAccent = isDarkMode
+    ? "var(--darkgrad-primary)"
+    : "var(--grad-primary)";
+  const secondaryAccent = isDarkMode
+    ? "var(--darkgrad-secondary)"
+    : "var(--grad-secondary)";
 
   // Check if we have lighthouse scores
   const hasLighthouseScores = project.stats.lighthousePerformance !== undefined;
@@ -39,36 +43,52 @@ export default function PerformanceMetricsSection({ project }) {
   // Function to get icon for stats
   const getStatIcon = (key) => {
     const iconClass = "text-base";
-    
-    switch(key.toLowerCase()) {
-      case 'developmenttime':
-        return <FaClock className={iconClass} style={{ color: secondaryAccent }} />;
-      case 'pages':
-        return <FaLayerGroup className={iconClass} style={{ color: secondaryAccent }} />;
-      case 'components':
-        return <FaCog className={iconClass} style={{ color: secondaryAccent }} />;
-      case 'responsivebreakpoints':
-        return <FaMobile className={iconClass} style={{ color: secondaryAccent }} />;
+
+    switch (key.toLowerCase()) {
+      case "developmenttime":
+        return (
+          <FaClock className={iconClass} style={{ color: secondaryAccent }} />
+        );
+      case "pages":
+        return (
+          <FaLayerGroup
+            className={iconClass}
+            style={{ color: secondaryAccent }}
+          />
+        );
+      case "components":
+        return (
+          <FaCog className={iconClass} style={{ color: secondaryAccent }} />
+        );
+      case "responsivebreakpoints":
+        return (
+          <FaMobile className={iconClass} style={{ color: secondaryAccent }} />
+        );
       default:
-        return <FaChartLine className={iconClass} style={{ color: secondaryAccent }} />;
+        return (
+          <FaChartLine
+            className={iconClass}
+            style={{ color: secondaryAccent }}
+          />
+        );
     }
   };
 
   // Format key for display
   const formatKey = (key) => {
     return key
-      .replace(/([A-Z])/g, ' $1')
-      .replace(/lighthouse/gi, '')
+      .replace(/([A-Z])/g, " $1")
+      .replace(/lighthouse/gi, "")
       .trim()
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
   };
 
   // Function to check if value is numeric
   const isNumeric = (value) => {
-    if (typeof value === 'number') return true;
-    if (typeof value === 'string') {
+    if (typeof value === "number") return true;
+    if (typeof value === "string") {
       const num = parseFloat(value);
       return !isNaN(num) && isFinite(num);
     }
@@ -77,8 +97,8 @@ export default function PerformanceMetricsSection({ project }) {
 
   // Function to extract numeric value
   const extractNumericValue = (value) => {
-    if (typeof value === 'number') return value;
-    if (typeof value === 'string') {
+    if (typeof value === "number") return value;
+    if (typeof value === "string") {
       // Extract numbers from string (e.g., "95%" -> 95, "1.5s" -> 1.5)
       const match = value.match(/(\d+(\.\d+)?)/);
       return match ? parseFloat(match[1]) : 0;
@@ -103,7 +123,7 @@ export default function PerformanceMetricsSection({ project }) {
         {/* Lighthouse Scores Card */}
         {hasLighthouseScores && (
           <motion.div variants={fadeInUp}>
-            <GlowingCard 
+            <GlowingCard
               color={primaryAccent}
               className="h-full border border-gray-400/15 dark:border-neutral-400/20 shadow-lg"
               borderRadius="16px"
@@ -111,11 +131,14 @@ export default function PerformanceMetricsSection({ project }) {
               <div className="h-full p-5 sm:p-7">
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 rounded-xl" style={{ 
-                    background: `linear-gradient(135deg, ${primaryAccent}15, ${primaryAccent}05)`,
-                    border: `1px solid ${primaryAccent}20`
-                  }}>
-                    <SiLighthouse 
+                  <div
+                    className="p-3 rounded-xl"
+                    style={{
+                      background: `linear-gradient(135deg, ${primaryAccent}15, ${primaryAccent}05)`,
+                      border: `1px solid ${primaryAccent}20`,
+                    }}
+                  >
+                    <SiLighthouse
                       className="text-xl sm:text-2xl"
                       style={{ color: primaryAccent }}
                     />
@@ -129,32 +152,32 @@ export default function PerformanceMetricsSection({ project }) {
                     </p>
                   </div>
                 </div>
-                
+
                 {/* Progress Bars Grid */}
                 <div className="space-y-4 sm:space-y-5">
                   {project.stats.lighthousePerformance !== undefined && (
-                    <ProgressBar 
+                    <ProgressBar
                       score={project.stats.lighthousePerformance}
                       label="Performance"
                     />
                   )}
-                  
+
                   {project.stats.lighthouseAccessibility !== undefined && (
-                    <ProgressBar 
+                    <ProgressBar
                       score={project.stats.lighthouseAccessibility}
                       label="Accessibility"
                     />
                   )}
-                  
+
                   {project.stats.lighthouseBestPractices !== undefined && (
-                    <ProgressBar 
+                    <ProgressBar
                       score={project.stats.lighthouseBestPractices}
                       label="Best Practices"
                     />
                   )}
-                  
+
                   {project.stats.lighthouseSEO !== undefined && (
-                    <ProgressBar 
+                    <ProgressBar
                       score={project.stats.lighthouseSEO}
                       label="SEO"
                     />
@@ -164,17 +187,22 @@ export default function PerformanceMetricsSection({ project }) {
                 {/* Additional Metrics */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-8">
                   {project.stats.loadTime && (
-                    <div className="p-3 sm:p-4 rounded-xl" style={{ 
-                      background: `linear-gradient(to right, ${primaryAccent}08, ${primaryAccent}03)`,
-                      border: `1px solid ${primaryAccent}20`
-                    }}>
+                    <div
+                      className="p-3 sm:p-4 rounded-xl"
+                      style={{
+                        background: `linear-gradient(to right, ${primaryAccent}08, ${primaryAccent}03)`,
+                        border: `1px solid ${primaryAccent}20`,
+                      }}
+                    >
                       <div className="flex items-center gap-3">
-                        <FaBolt 
+                        <FaBolt
                           className="text-sm"
                           style={{ color: primaryAccent }}
                         />
                         <div>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">Load Time</p>
+                          <p className="text-xs text-gray-600 dark:text-gray-400">
+                            Load Time
+                          </p>
                           <p className="text-sm font-semibold text-gray-900 dark:text-white">
                             {project.stats.loadTime}
                           </p>
@@ -182,19 +210,24 @@ export default function PerformanceMetricsSection({ project }) {
                       </div>
                     </div>
                   )}
-                  
+
                   {project.stats.coreWebVitals && (
-                    <div className="p-3 sm:p-4 rounded-xl" style={{ 
-                      background: `linear-gradient(to right, ${primaryAccent}08, ${primaryAccent}03)`,
-                      border: `1px solid ${primaryAccent}20`
-                    }}>
+                    <div
+                      className="p-3 sm:p-4 rounded-xl"
+                      style={{
+                        background: `linear-gradient(to right, ${primaryAccent}08, ${primaryAccent}03)`,
+                        border: `1px solid ${primaryAccent}20`,
+                      }}
+                    >
                       <div className="flex items-center gap-3">
-                        <SiSpeedtest 
+                        <SiSpeedtest
                           className="text-sm"
                           style={{ color: primaryAccent }}
                         />
                         <div>
-                          <p className="text-xs text-gray-600 dark:text-gray-400">Core Web Vitals</p>
+                          <p className="text-xs text-gray-600 dark:text-gray-400">
+                            Core Web Vitals
+                          </p>
                           <p className="text-sm font-semibold text-gray-900 dark:text-white">
                             {project.stats.coreWebVitals}
                           </p>
@@ -210,7 +243,7 @@ export default function PerformanceMetricsSection({ project }) {
 
         {/* Development Stats Card */}
         <motion.div variants={fadeInUp}>
-          <GlowingCard 
+          <GlowingCard
             color={secondaryAccent}
             className="h-full border border-gray-400/15 dark:border-neutral-400/20 shadow-lg"
             borderRadius="16px"
@@ -218,11 +251,14 @@ export default function PerformanceMetricsSection({ project }) {
             <div className="h-full p-5 sm:p-7">
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl" style={{ 
-                  background: `linear-gradient(135deg, ${secondaryAccent}15, ${secondaryAccent}05)`,
-                  border: `1px solid ${secondaryAccent}20`
-                }}>
-                  <FaTachometerAlt 
+                <div
+                  className="p-3 rounded-xl"
+                  style={{
+                    background: `linear-gradient(135deg, ${secondaryAccent}15, ${secondaryAccent}05)`,
+                    border: `1px solid ${secondaryAccent}20`,
+                  }}
+                >
+                  <FaTachometerAlt
                     className="text-xl sm:text-2xl"
                     style={{ color: secondaryAccent }}
                   />
@@ -240,18 +276,25 @@ export default function PerformanceMetricsSection({ project }) {
               {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 {Object.entries(project.stats)
-                  .filter(([key]) => !key.includes('lighthouse') && key !== 'loadTime' && key !== 'coreWebVitals')
+                  .filter(
+                    ([key]) =>
+                      !key.includes("lighthouse") &&
+                      key !== "loadTime" &&
+                      key !== "coreWebVitals"
+                  )
                   .map(([key, value]) => {
                     const isValueNumeric = isNumeric(value);
-                    const numericValue = isValueNumeric ? extractNumericValue(value) : 0;
-                    
+                    const numericValue = isValueNumeric
+                      ? extractNumericValue(value)
+                      : 0;
+
                     return (
-                      <div 
+                      <div
                         key={key}
                         className="p-3 sm:p-4 rounded-xl group hover:scale-[1.02] transition-transform"
-                        style={{ 
+                        style={{
                           background: `linear-gradient(to bottom right, ${secondaryAccent}08, ${secondaryAccent}02)`,
-                          border: `1px solid ${secondaryAccent}15`
+                          border: `1px solid ${secondaryAccent}15`,
                         }}
                       >
                         <div className="flex items-center gap-2 mb-2">
@@ -262,13 +305,13 @@ export default function PerformanceMetricsSection({ project }) {
                         </div>
                         <div className="flex items-center">
                           {isValueNumeric ? (
-                            <DigitSlideCounter 
+                            <DigitSlideCounter
                               value={numericValue}
                               duration={2000}
                               className="text-2xl sm:text-3xl font-bold truncate"
                             />
                           ) : (
-                            <p 
+                            <p
                               className="text-xl sm:text-2xl font-bold truncate"
                               style={{ color: secondaryAccent }}
                             >
@@ -276,8 +319,13 @@ export default function PerformanceMetricsSection({ project }) {
                             </p>
                           )}
                           {/* Add unit if it exists (like %, s, etc.) */}
-                          {typeof value === 'string' && value.includes('%') && (
-                            <span className="text-base ml-1" style={{ color: secondaryAccent }}>%</span>
+                          {typeof value === "string" && value.includes("%") && (
+                            <span
+                              className="text-base ml-1"
+                              style={{ color: secondaryAccent }}
+                            >
+                              %
+                            </span>
                           )}
                         </div>
                       </div>
@@ -287,14 +335,14 @@ export default function PerformanceMetricsSection({ project }) {
 
               {/* Development Info (removed status from here) */}
               {project.developmentInfo && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                   className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-gray-200 dark:border-gray-800"
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <FaCog 
+                    <FaCog
                       className="text-base"
                       style={{ color: secondaryAccent }}
                     />
@@ -305,7 +353,9 @@ export default function PerformanceMetricsSection({ project }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {project.developmentInfo.type && (
                       <div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Type</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                          Type
+                        </p>
                         <p className="text-sm font-medium text-gray-900 dark:text-white">
                           {project.developmentInfo.type}
                         </p>
@@ -313,7 +363,9 @@ export default function PerformanceMetricsSection({ project }) {
                     )}
                     {project.developmentInfo.focus && (
                       <div>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">Focus</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                          Focus
+                        </p>
                         <p className="text-sm font-medium text-gray-900 dark:text-white">
                           {project.developmentInfo.focus}
                         </p>

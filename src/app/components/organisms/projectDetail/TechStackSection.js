@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaToolbox } from "react-icons/fa";
 import { IoCodeSlash } from "react-icons/io5";
 import Heading from "@/app/components/atoms/typography/Heading/Heading";

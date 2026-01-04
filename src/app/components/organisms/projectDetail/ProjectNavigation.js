@@ -1,8 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { FaChevronLeft, FaShare } from "react-icons/fa";
 
-const ProjectFloatingNav = ({ router,  handleShare }) => {
+const ProjectFloatingNav = ({ router, handleShare }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: -16 }}
@@ -20,7 +20,7 @@ const ProjectFloatingNav = ({ router,  handleShare }) => {
           whileTap={{ scale: 0.95 }}
           className={`flex items-center cursor-pointer md:gap-x-2 gap-x-1 uppercase md:px-2 md:py-1.5 px-2 py-1 text-gray-700 hover:bg-white/80 dark:text-gray-300 dark:hover:bg-gray-800/60 rounded-full md:text-xs  text-[0.75rem]  font-medium transition `}
         >
-          <FaChevronLeft  />
+          <FaChevronLeft />
           Back
         </motion.button>
 

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import GlowingCard from "@/app/components/molecules/cards/GlowingCard";
 
 const TickerItem = ({ tech, index, techStackLength, isMounted }) => {
@@ -30,6 +30,5 @@ const TickerItem = ({ tech, index, techStackLength, isMounted }) => {
     </motion.div>
   );
 };
-
 
 export default TickerItem;

@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import GlowingCard from "@/app/components/molecules/cards/GlowingCard";
 import TechSkillItem from "./TechSkillItem";
-import {HeadingTwo} from '@/app/components/atoms/typography/index'
+import { HeadingTwo } from "@/app/components/atoms/typography/index";
 
 const TechCategoryCard = ({
   category,
@@ -20,7 +20,7 @@ const TechCategoryCard = ({
         categoryIndex: index,
         gradientColor: category.gradientColor,
         darkGradientColor: category.darkGradientColor,
-        colorIndex: category.colorIndex
+        colorIndex: category.colorIndex,
       });
     }
   };
@@ -47,7 +47,7 @@ const TechCategoryCard = ({
     >
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }} 
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
         className="group relative h-full md:w-[350px] w-[280px]   flex flex-col"
@@ -56,10 +56,12 @@ const TechCategoryCard = ({
           {/* Icon Container */}
           <motion.div
             className="p-2 md:p-4 rounded-lg md:rounded-xl bg-icon-bg dark:bg-icon-darkBg w-12 h-12 md:w-14 md:h-14 flex items-center justify-center group-hover:bg-opacity-20 transition-all duration-300"
-            whileHover={!isMobile ? { rotate: [0, -3, 3, -3, 0], scale: 1.05 } : {}}
+            whileHover={
+              !isMobile ? { rotate: [0, -3, 3, -3, 0], scale: 1.05 } : {}
+            }
             transition={{ duration: 0.4 }}
             style={{
-              backgroundColor: isDarkMode 
+              backgroundColor: isDarkMode
                 ? `${category.darkGradientColor}15`
                 : `${category.gradientColor}10`,
             }}
@@ -76,9 +78,7 @@ const TechCategoryCard = ({
           </motion.div>
 
           {/* Title */}
-          <HeadingTwo 
-            className=" mb-6 md:text-lg lg:text-[1.2rem] text-[1.15rem]   select-none font-roboto  font-bold text-h2 dark:text-Head2dark leading-tight transition-colors duration-300 tracking-wider"
-          >
+          <HeadingTwo className=" mb-6 md:text-lg lg:text-[1.2rem] text-[1.15rem]   select-none font-roboto  font-bold text-h2 dark:text-Head2dark leading-tight transition-colors duration-300 tracking-wider">
             {category.title}
           </HeadingTwo>
 
