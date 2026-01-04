@@ -1,10 +1,12 @@
 import { motion } from "motion/react";
 import GhostButton from "../../../atoms/button/GhostButton";
-import { HeadingTwo, Paragraph } from "@/app/components/atoms/typography/index";
-import { SiGithub } from "react-icons/si";
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { HiOutlineExternalLink } from "react-icons/hi"; 
-import { HiExternalLink } from "react-icons/hi";
+import {  Paragraph } from "@/app/components/atoms/typography/index";
+import { FaArrowRight } from "react-icons/fa6";
+import { RxGithubLogo } from "react-icons/rx";
+import { LuExternalLink } from "react-icons/lu";
+
+
+
 
 const DesktopContent = ({ item,seeMore }) => (
   <div className="hidden md:block absolute top-[52%] left-[100px] -translate-y-1/2 z-10 transition-all duration-500">
@@ -15,38 +17,30 @@ const DesktopContent = ({ item,seeMore }) => (
       initial={{ opacity: 0, y: 150,filter:"blur(50px)" }}
       animate={{ opacity: 1, y: 0,filter:"blur(0px)" }}
       transition={{ duration: 0.8,delay:0.1 }}
-      className="w-[340px] relative"
+      className="w-fit relative"
     >
   
-      <motion.h2 className="text-[2.5rem] dark:text-white text-h1 font-poppins uppercase font-bold tracking-wider text-shadow-lg text-shadow-gray-400" initial={{opacity:0, y:20, filter: "blur(45px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}}  transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}>{item.name}</motion.h2>
+      <motion.h2 className="text-[2.5rem] dark:text-white text-h1 font-lora  uppercase font-bold tracking-wider text-shadow-lg text-shadow-gray-400" initial={{opacity:0, y:20, filter: "blur(45px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}}  transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}>{item.name}</motion.h2>
 
-      <Paragraph className="leading-6 my-3 text-[15px] font-poppins text-shadow-md dark:text-slate-50 text-h3  text-shadow-gray-500">
+      <Paragraph className="leading-6 my-3 text-[15px] max-w-[380px] font-poppins text-left text-shadow-md dark:text-slate-50 text-h3  text-shadow-gray-500">
         {item.description}
       </Paragraph>
 
-
-      <div className="flex gap-x-3 flex-wrap">
-        <GhostButton
-          buttonStyle="bg-slate-900/90  dark:bg-white/90  dark:text-h1 text-white transition-all duration-500 text-[0.8rem] hover:bg-white px-3.5 py-1.5 rounded-md font-poppins tracking-wider shadow hover:shadow-md font-medium transition-all cursor-pointer"
-          buttonText="SEE MORE"
+      <div className="w-full  flex justify-between font-medium text-[0.92rem] mt-8 font-roboto ">
+        <GhostButton 
           onClick={() => seeMore(item.id)}
-        />
-
+         buttonText={"Project Details"} buttonStyle={"group cursor-pointer bg-gray-900 dark:bg-black  text-white rounded-md md:px-3 md:py-2.5 "} rightIcon={<FaArrowRight/>} rightStyle={"flex transition-all items-center group-hover:translate-x-1 duration-300"}/>
         <GhostButton
-          buttonText="REPO"
-          buttonStyle="bg-slate-900/90  dark:bg-white/90  dark:text-h1 text-white transition-all duration-500 hover:bg-white px-3.5 py-1.5 uppercase rounded-md font-poppins font-medium transition-all cursor-pointer"
-          leftIcon={<SiGithub />}
-        />
-
+          onClick={() => window.open(item.githubUrl, "_blank")}
+         buttonText={"View Repo"} buttonStyle={" transition-color active:scale-105 cursor-pointer bg-gray-900 dark:bg-black  text-white rounded-md md:px-3 md:py-2.5 "} leftIcon={<RxGithubLogo/>} rightStyle={"flex items-center"}/>
         <GhostButton
-          buttonText="LIVE"
-          buttonStyle="bg-slate-900/90  dark:bg-white/90  dark:text-h1 text-white transition-all duration-500 text-[0.8rem] dark:hover:bg-white hover:bg-slate-950    duration-200 px-3.5 py-1.5 rounded-md font-poppins uppercase font-medium shadow hover:shadow-md hover:scale-[1.02] transition-all cursor-pointer"
-          leftIcon={<HiOutlineExternalLink />}
-          onClick={() => window.open(item.liveLink, "_blank")}
-        />
+          onClick={() => window.open(item.liveUrl, "_blank")}
+         buttonText={"Live Demo"} buttonStyle={" active:scale-105 cursor-pointer bg-gray-900 dark:bg-black  text-white rounded-md md:px-3 md:py-2.5 "} rightIcon={<LuExternalLink/>} rightStyle={"flex items-center"}/>
       </div>
     </motion.div>
   </div>
 );
 
 export default DesktopContent;
+
+

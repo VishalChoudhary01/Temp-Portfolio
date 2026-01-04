@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const GhostButton = ({
   buttonStyle,
@@ -15,7 +15,7 @@ const GhostButton = ({
     <motion.button
       initial={{ opacity: 0, y: 35, filter: "blur(120px)" ,scale:1.05}}
       animate={{ opacity: 1, y: 0, filter: "blur(0px)",scale:1 }}
-      transition={{ duration: 1.5, delay: 0.5 }}
+      transition={{ duration: 1.5 }} 
 
       onClick={onClick}
       className={` ${buttonStyle}`}
