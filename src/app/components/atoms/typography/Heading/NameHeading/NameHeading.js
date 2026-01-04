@@ -19,7 +19,12 @@ export default function NameHeading({
 
   return (
     <div className={`text-center font-lora`}>
-      <div className="relative inline-block">
+      <div className="relative inline-block"
+      style={{
+        contain: "layout paint",
+        transform: "translateZ(0)"
+        }}
+      >
 
         {/* TEXT OUTLINE (always visible) */}
         <h1

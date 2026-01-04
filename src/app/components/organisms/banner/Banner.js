@@ -32,7 +32,7 @@ const Banner = () => {
   const nameBlur = useTransform(
   scrollYProgress,
   [0.4, 0.6],
-  ["0px", "20px"]
+  ["0px", "40px"]
 );
 
 
